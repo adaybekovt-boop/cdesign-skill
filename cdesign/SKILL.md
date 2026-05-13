@@ -150,6 +150,7 @@ Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For
 - `references/recipes/liquid-glass.md` — Apple-style glass with auto-degradation
 - `references/recipes/easing.md` — exact cubic-bezier values
 - `references/recipes/animated-glass-gradient.md` — animated CSS gradient behind frosted glass, scroll-driven color transitions
+- `references/recipes/shader-gradient.md` — GLSL simplex noise gradient behind frosted glass, scroll-driven organic color flow (Aurora Borealis / Apple Vision Pro aesthetic)
 - `references/recipes/mp4-frames.md` — MP4 to frame sequence converter for CanvasScrub
 
 **Never write complex motion from memory.** Always Read the recipe first.
@@ -214,7 +215,7 @@ Final message:
 - No continuous blur/filter animation
 - No scroll animation on large text blocks on mobile
 - Mobile must preserve visual identity — reduce intensity, NOT remove design
-- Glass gradient default: when user mentions "матовое стекло", "glass", "frosted", "переливание цветов" — use <GlassGradientBg> wrapper. Read references/recipes/animated-glass-gradient.md first.
+- Glass gradient: CSS version (<GlassGradientBg>) for standard glass effect. Shader version (<ShaderGradientBg>) when user mentions "живой градиент", "aurora", "organic", "как северное сияние", "Apple Vision Pro". Read the relevant recipe before implementing.
 
 **Always:**
 - Use `tv()` from `tailwind-variants` for any component with size/color/state variants
