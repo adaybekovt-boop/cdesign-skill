@@ -129,6 +129,13 @@ effects:
     - "Animated rainbow gradient mesh (distracting)"
     - "Spinner for loading states (use slate shimmer skeleton)"
     - "Cursor follower that's larger than 20px"
+  glass_misuse:
+    forbidden:
+      - "backdrop-filter on more than one full-page wrapper"
+      - "continuous backdrop-filter animation (animating blur value)"
+      - "stacking multiple glass layers"
+      - "glass over dense body text blocks"
+      - "gradient-bg without blur overlay (naked gradient = cheap)"
 ```
 
 ## Banned code patterns (architectural)
