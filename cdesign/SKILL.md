@@ -152,6 +152,9 @@ Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For
 - `references/recipes/animated-glass-gradient.md` — animated CSS gradient behind frosted glass, scroll-driven color transitions
 - `references/recipes/shader-gradient.md` — GLSL simplex noise gradient behind frosted glass, scroll-driven organic color flow (Aurora Borealis / Apple Vision Pro aesthetic)
 - `references/recipes/mp4-frames.md` — MP4 to frame sequence converter for CanvasScrub
+- `references/recipes/velocity-skew.md` — scroll velocity → skew/momentum effects (Stripe pattern)
+- `references/recipes/css-scroll-driven.md` — native CSS animation-timeline API (zero JS)
+- `references/recipes/shell-layout.md` — shell-first grid with named areas and empty rails
 
 **Never write complex motion from memory.** Always Read the recipe first.
 
@@ -206,6 +209,9 @@ Final message:
 - **Never** animate layout-triggering properties (width, height, top, left, margin, box-shadow, filter) in runtime animations — only transform + opacity + clip-path
 - **Never** put parent-level hover/active state on card grids — use IsolatedAnimatedCard pattern
 - **Never** write 200-char className strings — extract into `tv()` variants or CSS utility classes
+- **Edit Mode**: when user asks for changes to existing project, always use delta approach. Never rewrite. Read DESIGN_INTENT.md first.
+- **PerformanceMonitor**: always wrap R3F Canvas with drei PerformanceMonitor for auto FPS-based degradation
+- **BatchedMesh**: use for any scene with 10+ repeated 3D objects to reduce draw calls
 
 **Mobile-first animation budget (enforce on every page):**
 - Max 1 pinned ScrollTrigger section active at once
