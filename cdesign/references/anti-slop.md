@@ -117,6 +117,13 @@ layout:
     - '"Trusted by" logo row with 6 grayscale logos centered'
     - "Floating phone mockup next to centered headline"
     - "Three identical pricing cards with 'Most Popular' middle one"
+  shell_violations:
+    - "max-w-7xl mx-auto as the only grid structure"
+    - "uniform py-24 on all sections (vary rhythm: quiet/medium/dense)"
+    - "two sections with same density class back-to-back"
+    - "headline wider than 18ch in hero"
+    - "no intentional empty rails in hero section"
+    - "symmetric 50/50 split for every section"
 
 shadows:
   - desc: "Single-layer flat shadow"
@@ -190,4 +197,9 @@ styling_violations:
     use_instead: "Tailwind utilities from --color-* tokens"
   - desc: "Magic numbers in spacing"
     use_instead: "Tokens (--space-* / Tailwind spacing scale)"
+
+performance_violations:
+  - "R3F Canvas without PerformanceMonitor (use drei PerformanceMonitor for auto FPS degradation)"
+  - "10+ repeated 3D objects without InstancedMesh or BatchedMesh"
+  - "GSAP velocity effects without quickSetter (use quickSetter not gsap.to in loops)"
 ```
