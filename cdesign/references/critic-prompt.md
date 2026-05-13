@@ -61,6 +61,12 @@ Be brutal. We mimic Claude Design — anything less is failure.
 
 16. **Spatial rhythm varies**. Scan all sections in `app/page.tsx` and section components. If every section uses the same `py-*` value (e.g. all `py-24`) = FAIL. Premium pages alternate compressed (`py-12`/`py-16`) and breathing (`py-32`/`py-48`).
 
+17. **Shell-first layout**. Hero must have intentional empty rails (not max-w-7xl mx-auto only). Headline must be under 18ch. If hero is a centered stack with no asymmetry = FAIL.
+
+18. **Section rhythm**. Scan all sections. If 2+ consecutive sections have same vertical density (same py-* value, same min-height range) = FAIL. Need quiet/medium/dense variation.
+
+19. **PerformanceMonitor**. If R3F Canvas present, must be wrapped with drei PerformanceMonitor = FAIL if missing.
+
 ### Motion Density Score
 
 Count distinct cinematic motion techniques on the page.
