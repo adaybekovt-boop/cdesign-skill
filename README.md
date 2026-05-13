@@ -1,0 +1,114 @@
+# cdesign
+
+> Cinematic landing page generator for Claude Code. One command, premium output.
+
+cdesign is a Claude Code skill that generates production-grade landing pages tier with Linear / Vercel / Stripe / Awwwards SOTD. It scaffolds a fully-configured Next.js 15 project from [`cdesign-starter`](https://github.com/adaybekovt-boop/cdesign-starter), then composes pre-built motion components into a cohesive cinematic page.
+
+## Install
+
+One command:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/adaybekovt-boop/cdesign-skill/main/install.sh | bash
+```
+
+That's it. Restart Claude Code (`exit` then `claude`).
+
+## Usage
+
+```bash
+/cdesign "a cinematic landing for my AI habit tracker"
+
+/cdesign "lemonade brand, vibe Apple minimalism" ./bottle.png
+
+/cdesign "fintech dashboard" https://linear.app --research
+
+/cdesign "кинематографичный лендинг для GMG лимонада, как видео"
+```
+
+The skill will:
+1. Parse your brief and reference (image / URL / both / neither)
+2. Pick ONE vibe from Director's Roll (Hardcore 3D / Soft Editorial / Brutalist Dev / SVG Logo / Wabi-Sabi)
+3. Scaffold the project from the GitHub starter (one `npx` command)
+4. Build in 3 passes: structure → tokens → motion
+5. Run a strict critic subagent (up to 3 iterations)
+6. Hand off with a verdict
+
+## What this prevents
+
+- ❌ AI-slop fonts (Geist, Inter, Roboto, Space Grotesk, Instrument Serif)
+- ❌ Editorial mono labels (`/ 01 —`, `/ CITY, KZ`, `EST. 2022`)
+- ❌ Fabricated stats sections (`1240 / HAPPY CLIENTS`)
+- ❌ Fictional author signatures (`— SomeName · City`)
+- ❌ Banned AI words EN+RU (Unlock, Elevate, Премиальный, Откройте для себя, etc.)
+- ❌ Purple→pink gradients on CTAs
+- ❌ Centered hero, symmetric 3-column Lucide grids
+- ❌ Identical look across projects (Director's Roll picks a vibe per build)
+- ❌ Uniform `py-24` everywhere (spatial rhythm is enforced)
+- ❌ Width/height/box-shadow animations (compositor-only contract)
+
+## What this generates
+
+- Cinematic landing with 7+ motion techniques
+- Lenis smooth scroll bound to GSAP ticker
+- Token-driven design system
+- Asymmetric, vibe-consistent layouts
+- ScrollFilm master timeline for "feels like a video" intent
+- Liquid Glass UI with auto-degradation on weak devices
+- Production-ready TypeScript (`npm run dev` works immediately)
+
+## Stack (provided by [cdesign-starter](https://github.com/adaybekovt-boop/cdesign-starter))
+
+- Next.js 15 + React 19 + TypeScript
+- Tailwind v4 with full design token system
+- Motion (motion/react v11+)
+- GSAP 3.13 + ScrollTrigger + SplitText
+- Lenis 1.3 bound to GSAP ticker
+- React Three Fiber v9 + Drei + Postprocessing
+- tailwind-variants for tokenized component variants
+- Hanken Grotesk + Migra fonts (NOT Geist — slop marker)
+
+## Skill structure
+
+```
+cdesign/
+├── SKILL.md                          # Workflow definition
+└── references/
+    ├── director-roll.md              # 5-vibe matrix with visual motifs
+    ├── anti-slop.md                  # Banned patterns (regex + YAML)
+    ├── critic-prompt.md              # Strict critic subagent
+    └── recipes/                      # Lazy-loaded technique recipes
+        ├── lenis-gsap-sync.md
+        ├── split-reveal.md
+        ├── pinned-scrub.md
+        ├── r3f-photo.md
+        ├── multi-layer-parallax.md
+        ├── canvas-scrub.md
+        ├── scroll-film.md
+        ├── liquid-glass.md
+        └── easing.md
+```
+
+## Manual install (if curl is blocked)
+
+1. Clone or download this repo
+2. Copy the `cdesign/` folder to `~/.claude/skills/cdesign/`
+3. Restart Claude Code
+
+## Uninstall
+
+```bash
+rm -rf ~/.claude/skills/cdesign
+```
+
+## Update
+
+Re-run the install command. Existing skill is automatically backed up with a timestamp before being replaced.
+
+## Built by
+
+[@adaybekovt-boop](https://github.com/adaybekovt-boop) in Aktobe, KZ.
+
+## License
+
+MIT
