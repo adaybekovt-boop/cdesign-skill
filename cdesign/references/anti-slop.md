@@ -202,6 +202,7 @@ performance_violations:
   - "R3F Canvas without PerformanceMonitor (use drei PerformanceMonitor for auto FPS degradation)"
   - "10+ repeated 3D objects without InstancedMesh or BatchedMesh"
   - "GSAP velocity effects without quickSetter (use quickSetter not gsap.to in loops)"
+  - "transition: all (implicitly animates layout/paint properties — always list specific properties: transition: transform 0.3s, opacity 0.3s)"
 ```
 
 ```yaml
