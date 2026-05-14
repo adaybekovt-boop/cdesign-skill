@@ -148,13 +148,12 @@ Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For
 - `references/recipes/canvas-scrub.md` — frame-by-frame video alternative
 - `references/recipes/scroll-film.md` — cinematic master timeline (Phase 2.5 only)
 - `references/recipes/liquid-glass.md` — Apple-style glass with auto-degradation
-- `references/recipes/easing.md` — exact cubic-bezier values
-- `references/recipes/animated-glass-gradient.md` — animated CSS gradient behind frosted glass, scroll-driven color transitions
-- `references/recipes/shader-gradient.md` — GLSL simplex noise gradient behind frosted glass, scroll-driven organic color flow (Aurora Borealis / Apple Vision Pro aesthetic)
-- `references/recipes/mp4-frames.md` — MP4 to frame sequence converter for CanvasScrub
-- `references/recipes/velocity-skew.md` — scroll velocity → skew/momentum effects (Stripe pattern)
+- `references/recipes/animated-glass-gradient.md` — CSS animated gradient behind frosted glass
+- `references/recipes/shader-gradient.md` — GLSL simplex noise gradient (Aurora/Vision Pro aesthetic)
+- `references/recipes/velocity-skew.md` — scroll velocity → skew momentum (Stripe pattern)
 - `references/recipes/css-scroll-driven.md` — native CSS animation-timeline API (zero JS)
 - `references/recipes/shell-layout.md` — shell-first grid with named areas and empty rails
+- `references/recipes/easing.md` — exact cubic-bezier values
 
 **Never write complex motion from memory.** Always Read the recipe first.
 
@@ -176,14 +175,44 @@ Quick check, if any fail → fix:
 - [ ] No `h-screen` (use `min-h-[100dvh]`)
 - [ ] No `key={index}` in lists
 
-### Phase 5 — Critic subagent (up to 3 iterations)
+### Phase 5 — Self-audit (inline, no subagent)
 
-Launch via Task tool with the prompt from `references/critic-prompt.md`. The critic returns JSON verdict (PASS / PASS+ / FAIL).
+Do NOT launch a Task subagent. Run this checklist yourself inline now.
+Check each file you generated. Fix failures immediately — no iteration loop.
 
-Loop:
-- Iteration 1 → critic. PASS or PASS+ → done. FAIL → fix critical issues.
-- Iteration 2 → critic again. Same.
-- Iteration 3 (final) → if still FAIL, present to user with explicit list of remaining issues. Never claim PASS when critic said FAIL.
+**Anti-slop (any failure = fix before proceeding):**
+
+- [ ] No banned words EN+RU (check references/anti-slop.md lists)
+- [ ] No editorial mono labels (/ 01 —, / CITY, KZ, CITY · KZ, EST. 2022, KIT BY, SCROLL ↓)
+- [ ] No fabricated stats sections (number + uppercase tracked label patterns)
+- [ ] No fictional signatures (— Name · City, Designed by X)
+- [ ] No purple→pink gradients on CTAs (from-purple, to-pink, from-violet, to-fuchsia)
+- [ ] No centered hero (headline + subhead + CTA all centered)
+- [ ] No slop fonts (Geist, Inter, Roboto, Space Grotesk, Instrument Serif)
+- [ ] No key={index}, h-screen, <img>, hardcoded hex bg-[#xxxxxx], useState for mousemove
+
+**Motion quality:**
+
+- [ ] 7+ motion techniques present
+- [ ] Director's Roll vibe consistent throughout — no mixing
+- [ ] Visual motif from chosen vibe repeats in hero + 1 other section minimum
+- [ ] Spatial rhythm varies (not all sections same py-* value)
+- [ ] One spectacle per viewport: if hero has WebGL/shader → no heavy parallax + particles + magnetic all in same viewport
+- [ ] Motion hierarchy respected: UI hover less dramatic than hero animation
+- [ ] Temporal discipline: hover 120–220ms / reveals 300–500ms / scene 800–1400ms
+
+**Architecture:**
+
+- [ ] Lenis bound to GSAP ticker (autoRaf: false in lib/lenis.tsx)
+- [ ] Stagger 0.015–0.025 on all SplitText/SplitType reveals
+- [ ] Default ease cubic-bezier(0.16, 1, 0.3, 1) appears at least once
+- [ ] Background tonal (not pure #000000 or #ffffff)
+- [ ] PerformanceMonitor wrapping R3F Canvas (if R3F used)
+- [ ] Shell-first layout: hero has intentional empty rails, headline under 18ch
+- [ ] No layout-triggering property animations (width/height/top/left/box-shadow/filter)
+
+**If all pass:** proceed to Phase 6 with PASS.
+**If any fail:** fix inline, then proceed with list of what was fixed.
 
 ### Phase 6 — Handoff
 
@@ -194,39 +223,86 @@ Final message:
 4. If FAIL: list remaining issues honestly
 5. **Nothing else.** No marketing fluff, no emoji.
 
+## Edit Mode (existing projects only)
+
+Triggered when user asks to modify an already-generated cdesign project.
+Signals: "измени", "поправь", "добавь", "переделай", "fix", "change", "update existing".
+
+Steps:
+
+1. Read .cdesign/INTENT.md in project root (if exists) — this tells you the vibe, motif, and design decisions
+1. Apply the change as a DELTA — surgical edit, never full rewrite
+1. Preserve invariants:
+- Core visual metaphor and Director's Roll vibe
+- Motion hierarchy (do NOT replace scroll animations with CSS fade-ins)
+- Typography system (do NOT change fonts)
+- Device tier fallbacks
+- All anti-slop rules still apply
+1. Do NOT simplify the hero scene
+1. Do NOT remove animations unless explicitly asked
+1. After change: update .cdesign/INTENT.md if art direction changed
+
 ## Hard rules
 
-- **Never** generate banned words (see `anti-slop.md` EN+RU lists)
-- **Never** add editorial mono labels (anywhere, including footer)
-- **Never** invent author/studio names — only use names user explicitly provided
-- **Never** create fake stats sections
-- **Never** mix vibes — Director's Roll picks ONE
-- **Never** rewrite starter components — import and compose
-- **Never** preload all recipes — Read them lazily as needed
-- **Never** skip Director's Roll → that's how sites end up looking identical
-- **Never** ship with <7 motion techniques
-- **Never** use uniform spacing across all sections
-- **Never** animate layout-triggering properties (width, height, top, left, margin, box-shadow, filter) in runtime animations — only transform + opacity + clip-path
-- **Never** put parent-level hover/active state on card grids — use IsolatedAnimatedCard pattern
-- **Never** write 200-char className strings — extract into `tv()` variants or CSS utility classes
-- **Edit Mode**: when user asks for changes to existing project, always use delta approach. Never rewrite. Read DESIGN_INTENT.md first.
-- **PerformanceMonitor**: always wrap R3F Canvas with drei PerformanceMonitor for auto FPS-based degradation
-- **BatchedMesh**: use for any scene with 10+ repeated 3D objects to reduce draw calls
+**Never:**
+
+- Generate banned words (see references/anti-slop.md EN+RU lists)
+- Add editorial mono labels (anywhere, including footer)
+- Invent author/studio names — only use names user explicitly provided
+- Create fake stats sections
+- Mix vibes — Director's Roll picks ONE
+- Rewrite starter components — import and compose
+- Preload all recipes — Read them lazily as needed
+- Skip Director's Roll → that's how sites end up looking identical
+- Ship with <7 motion techniques
+- Animate layout-triggering properties (width/height/top/left/margin/box-shadow/filter)
+- Put parent-level hover/active state on card grids — use IsolatedAnimatedCard pattern
+- Write 200-char className strings — extract into tv() variants or CSS utility classes
 
 **Mobile-first animation budget (enforce on every page):**
+
 - Max 1 pinned ScrollTrigger section active at once
 - Max 1 R3F canvas visible at once
 - Max 3 animated elements per viewport on mobile
 - Max 1 backdrop-filter element per viewport
-- No continuous blur/filter animation
-- No scroll animation on large text blocks on mobile
+- No continuous blur/filter animation on mobile
 - Mobile must preserve visual identity — reduce intensity, NOT remove design
-- Glass gradient: CSS version (<GlassGradientBg>) for standard glass effect. Shader version (<ShaderGradientBg>) when user mentions "живой градиент", "aurora", "organic", "как северное сияние", "Apple Vision Pro". Read the relevant recipe before implementing.
+
+**Spectacle budget:**
+
+- One heavy visual effect per viewport — never stack shader + particles + magnetic + parallax in same section
+- If hero has WebGL/shader → section cards must be static, no TiltCard glow, no additional particle systems
+- Premium sites are extremely controlled. Selective spectacle. Not maximum effects.
+
+**Motion hierarchy (enforce always):**
+
+- Tier 1: Hero motion — the main cinematic statement
+- Tier 2: Section transitions — defer to Tier 1
+- Tier 3: UI hover (magnetic, card hover) — never louder than Tier 2
+- Tier 4: Ambient (grain, slow gradients) — imperceptible background only
+- Lower tiers must NEVER compete visually with higher tiers
+
+**Temporal discipline:**
+
+- Micro interactions (hover feedback): 120–220ms
+- UI transitions (reveals, modals): 300–500ms
+- Scene transitions (section enters, hero): 800–1400ms
+- Ambient motion (background gradients, breathing): 3–12s
+- Never use 800ms for a hover effect. Never use 120ms for a hero reveal.
 
 **Always:**
-- Use `tv()` from `tailwind-variants` for any component with size/color/state variants
-- Wrap animated sections in `.motion-island` class for render containment
-- Use `.motion-section` (content-visibility: auto) on below-fold sections
-- Use `DeviceTierProvider` tier checks before enabling heavy effects
-- Use `min-h-[100dvh]`, never `h-screen`
-- Use the Emil Kowalski curve `cubic-bezier(0.16, 1, 0.3, 1)` as default
+
+- Use tv() from tailwind-variants for components with size/color/state variants
+- Wrap animated sections in .motion-island class for render containment
+- Use .motion-section (content-visibility: auto) on below-fold sections
+- Use DeviceTierProvider tier checks before enabling heavy effects
+- Wrap R3F Canvas with drei PerformanceMonitor for auto FPS degradation
+- Use InstancedMesh or BatchedMesh for 10+ repeated 3D objects
+- Use min-h-[100dvh], never h-screen
+- Use Emil Kowalski curve cubic-bezier(0.16, 1, 0.3, 1) as default
+- When user mentions "кинематографичный" / "video-like" / "как видео" → activate Phase 2.5 Shot List
+
+**Glass gradient:**
+
+- When user mentions "матовое стекло" / "glass" / "frosted" / "переливание цветов" → use GlassGradientBg (CSS) or ShaderGradientBg (GLSL)
+- Read references/recipes/animated-glass-gradient.md or references/recipes/shader-gradient.md first
