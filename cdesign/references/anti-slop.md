@@ -203,3 +203,57 @@ performance_violations:
   - "10+ repeated 3D objects without InstancedMesh or BatchedMesh"
   - "GSAP velocity effects without quickSetter (use quickSetter not gsap.to in loops)"
 ```
+
+```yaml
+spectacle_budget:
+  rule: "One spectacle per viewport. Never stack multiple heavy effects in same viewport."
+  forbidden:
+    - "particles + shader background + magnetic buttons all in hero simultaneously"
+    - "bloom + parallax + stagger + custom cursor all competing at once"
+    - "every section having its own independent heavy motion system"
+    - "hero with WebGL scene AND heavy card hover AND particle system"
+  correct:
+    - "Hero with ShaderGradientBg → cards in that section are static"
+    - "Editorial section with typography choreography → static background, no WebGL"
+    - "Showcase with one 3D object → no extra motion systems in same viewport"
+  principle: "Premium sites are extremely controlled. Selective spectacle. Not maximum effects."
+
+motion_hierarchy:
+  rule: "Lower motion tiers must NEVER compete with higher tiers"
+  tiers:
+    tier1: "Hero motion — the main cinematic statement. Everything defers to this."
+    tier2: "Section transitions — must not distract from tier1 when active"
+    tier3: "UI hover (magnetic buttons, card hover) — subtle, never louder than tier2"
+    tier4: "Ambient motion (grain, slow gradients, breathing) — background, imperceptible"
+  forbidden:
+    - "tier3 UI hover as dramatic as tier1 hero animations"
+    - "card hover scale/glow more intense than hero reveal"
+    - "multiple tier1-level animations on same page"
+    - "every element having same animation intensity"
+
+temporal_discipline:
+  rule: "Duration must match motion tier"
+  ranges:
+    micro: "120–220ms — hover feedback, button press, tooltip"
+    ui: "300–500ms — reveals, modals, page element enters"
+    scene: "800–1400ms — hero reveals, section transitions, cinematic moments"
+    ambient: "3000–12000ms — background gradients, grain, breathing"
+  forbidden:
+    - "hover effect with 800ms duration (too slow for micro)"
+    - "hero reveal with 150ms duration (too fast for scene)"
+    - "all animations using same 300ms duration (robotic feel)"
+
+shell_violations:
+  - "max-w-7xl mx-auto as the only grid structure"
+  - "uniform py-24 on all sections (vary rhythm: quiet/medium/dense)"
+  - "two sections with same density class back-to-back"
+  - "headline wider than 18ch in hero"
+  - "no intentional empty rails in hero section"
+  - "symmetric 50/50 split for every section"
+
+performance_violations:
+  - "R3F Canvas without PerformanceMonitor (always wrap with drei PerformanceMonitor)"
+  - "10+ repeated 3D objects without InstancedMesh or BatchedMesh"
+  - "GSAP velocity effects without quickSetter (use quickSetter not gsap.to in loops)"
+  - "will-change set permanently on many elements (use useTemporaryWillChange hook)"
+```
