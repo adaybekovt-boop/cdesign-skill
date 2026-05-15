@@ -35,7 +35,7 @@ If user provides video link — say plainly video is not supported, ask for scre
 1. If image attached → Read it. Extract dominant colors, mood, 3D potential (is this a product/portrait/abstract that could become R3F texture?)
 2. If URL attached → WebFetch it. Note layout, typography, motion aggression
 3. If `--research` flag → ONE WebSearch like `Awwwards 2026 [concept] [vibe]`
-4. **Director's Roll** — see `references/director-roll.md`. Pick ONE vibe. Output to user: `Director's Roll: <VIBE_NAME> selected.`
+4. **Director's Roll** — see `references/director-roll.md`. Pick ONE vibe using the decision tree. Output to user: `Director's Roll: <VIBE_NAME> selected because <one-line reason>.`
 5. Brief plan to user (5-8 lines, no questions):
    ```
    Vibe: [from Director's Roll]
@@ -51,7 +51,7 @@ Read these BEFORE writing code. They are slim by design (lazy-loaded recipes els
 
 1. `references/director-roll.md` — vibe matrix
 2. `references/anti-slop.md` — bans (mono labels, slop fonts, fake stats, fictional signatures, AI words EN+RU)
-3. `references/critic-prompt.md` — what the critic checks
+3. `references/content-system.md` — industry-aware copy rules
 
 Do NOT preload all recipes. They are in `references/recipes/*.md` and you read each only when you decide to use that technique.
 
@@ -136,7 +136,7 @@ export default function Home() {
 No motion yet. Just structure + headings + body text. Verify left-aligned hero, asymmetric grids, no banned patterns.
 
 **Pass 2 — Design tokens & content (80%)**
-Wire up actual copy (anti-slop compliant — see `anti-slop.md`). Apply proper typography hierarchy. Compose pre-built UI primitives.
+Wire up actual copy (anti-slop compliant — see `anti-slop.md`). Apply proper typography hierarchy. Compose pre-built UI primitives. Read `references/content-system.md` to write industry-specific copy — no generic placeholders.
 
 **Pass 3 — Motion & micro-interactions (100%)**
 Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For each technique you're unsure about, READ the recipe file:
@@ -181,6 +181,10 @@ Quick check, if any fail → fix:
 - [ ] No hardcoded hex — only CSS vars / Tailwind utilities from tokens
 - [ ] No `h-screen` (use `min-h-[100dvh]`)
 - [ ] No `key={index}` in lists
+- [ ] Read content-system.md and wrote industry-specific copy
+- [ ] Composition was solved before effects were added
+- [ ] Vibe was selected through Director's Roll decision tree
+- [ ] If common fonts were used, they were justified by user request, reference, or brand
 
 ### Phase 5 — Self-audit (inline, no subagent)
 
@@ -195,7 +199,7 @@ Check each file you generated. Fix failures immediately — no iteration loop.
 - [ ] No fictional signatures (— Name · City, Designed by X)
 - [ ] No purple→pink gradients on CTAs (from-purple, to-pink, from-violet, to-fuchsia)
 - [ ] No centered hero (headline + subhead + CTA all centered)
-- [ ] No slop fonts (Geist, Inter, Roboto, Space Grotesk, Instrument Serif)
+- [ ] No lazy default fonts — Geist, Inter, Roboto, Space Grotesk used only when explicitly requested, brand/reference requires them, or paired with a distinctive display typeface and custom spacing
 - [ ] No key={index}, h-screen, <img>, hardcoded hex bg-[#xxxxxx], useState for mousemove
 
 **Motion quality:**
@@ -251,6 +255,24 @@ Steps:
 
 ## Hard rules
 
+**Composition first, effects second:**
+
+- If the layout is generic, do not try to fix it with animation.
+- First fix composition: asymmetry, scale contrast, negative space, dominant visual object, irregular section rhythm, clear narrative transition.
+- Only after composition works, add motion.
+- A bad layout with GSAP is still a bad layout.
+- One strong composition beats five effects.
+
+**Font rule:**
+
+- Do not use Geist, Inter, Roboto, Space Grotesk, Instrument Serif as lazy defaults.
+- They are allowed only when:
+  1. the user explicitly asks,
+  2. brand/reference requires it,
+  3. it is paired with a distinctive display/accent typeface,
+  4. spacing, type scale, and layout are customized enough to avoid the default SaaS look.
+- Never use a font just because it is common in AI-generated templates.
+
 **Never:**
 
 - Generate banned words (see references/anti-slop.md EN+RU lists)
@@ -265,6 +287,9 @@ Steps:
 - Animate layout-triggering properties (width/height/top/left/margin/box-shadow/filter)
 - Put parent-level hover/active state on card grids — use IsolatedAnimatedCard pattern
 - Write 200-char className strings — extract into tv() variants or CSS utility classes
+- Fix generic composition by adding more animation
+- Pick Hardcore 3D only because user says "cool" if the business type clearly maps to another vibe
+- Invent proof, metrics, awards, client names, certifications, rankings, or official status
 
 **Mobile-first animation budget (enforce on every page):**
 
