@@ -28,15 +28,15 @@ That's it. Restart Claude Code (`exit` then `claude`).
 
 The skill will:
 1. Parse your brief and reference (image / URL / both / neither)
-2. Pick ONE vibe from Director's Roll (Hardcore 3D / Soft Editorial / Brutalist Dev / SVG Logo / Wabi-Sabi)
+2. Pick ONE vibe from Director's Roll (10 vibes: Hardcore 3D / Soft Editorial / Brutalist Dev / SVG Logo / Wabi-Sabi / Dark Institutional / Neo-Bank Minimal / Product Theatre / Cartographic System / Monolithic Luxury — selected via a deterministic decision tree)
 3. Scaffold the project from the GitHub starter (one `npx` command)
 4. Build in 3 passes: structure → tokens → motion
-5. Run a strict critic subagent (up to 3 iterations)
+5. Run a strict self-audit checklist
 6. Hand off with a verdict
 
 ## What this prevents
 
-- ❌ AI-slop fonts (Geist, Inter, Roboto, Space Grotesk, Instrument Serif)
+- ❌ AI-slop fonts as lazy defaults (Geist, Inter, Roboto, Space Grotesk — allowed only when explicitly requested or paired with distinctive typography)
 - ❌ Editorial mono labels (`/ 01 —`, `/ CITY, KZ`, `EST. 2022`)
 - ❌ Fabricated stats sections (`1240 / HAPPY CLIENTS`)
 - ❌ Fictional author signatures (`— SomeName · City`)
@@ -46,6 +46,7 @@ The skill will:
 - ❌ Identical look across projects (Director's Roll picks a vibe per build)
 - ❌ Uniform `py-24` everywhere (spatial rhythm is enforced)
 - ❌ Width/height/box-shadow animations (compositor-only contract)
+- ❌ Generic AI copy (content-system.md enforces industry-specific language)
 
 ## What this generates
 
@@ -53,6 +54,7 @@ The skill will:
 - Lenis smooth scroll bound to GSAP ticker
 - Token-driven design system
 - Asymmetric, vibe-consistent layouts
+- Industry-aware copy via content-system.md
 - ScrollFilm master timeline for "feels like a video" intent
 - Liquid Glass UI with auto-degradation on weak devices
 - Production-ready TypeScript (`npm run dev` works immediately)
@@ -74,9 +76,9 @@ The skill will:
 cdesign/
 ├── SKILL.md                          # Workflow definition
 └── references/
-    ├── director-roll.md              # 5-vibe matrix with visual motifs
+    ├── director-roll.md              # 10-vibe matrix with decision tree
     ├── anti-slop.md                  # Banned patterns (regex + YAML)
-    ├── critic-prompt.md              # Strict critic subagent
+    ├── content-system.md             # Industry-aware copy rules
     └── recipes/                      # Lazy-loaded technique recipes
         ├── lenis-gsap-sync.md
         ├── split-reveal.md
