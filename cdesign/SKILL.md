@@ -154,6 +154,13 @@ Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For
 - `references/recipes/css-scroll-driven.md` — native CSS animation-timeline API (zero JS)
 - `references/recipes/shell-layout.md` — shell-first grid with named areas and empty rails
 - `references/recipes/easing.md` — exact cubic-bezier values
+- `references/recipes/hero-reveal.md` — hero entrance choreography (layered overlap timing)
+- `references/recipes/dark-tokens.md` — CSS variable system for dark themes (concrete values)
+- `references/recipes/audio-design.md` — sound design rules with Howler.js (ONLY when user asks for audio)
+- `references/recipes/premium-nav.md` — fullscreen overlay menu, sticky header, mobile CTA bar
+- `references/recipes/page-entry.md` — preloader pattern (ONLY for heavy 3D/video sites)
+- `references/recipes/mobile-composition.md` — mobile-specific layout, touch, reduced motion
+- `references/recipes/svg-morph.md` — SVG shape morphing with GSAP or Flubber (ONLY for logo/shape transitions)
 
 **Never write complex motion from memory.** Always Read the recipe first.
 
