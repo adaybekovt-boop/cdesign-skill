@@ -6,18 +6,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 
 ---
 
-## VIBE A — Hardcore 3D (ORYZO / Apple / Linear-tech)
+## VIBE A — Hardcore 3D
 
-**When to pick:**
-- Reference shows physical products, hardware, or tech objects
-- User mentions "tech", "SaaS", "futuristic", "product launch"
-- User uploaded a photo of an object (not a portrait, not abstract art)
+**For:** tech products, futuristic SaaS, hardware, product photos, object-focused hero scenes.
 
-**Visual motif** (pick ONE, repeat across page):
-- Animated coordinate system / measurement grid overlaying 3D object
-- Orbital lines circling the hero element
-- HUD-style data readouts in monospace appearing on scroll
-- Single accent color glow tracking the cursor across sections
+**Visual motifs:** orbital lines, coordinate grid, HUD readouts, single cursor-following glow.
 
 **Stack from starter:**
 - Hero: `<PhotoTo3D>` (user photo) OR `<GeometricHero>` (torus knot if no photo)
@@ -25,165 +18,176 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 - One section: `<TiltCard>` grid for features
 - Required: Bloom + Noise post-processing on all R3F
 
-**Palette:**
-- Default: Linear-dark `#08090a` / `#5e6ad2` accent
-- Bold variant: pure mono with one neon (Vercel-style)
-
-**Typography:**
-- Display: Migra (light weight, large size)
-- Body: Hanken Grotesk
-
 **Motion intensity: 8/10** — aggressive, scroll-heavy, 3D everywhere.
 
 ---
 
-## VIBE B — Soft Editorial (Aesop / Atelier / luxury portfolio)
+## VIBE B — Soft Editorial
 
-**When to pick:**
-- Reference is fashion, architecture, food, design portfolio, luxury services
-- User mentions "premium", "boutique", "editorial", "lookbook"
-- Photos provided are portraits, products in soft lighting, lifestyle shots
-- Palette feels warm or muted
+**For:** fashion, architecture, luxury service, food, lifestyle photography, portfolio work.
 
-**Visual motif** (pick ONE, repeat across page):
-- Thin diagonal divider lines between sections (1px, warm gray)
-- Oversized italic display words bleeding off the edge
-- Hand-numbered section markers (II / III / IV — Roman numerals, never `/ 01`)
-- A signature serif drop-cap opening each long-form section
+**Visual motifs:** oversized italic words, diagonal dividers, large image crops, serif drop caps.
 
 **Stack from starter:**
-- Hero: large image + `<SplitTextReveal>` for headline (NO 3D)
+- Hero: large image + `<SplitTextReveal>` (NO 3D)
 - One section: `<RevealImage>` gallery with clip-mask reveals
 - One section: `<MultiLayerParallax>` with photography
-- Optional: `<FloatingObject>` if user has transparent PNG product
-
-**Palette:**
-- Warm editorial: `#fdfbf7` background, `#1a1a1a` text, `#c4441c` terracotta accent
-- Soft luxury: `#f1ece2` cream, `#3a3a3a` text, no accent (or muted gold)
-
-**Typography:**
-- Display: Migra Italic for headlines (large)
-- Body: Hanken Grotesk regular
 
 **Motion intensity: 4/10** — slow, intentional, masked reveals, no aggressive parallax.
 
-**Anti-pattern for this vibe:** no R3F unless absolutely justified, no neon, no purple, no grain at >0.05.
-
 ---
 
-## VIBE C — Brutalist / Developer (Vercel / Stripe Docs / Linear changelog)
+## VIBE C — Brutalist Developer
 
-**When to pick:**
-- Reference is dev tools, SaaS, fintech, API products
-- User mentions "developer", "dev tool", "documentation", "API"
-- Tone is technical, factual
+**For:** devtools, APIs, technical products, docs, infrastructure, precise SaaS.
 
-**Visual motif** (pick ONE, repeat across page):
-- Animated SVG schematic diagrams between sections (Vercel-style)
-- Inline monospace status indicators with subtle cursor blink
-- Section numbers as large mono superscripts (`01.` `02.` `03.`)
-- Animated terminal output / typewriter for product description
+**Visual motifs:** schematic SVG diagrams, terminal snippets, real code fragments, mono status indicators.
 
 **Stack from starter:**
 - Hero: `<SplitTextReveal>` left-aligned, no 3D, no images
 - One section: `<SvgPathDraw>` for technical diagrams
 - One section: code blocks + monospace
-- One section: `<Marquee>` of company logos (no fake clients)
-
-**Palette:**
-- Strict mono: `#000` / `#ededed` (Vercel) OR `#fafafa` / `#0a2540` (Stripe-light)
-- ONE muted accent: `#635bff` blurple OR `#5e6ad2` periwinkle
-- No gradients
-
-**Typography:**
-- Headlines: Hanken Grotesk medium, tight tracking
-- Body: Hanken Grotesk regular
-- Code/data: JetBrains Mono (NOT decorative — only real code)
+- `<Marquee>` only with real names
 
 **Motion intensity: 5/10** — precise, snappy, no spring overshoot.
 
 ---
 
-## VIBE D — SVG Logo Showcase (agency / studio / branding)
+## VIBE D — SVG Logo Showcase
 
-**When to pick:**
-- User uploaded an SVG logo
-- User is showcasing a brand identity / agency work
-- Reference shows logo-centric design (e.g. Pentagram, Collins)
+**For:** SVG logo uploads, brand identity, agency, studio, identity presentation.
 
-**Visual motif** (pick ONE, repeat across page):
-- The logo's primary shape echoed as section dividers
-- Construction grid (faint lines showing logo geometry) as background
-- Logo color extracted as cursor follower / hover halo
-- Single logo character oversized as section marker
+**Visual motifs:** logo geometry grid, oversized logo glyphs, logo-derived dividers, path construction.
 
 **Stack from starter:**
-- Hero: `<SvgLogo3D>` (the user's SVG, extruded, rotating)
+- Hero: `<SvgLogo3D>` (user's SVG, extruded, rotating)
 - One section: `<SvgPathDraw>` showing logo construction lines
 - One section: case study `<RevealImage>` grid
-- Optional: `<FloatingObject>` for additional brand assets
-
-**Palette:**
-- Take colors directly from the user's logo
-- Background: contrast (dark logo → light bg, light logo → dark bg)
-
-**Typography:**
-- Display: Migra or whatever matches the logo's character
-- Body: Hanken Grotesk
 
 **Motion intensity: 7/10** — logo is the star, everything orbits it.
 
 ---
 
-## VIBE E — Wabi-Sabi / Anti-Design (artisan / craft / handmade)
+## VIBE E — Wabi-Sabi / Anti-Design
 
-**When to pick:**
-- Reference is handmade goods, ceramics, art, craft, artisan products
-- User mentions "handmade", "craft", "artisan", "imperfect", "human"
-- Tone is anti-corporate, anti-perfectionist
-- THIS IS A DEFENSIVE PICK — only when you're sure other vibes feel wrong
+**For:** handmade, craft, ceramics, artisan, human, anti-corporate products.
 
-**Visual motif** (pick ONE, repeat across page):
-- Hand-drawn underlines beneath key phrases (Caveat font, stroke-draw animated)
-- Visible paper-texture seams between sections
-- Asymmetric photo crops with intentional negative space on different sides
-- A single repeating organic shape (ink blot, brush mark) as accent
+**Visual motifs:** paper texture seams, organic marks, imperfect image crops, hand-drawn underline.
 
 **Stack from starter:**
 - Hero: `<RevealImage>` with imperfect/grainy photo + handwritten-style headline
 - One section: asymmetric `<MultiLayerParallax>` (NOT a grid)
 - One section: long-form text with intentional ragged margins
 
-**Palette:**
-- Earthy: `#f1ece2` paper, `#2a2520` ink, `#8b7355` clay accent
-- Off-whites and warm grays only — NO pure black/white
-
-**Typography:**
-- Display: Instrument Serif or Migra Italic
-- Body: Hanken Grotesk regular
-- Optional: a hand-script font for accents (Caveat from Google Fonts, used sparingly)
-
 **Motion intensity: 3/10** — minimal, soft, breathing only. NO scrub. NO 3D.
-
-**Critical:** this vibe is hard to get right. Don't pick it just because Editorial feels boring — Editorial is the safer choice.
 
 ---
 
-## Selection logic
+## VIBE F — Dark Institutional
+
+**For:** colleges, schools, legal, government, serious local organizations, public-facing institutions.
+
+**Visual motifs:** strict dark shells, document-like panels, campus/city grid, official navigation hierarchy.
+
+**Stack from starter:**
+- `<SplitTextReveal>`, `<PinnedScrub>` only if needed, `<SvgPathDraw>`, structured sections.
+
+**Motion intensity: 4/10** — structured, formal, no decorative excess.
+
+**Important:** copy should be practical — admissions, grants, schedules, documents, contacts. Avoid fake prestige language.
+
+---
+
+## VIBE G — Neo-Bank Minimal
+
+**For:** fintech, dashboards, payments, analytics, trading-adjacent tools, B2B money products.
+
+**Visual motifs:** calm data panels, thin graph lines, transaction rows, precise financial UI fragments.
+
+**Stack from starter:**
+- `<SplitTextReveal>`, `<PinnedScrub>`, `<Marquee>` only with real integrations, data cards.
+
+**Motion intensity: 5/10** — calm, data-driven, no decorative distractions.
+
+**Important:** no fake numbers, no fake client logos, no fake security claims.
+
+---
+
+## VIBE H — Product Theatre
+
+**For:** one physical product, drink, bottle, device, merch, cosmetic, package, object-centered brand.
+
+**Visual motifs:** single object spotlight, stage lighting, rotating product cutout, macro material details.
+
+**Stack from starter:**
+- `<FloatingObject>`, `<PhotoTo3D>` if image exists, `<RevealImage>`, controlled parallax.
+
+**Motion intensity: 6/10** — product is the hero, everything defers to it.
+
+**Important:** the product is the hero. Do not add unrelated bento sections.
+
+---
+
+## VIBE I — Cartographic System
+
+**For:** city, region, Kazakhstan/local projects, logistics, maps, networks, ecosystem/partners.
+
+**Visual motifs:** glowing street-grid lines, nodes, routes, map coordinates, single beacon point.
+
+**Stack from starter:**
+- `<SvgPathDraw>`, `<MultiLayerParallax>`, `<GeometricHero>` only as abstract map layer.
+
+**Motion intensity: 5/10** — network-driven, purposeful, no decoration.
+
+**Important:** no real map labels unless user provides real locations.
+
+---
+
+## VIBE J — Monolithic Luxury
+
+**For:** premium dark brand, high-ticket services, cinematic black/white identity, serious luxury.
+
+**Visual motifs:** black monolith panels, huge restrained typography, single metallic/gold accent, slow cuts.
+
+**Stack from starter:**
+- `<SplitTextReveal>`, `<FrameCut>` max 1–2 times, `<RevealImage>`, minimal ambient gradients.
+
+**Motion intensity: 4/10** — luxury = restraint, not many effects.
+
+---
+
+## Decision Tree
+
+Use this tree to select a vibe. It is deterministic — follow top to bottom and stop at the first match.
 
 ```
 IF user uploaded SVG logo
-  → VIBE D (Logo Showcase)
-ELSE IF user uploaded product/portrait photo AND reference is tech/futuristic
-  → VIBE A (Hardcore 3D)
-ELSE IF reference is dev tool / SaaS / fintech / API
-  → VIBE C (Brutalist Developer)
-ELSE IF reference is fashion / luxury / portfolio / editorial
-  → VIBE B (Soft Editorial)
-ELSE IF reference is artisan / handmade / craft AND mood is anti-corporate
-  → VIBE E (Wabi-Sabi)
-ELSE (uncertain)
-  → VIBE B (Soft Editorial) — the safe default
+  → SVG Logo Showcase (D)
+ELSE IF user provided one physical product image / bottle / package / device
+  → Product Theatre (H)
+ELSE IF user asks for college / school / university / academy / legal / government / official organization
+  → Dark Institutional (F)
+ELSE IF user asks for fintech / payments / bank / dashboard / analytics / trading / money product
+  → Neo-Bank Minimal (G)
+ELSE IF user asks for city / region / Kazakhstan / local ecosystem / logistics / partners / map-like concept
+  → Cartographic System (I)
+ELSE IF user asks for developer tool / API / infrastructure / docs / technical SaaS
+  → Brutalist Developer (C)
+ELSE IF user asks for handmade / craft / artisan / ceramics / human / anti-corporate
+  → Wabi-Sabi / Anti-Design (E)
+ELSE IF user asks for luxury / high-ticket / premium dark / black-white cinematic
+  → Monolithic Luxury (J)
+ELSE IF user asks for fashion / architecture / editorial / portfolio / lifestyle
+  → Soft Editorial (B)
+ELSE IF user asks for futuristic / 3D / immersive / Apple-like tech
+  → Hardcore 3D (A)
+ELSE
+  → Soft Editorial (B) — safe default
 ```
 
-After selection, tell the user the vibe by name and a one-line justification.
+**Conflict rule:** when two vibes match, choose the one that matches the user's **business type** first, not the visual effect request.
+
+Examples:
+- "college with WebGL" → **Dark Institutional (F)**, not Hardcore 3D
+- "fintech with 3D" → **Neo-Bank Minimal (G)**, not Hardcore 3D
+- "bottle brand with luxury vibe" → **Product Theatre (H)**, not Monolithic Luxury
