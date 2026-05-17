@@ -222,17 +222,40 @@ Check each file you generated. Fix failures immediately — no iteration loop.
 - [ ] Shell-first layout: hero has intentional empty rails, headline under 18ch
 - [ ] No layout-triggering property animations (width/height/top/left/box-shadow/filter)
 
-**If all pass:** proceed to Phase 6 with PASS.
+**If all pass:** proceed to Build & Lint Gate.
 **If any fail:** fix inline, then proceed with list of what was fixed.
+
+### Build & Lint Gate (mandatory before handoff)
+
+Run in project root:
+
+1. `npm run lint`
+2. `npm run build`
+
+If either command fails:
+- Read the exact error output
+- Fix the root cause (not the symptom)
+- Re-run both commands
+- Do NOT proceed to Phase 6 until both pass
+
+Common SSR/build failures and fixes:
+- "window is not defined" → wrap in useEffect or add "use client"
+- "document is not defined" → same as above
+- GSAP imported in server component → add "use client"
+- R3F Canvas in server component → add "use client"
+- next/image missing width/height → add or use fill
+- next/font path wrong → check public/fonts/ exists
+- TypeScript strict errors → fix types, do NOT use any
 
 ### Phase 6 — Handoff
 
 Final message:
 1. One line: what was built
 2. `cd <project> && npm run dev` instruction
-3. Critic verdict
-4. If FAIL: list remaining issues honestly
-5. **Nothing else.** No marketing fluff, no emoji.
+3. `Build: PASS` / `Lint: PASS` (both required — if either failed, do NOT call handoff valid)
+4. Audit verdict
+5. If FAIL: list remaining issues honestly
+6. **Nothing else.** No marketing fluff, no emoji.
 
 ## Edit Mode (existing projects only)
 
