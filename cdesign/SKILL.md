@@ -264,22 +264,74 @@ Common SSR/build failures and fixes:
 
 ### Phase 6 — Handoff
 
-Final message:
+#### Generate `.cdesign/INTENT.md` (mandatory)
+
+Before final handoff, create `.cdesign/INTENT.md` in project root:
+
+````md
+# cdesign Intent
+
+## Original prompt
+[exact user prompt verbatim]
+
+## Selected vibe
+[Director's Roll letter + name, e.g. "B — Soft Editorial"]
+
+## Reason for vibe selection
+[1–2 sentences explaining why this vibe matched the business/audience]
+
+## Palette tokens
+[list CSS custom properties used: --background, --foreground, --accent, etc.]
+
+## Typography
+[primary + display font choices, sizes/weights]
+
+## Motion systems used
+- Tier 1 hero: [name]
+- Tier 2 transitions: [list]
+- Tier 3 micro: [list]
+- Tier 4 ambient: [name]
+
+## Visual motif
+[1 sentence: what visual element repeats across sections]
+
+## Sections generated
+[ordered list of sections with one-line purpose each]
+
+## Constraints / do-not-change
+- [items that define this design's identity and must not be edited]
+- [e.g. "no fake stats", "no testimonials section", "asymmetric hero stays left-aligned"]
+
+## Build status
+- Build: PASS
+- Lint: PASS
+- Date: [ISO date]
+````
+
+This file is read by Edit Mode for delta-based modifications.
+
+#### Final message
+
 1. One line: what was built
 2. `cd <project> && npm run dev` instruction
 3. `Build: PASS` / `Lint: PASS` (both required — if either failed, do NOT call handoff valid)
-4. Audit verdict
-5. If FAIL: list remaining issues honestly
-6. **Nothing else.** No marketing fluff, no emoji.
+4. `.cdesign/INTENT.md generated`
+5. Audit verdict
+6. If FAIL: list remaining issues honestly
+7. **Nothing else.** No marketing fluff, no emoji.
 
 ## Edit Mode (existing projects only)
 
 Triggered when user asks to modify an already-generated cdesign project.
 Signals: "измени", "поправь", "добавь", "переделай", "fix", "change", "update existing".
 
+**Edit Mode hard requirement:**
+- If `.cdesign/INTENT.md` does not exist, do NOT proceed with edits
+- Either generate it from existing project state first, or refuse with explanation
+
 Steps:
 
-1. Read .cdesign/INTENT.md in project root (if exists) — this tells you the vibe, motif, and design decisions
+1. Read `.cdesign/INTENT.md` in project root — this tells you the vibe, motif, and design decisions
 1. Apply the change as a DELTA — surgical edit, never full rewrite
 1. Preserve invariants:
 - Core visual metaphor and Director's Roll vibe
