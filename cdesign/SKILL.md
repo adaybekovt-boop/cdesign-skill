@@ -41,7 +41,7 @@ If user provides video link — say plainly video is not supported, ask for scre
    Vibe: [from Director's Roll]
    Palette: [3 hex values from reference or vibe default]
    Hero: [Path A photo-3D / Path B abstract / Path C SVG logo / Path D editorial]
-   Motion stack: [list 7+ techniques to include]
+   Motion stack: [Tier 1 hero / 1–2 transitions / 1–2 micro / 1 ambient — see Motion Budget]
    Building now.
    ```
 
@@ -173,7 +173,8 @@ Quick check, if any fail → fix:
 - [ ] No fictional author signatures (`— SomeName · City`)
 - [ ] No purple→pink gradients on CTAs
 - [ ] No center-aligned hero
-- [ ] At least 7 motion techniques present
+- [ ] Motion budget respected (1 hero / 2 transitions / 1–2 micro / 1 ambient max)
+- [ ] Every heavy motion has reduced-motion fallback
 - [ ] At least 2 starter components composed
 - [ ] Director's Roll vibe consistent throughout (no mixing)
 - [ ] **Visual motif from chosen vibe repeats across page** (NOT just in hero)
@@ -204,7 +205,8 @@ Check each file you generated. Fix failures immediately — no iteration loop.
 
 **Motion quality:**
 
-- [ ] 7+ motion techniques present
+- [ ] Motion budget respected (1 hero / 2 transitions / 1–2 micro / 1 ambient max)
+- [ ] Every heavy motion has reduced-motion fallback
 - [ ] Director's Roll vibe consistent throughout — no mixing
 - [ ] Visual motif from chosen vibe repeats in hero + 1 other section minimum
 - [ ] Spatial rhythm varies (not all sections same py-* value)
@@ -306,7 +308,8 @@ Steps:
 - Rewrite starter components — import and compose
 - Preload all recipes — Read them lazily as needed
 - Skip Director's Roll → that's how sites end up looking identical
-- Ship with <7 motion techniques
+- Exceed motion budget (1 hero / 2 transitions / 1–2 micro / 1 ambient)
+- Ship Tier 1/2 motion without a reduced-motion fallback
 - Animate layout-triggering properties (width/height/top/left/margin/box-shadow/filter)
 - Put parent-level hover/active state on card grids — use IsolatedAnimatedCard pattern
 - Write 200-char className strings — extract into tv() variants or CSS utility classes
@@ -322,6 +325,17 @@ Steps:
 - Max 1 backdrop-filter element per viewport
 - No continuous blur/filter animation on mobile
 - Mobile must preserve visual identity — reduce intensity, NOT remove design
+
+**Motion Budget (per page target):**
+
+- 1 primary hero motion system (Tier 1)
+- 2 section-level transitions max (Tier 2)
+- 1–2 micro-interaction patterns (Tier 3)
+- 1 ambient background layer max (Tier 4)
+- Reduced-motion fallback required for every Tier 1 and Tier 2 motion
+
+Count micro-interactions (hover, magnetic, tilt) as a family, not individual instances.
+Heavy motion (R3F, pinned scrub, canvas scroll) max 1 per viewport.
 
 **Spectacle budget:**
 
