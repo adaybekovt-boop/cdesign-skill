@@ -176,71 +176,49 @@ Detect generated copy language and set `<html lang="...">` accordingly in `app/l
 This MUST be set in `app/layout.tsx` before Phase 4.
 Skipping this is an audit failure.
 
-### Phase 4 — Self-audit (inline, before launching critic)
+### Phase 4 — Self-Audit & Build Gate (inline, no subagent)
 
-Quick check, if any fail → fix:
-- [ ] No banned words (EN+RU lists in anti-slop.md)
-- [ ] No editorial mono labels (`/ 01 —`, `/ CITY, KZ`, `CITY · KZ`, `EST. 2022`, `KIT BY`, `SCROLL ↓`)
-- [ ] No fabricated stats sections (`1240 / РАСПИСАННЫХ ВЕЩЕЙ` patterns)
-- [ ] No fictional author signatures (`— SomeName · City`)
-- [ ] No purple→pink gradients on CTAs
-- [ ] No center-aligned hero
-- [ ] Motion budget respected (1 hero / 2 transitions / 1–2 micro / 1 ambient max)
-- [ ] Every heavy motion has reduced-motion fallback
-- [ ] At least 2 starter components composed
-- [ ] Director's Roll vibe consistent throughout (no mixing)
-- [ ] **Visual motif from chosen vibe repeats across page** (NOT just in hero)
-- [ ] **Spatial rhythm varies** (sections use different `py-*` values, not all `py-24`)
-- [ ] No hardcoded hex — only CSS vars / Tailwind utilities from tokens
-- [ ] No `h-screen` (use `min-h-[100dvh]`)
-- [ ] No `key={index}` in lists
-- [ ] Read content-system.md and wrote industry-specific copy
-- [ ] Composition was solved before effects were added
-- [ ] Vibe was selected through Director's Roll decision tree
-- [ ] If common fonts were used, they were justified by user request, reference, or brand
-
-### Phase 5 — Self-audit (inline, no subagent)
-
-Do NOT launch a Task subagent. Run this checklist yourself inline now.
+Do NOT launch a Task subagent. Run this checklist yourself inline.
 Check each file you generated. Fix failures immediately — no iteration loop.
 
 **Anti-slop (any failure = fix before proceeding):**
 
 - [ ] No banned words EN+RU (check references/anti-slop.md lists)
 - [ ] No editorial mono labels (/ 01 —, / CITY, KZ, CITY · KZ, EST. 2022, KIT BY, SCROLL ↓)
-- [ ] No fabricated stats sections (number + uppercase tracked label patterns)
+- [ ] No fabricated stats sections (number + uppercase tracked label patterns, e.g. `1240 / РАСПИСАННЫХ ВЕЩЕЙ`)
 - [ ] No fictional signatures (— Name · City, Designed by X)
 - [ ] No purple→pink gradients on CTAs (from-purple, to-pink, from-violet, to-fuchsia)
 - [ ] No centered hero (headline + subhead + CTA all centered)
 - [ ] No lazy default fonts — Geist, Inter, Roboto, Space Grotesk used only when explicitly requested, brand/reference requires them, or paired with a distinctive display typeface and custom spacing
-- [ ] No key={index}, h-screen, <img>, hardcoded hex bg-[#xxxxxx], useState for mousemove
+- [ ] No `key={index}`, `h-screen`, `<img>`, hardcoded hex `bg-[#xxxxxx]`, `useState` for mousemove
 
 **Motion quality:**
 
 - [ ] Motion budget respected (1 hero / 2 transitions / 1–2 micro / 1 ambient max)
 - [ ] Every heavy motion has reduced-motion fallback
+- [ ] At least 2 starter components composed
 - [ ] Director's Roll vibe consistent throughout — no mixing
 - [ ] Visual motif from chosen vibe repeats in hero + 1 other section minimum
-- [ ] Spatial rhythm varies (not all sections same py-* value)
+- [ ] Spatial rhythm varies (not all sections same `py-*` value)
 - [ ] One spectacle per viewport: if hero has WebGL/shader → no heavy parallax + particles + magnetic all in same viewport
 - [ ] Motion hierarchy respected: UI hover less dramatic than hero animation
 - [ ] Temporal discipline: hover 120–220ms / reveals 300–500ms / scene 800–1400ms
+- [ ] Read `references/content-system.md` and wrote industry-specific copy (no generic placeholders)
+- [ ] Composition was solved before effects were added
+- [ ] Vibe was selected through Director's Roll decision tree
 
 **Architecture:**
 
-- [ ] Lenis bound to GSAP ticker (autoRaf: false in lib/lenis.tsx)
+- [ ] Lenis bound to GSAP ticker (`autoRaf: false` in `lib/lenis.tsx`)
 - [ ] Stagger 0.015–0.025 on all SplitText/SplitType reveals
-- [ ] Default ease cubic-bezier(0.16, 1, 0.3, 1) appears at least once
-- [ ] Background tonal (not pure #000000 or #ffffff)
+- [ ] Default ease `cubic-bezier(0.16, 1, 0.3, 1)` appears at least once
+- [ ] Background tonal (not pure `#000000` or `#ffffff`)
 - [ ] PerformanceMonitor wrapping R3F Canvas (if R3F used)
 - [ ] Shell-first layout: hero has intentional empty rails, headline under 18ch
 - [ ] No layout-triggering property animations (width/height/top/left/box-shadow/filter)
 - [ ] `<html lang>` in `app/layout.tsx` matches generated copy language (ru/kk/en)
 
-**If all pass:** proceed to Build & Lint Gate.
-**If any fail:** fix inline, then proceed with list of what was fixed.
-
-### Build & Lint Gate (mandatory before handoff)
+**Build & Lint Gate (mandatory before handoff):**
 
 Run in project root:
 
@@ -251,18 +229,21 @@ If either command fails:
 - Read the exact error output
 - Fix the root cause (not the symptom)
 - Re-run both commands
-- Do NOT proceed to Phase 6 until both pass
+- Do NOT proceed to Phase 5 until both pass
 
 Common SSR/build failures and fixes:
-- "window is not defined" → wrap in useEffect or add "use client"
+- "window is not defined" → wrap in `useEffect` or add `"use client"`
 - "document is not defined" → same as above
-- GSAP imported in server component → add "use client"
-- R3F Canvas in server component → add "use client"
-- next/image missing width/height → add or use fill
-- next/font path wrong → check public/fonts/ exists
-- TypeScript strict errors → fix types, do NOT use any
+- GSAP imported in server component → add `"use client"`
+- R3F Canvas in server component → add `"use client"`
+- `next/image` missing width/height → add or use `fill`
+- `next/font` path wrong → check `public/fonts/` exists
+- TypeScript strict errors → fix types, do NOT use `any`
 
-### Phase 6 — Handoff
+**If all checks pass:** proceed to Phase 5 with PASS.
+**If any fail:** fix inline, then proceed with list of what was fixed.
+
+### Phase 5 — Handoff
 
 #### Generate `.cdesign/INTENT.md` (mandatory)
 
