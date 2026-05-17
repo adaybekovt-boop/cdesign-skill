@@ -164,6 +164,18 @@ Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For
 
 **Never write complex motion from memory.** Always Read the recipe first.
 
+### HTML lang attribute (hard rule for Phase 3)
+
+Detect generated copy language and set `<html lang="...">` accordingly in `app/layout.tsx`:
+
+- Russian copy → `<html lang="ru">`
+- Kazakh copy → `<html lang="kk">`
+- English copy → `<html lang="en">`
+- Mixed → use primary content language
+
+This MUST be set in `app/layout.tsx` before Phase 4.
+Skipping this is an audit failure.
+
 ### Phase 4 — Self-audit (inline, before launching critic)
 
 Quick check, if any fail → fix:
@@ -223,6 +235,7 @@ Check each file you generated. Fix failures immediately — no iteration loop.
 - [ ] PerformanceMonitor wrapping R3F Canvas (if R3F used)
 - [ ] Shell-first layout: hero has intentional empty rails, headline under 18ch
 - [ ] No layout-triggering property animations (width/height/top/left/box-shadow/filter)
+- [ ] `<html lang>` in `app/layout.tsx` matches generated copy language (ru/kk/en)
 
 **If all pass:** proceed to Build & Lint Gate.
 **If any fail:** fix inline, then proceed with list of what was fixed.
