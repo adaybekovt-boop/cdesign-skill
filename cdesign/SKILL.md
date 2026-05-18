@@ -1,11 +1,11 @@
 ---
 name: cdesign
-description: Generate cinematic, production-grade landing pages that mimic Claude Design quality. Triggers on /cdesign command or any request to build a landing page, hero section, marketing site, or interactive prototype with award-winning motion. Uses a pre-configured starter (adaybekovt-boop/cdesign-starter) with Next 15 + Motion + GSAP + Lenis + R3F. Includes Director's Roll vibe selection and a strict critic agent.
+description: Generate cinematic, high-polish landing pages with strong composition, motion hierarchy, and anti-slop constraints. Use the cdesign-starter template (Next.js 15 + React 19 + Motion + GSAP + R3F + Lenis) and apply Director's Roll vibe selection.
 ---
 
-# cdesign v2.0 — Cinematic Landing Page Generator
+# cdesign — Cinematic Landing Page Generator
 
-A pastiche of Claude Design for Claude Code. Spawns a pre-configured starter project, generates landing using built-in components, then runs a strict critic agent.
+A Claude Code skill for generating high-polish landing pages from a pre-configured motion/design starter.
 
 **v2.0 key change**: no more manual scaffolding. Uses the cdesign-starter template which has the entire stack (Lenis+GSAP sync, Motion, R3F, design tokens, anti-slop fonts) pre-configured. Saves ~70% of tokens compared to v1.
 
@@ -14,7 +14,15 @@ A pastiche of Claude Design for Claude Code. Spawns a pre-configured starter pro
 Trigger automatically when the user:
 - Types `/cdesign "idea"` (with optional reference image or URL)
 - Asks for a landing page, hero section, marketing site, or interactive prototype
-- Mentions "cinematic", "smooth scroll", "Awwwards-style", "Linear/Vercel/Stripe vibe", "claude design", "красивый лендинг"
+- Mentions "cinematic", "smooth scroll", "Awwwards-style", "Linear/Vercel/Stripe vibe", "красивый лендинг"
+
+## Do NOT auto-trigger when:
+- User asks for a small UI edit or component tweak in an existing project
+- User explicitly says "simple", "minimal", "just a quick hero", "basic"
+- User wants to modify a single section without full landing generation
+- Request is about an existing non-cdesign project (no `.cdesign/INTENT.md` present)
+
+In these cases: do NOT scaffold a new project, do NOT load Director's Roll, do NOT enforce motion budget. Help with the specific edit using standard practices instead.
 
 ## Workflow
 
