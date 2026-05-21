@@ -57,11 +57,12 @@ If user provides video link — say plainly video is not supported, ask for scre
 
 Read these BEFORE writing code. They are slim by design (lazy-loaded recipes elsewhere):
 
-1. `references/director-roll.md` — vibe matrix
-2. `references/anti-slop.md` — bans (mono labels, slop fonts, fake stats, fictional signatures, AI words EN+RU)
-3. `references/content-system.md` — industry-aware copy rules
+1. `references/director-roll.md` — vibe matrix + per-vibe layout / allowed / forbidden / mobile rules
+2. `references/anti-slop.md` — bans (mono labels, slop fonts, fake stats, fictional signatures, AI words EN+RU, screenshot-visible slop)
+3. `references/content-system.md` — industry-aware copy, progressive disclosure, DESIGN_LOCKS
+4. `references/qa-pipeline.md` — five-gate QA pipeline (read before Phase 4)
 
-Do NOT preload all recipes. They are in `references/recipes/*.md` and you read each only when you decide to use that technique.
+Read `references/visual-qa.md` only at Phase 4.5. Do NOT preload all recipes — read each only when you decide to use that technique.
 
 ### Phase 2 — Scaffold from starter (CRITICAL — saves 70% tokens)
 
@@ -184,9 +185,9 @@ Detect generated copy language and set `<html lang="...">` accordingly in `app/l
 This MUST be set in `app/layout.tsx` before Phase 4.
 Skipping this is an audit failure.
 
-### Phase 4 — Self-Audit & Build Gate (inline, no subagent)
+### Phase 4 — Deterministic Self-Audit & Build Gate (inline, no LLM call)
 
-Do NOT launch a Task subagent. Run this checklist yourself inline.
+Run inline. **No subagent at this gate.** The Haiku QA comes later in Phase 4.7.
 Check each file you generated. Fix failures immediately — no iteration loop.
 
 **Anti-slop (any failure = fix before proceeding):**
@@ -248,8 +249,42 @@ Common SSR/build failures and fixes:
 - `next/font` path wrong → check `public/fonts/` exists
 - TypeScript strict errors → fix types, do NOT use `any`
 
-**If all checks pass:** proceed to Phase 5 with PASS.
+**If all checks pass:** proceed to Phase 4.5.
 **If any fail:** fix inline, then proceed with list of what was fixed.
+
+### Phase 4.5 — Visual Screenshot QA (no LLM call)
+
+Read `references/visual-qa.md`. Capture 9 frames (desktop 1440×900, tablet 1024×768, mobile 390×844 × scroll 0/50/100%) using Playwright MCP, `npx playwright screenshot`, or Puppeteer. Inspect frames against the blocker list.
+
+If no browser/preview tool is available: mark `LAST_QA.visual = SKIPPED (no_browser)` and proceed. Never block on missing tools.
+
+Apply fixes inline. Re-shoot only the affected viewport.
+
+### Phase 4.7 — Haiku 4.5 Mobile/Perf Gate (1 LLM call, mandatory)
+
+Launch ONE subagent on Haiku 4.5 (`claude-haiku-4-5-20251001`). Brief it with: the project path, the mobile screenshots from Phase 4.5 (or DOM if none), and the checklist below.
+
+Haiku reviews:
+- Mobile composition (390×844)
+- Performance: R3F under PerformanceMonitor, transform/opacity-only, no continuous filter
+- Spectacle budget on mobile (max 1 heavy effect / viewport)
+- Touch targets ≥ 44×44
+- Reduced-motion fallbacks for Tier 1/2
+- Tier-3/4 motion does not compete with Tier 1
+
+Contract: returns `PASS` or `FAIL + concrete fix list`. Apply fixes inline.
+
+If Task tool or Haiku model is unreachable: run the checklist inline yourself and mark `LAST_QA.mobile = PASS (inline)`.
+
+### Phase 4.9 — Optional Second QA (1 LLM call, conditional)
+
+Trigger ONLY if:
+1. Phase 4.7 returned FAIL after one fix-and-rerun cycle, OR
+2. Page is heavy cinematic (ScrollFilm active, OR 2+ R3F sections, OR scroll-driven master timeline).
+
+Launch ONE Haiku 4.5 subagent to review overall coherence: motion hierarchy, vibe consistency across viewports, composition vs effect balance.
+
+Skip otherwise. **Total LLM QA calls per page = 2 maximum.**
 
 ### Phase 5 — Handoff
 
@@ -269,32 +304,41 @@ Before final handoff, create `.cdesign/INTENT.md` in project root:
 ## Reason for vibe selection
 [1–2 sentences explaining why this vibe matched the business/audience]
 
-## Palette tokens
-[list CSS custom properties used: --background, --foreground, --accent, etc.]
-
-## Typography
-[primary + display font choices, sizes/weights]
-
-## Motion systems used
-- Tier 1 hero: [name]
-- Tier 2 transitions: [list]
-- Tier 3 micro: [list]
-- Tier 4 ambient: [name]
-
-## Visual motif
-[1 sentence: what visual element repeats across sections]
-
 ## Sections generated
 [ordered list of sections with one-line purpose each]
 
-## Constraints / do-not-change
-- [items that define this design's identity and must not be edited]
-- [e.g. "no fake stats", "no testimonials section", "asymmetric hero stays left-aligned"]
+## DESIGN_LOCKS
+Items Edit Mode cannot change without explicit user request.
+- vibe: [letter + name]
+- hero_composition: [asymmetric ratio + dominant object, e.g. "60/40, 3D bottle dominates left"]
+- visual_motif: [recurring shape/treatment]
+- palette: { background: "<token>", foreground: "<token>", accent: "<token>" }
+- typography: { display: "<font>", body: "<font>" }
+- section_order: [ordered list — copy may be reworded, order is locked]
 
-## Build status
-- Build: PASS
-- Lint: PASS
-- Date: [ISO date]
+## MOTION_LOCKS
+- tier1_hero: [name of primary motion system]
+- tier2_transitions: [list]
+- tier3_micro: [list — counted as a family]
+- tier4_ambient: [name]
+- reduced_motion_fallback: [yes / list which tiers]
+
+## MOBILE_NOTES
+- downgrades_applied: [e.g. "pinned scrub → static render", "parallax 5 → 2 layers"]
+- heavy_motion_disabled_on_mobile: [list]
+- touch_targets_verified: [yes / no]
+- viewport_tested: 390×844
+
+## LAST_QA
+- date: [ISO date]
+- gate_1_build: PASS
+- gate_1_lint: PASS
+- gate_2_visual: PASS / FAIL / SKIPPED (<reason>)
+- gate_2_viewports: [desktop / tablet / mobile or list captured]
+- gate_3_mobile_perf: PASS / FAIL / PASS (inline)
+- gate_4_second_qa: PASS / N/A
+- llm_qa_calls_used: [0–2]
+- blockers_resolved: [list or "none"]
 ````
 
 This file is read by Edit Mode for delta-based modifications.
@@ -304,10 +348,12 @@ This file is read by Edit Mode for delta-based modifications.
 1. One line: what was built
 2. `cd <project> && npm run dev` instruction
 3. `Build: PASS` / `Lint: PASS` (both required — if either failed, do NOT call handoff valid)
-4. `.cdesign/INTENT.md generated`
-5. Audit verdict
-6. If FAIL: list remaining issues honestly
-7. **Nothing else.** No marketing fluff, no emoji.
+4. QA summary in 1 line:
+   `Visual: <PASS/FAIL/SKIPPED> · Mobile/Perf: <PASS/FAIL/inline> · LLM QA calls: <n>/2`
+5. If `Visual: SKIPPED` → add "Manual visual review recommended"
+6. `.cdesign/INTENT.md generated`
+7. If FAIL: list remaining issues honestly
+8. **Nothing else.** No marketing fluff, no emoji.
 
 ## Edit Mode (existing projects only)
 
@@ -429,3 +475,10 @@ Heavy motion (R3F, pinned scrub, canvas scroll) max 1 per viewport.
 
 - When user mentions "матовое стекло" / "glass" / "frosted" / "переливание цветов" → use GlassGradientBg (CSS) or ShaderGradientBg (GLSL)
 - Read references/recipes/animated-glass-gradient.md or references/recipes/shader-gradient.md first
+
+**QA fallback (mandatory):**
+
+- LLM QA calls are capped at 2 per page (Phase 4.7 + optional Phase 4.9). Never exceed.
+- If Playwright/browser unavailable → Phase 4.5 skipped, `LAST_QA.visual = SKIPPED (no_browser)`, handoff surfaces it.
+- If Task subagent or Haiku 4.5 unavailable → Phase 4.7 runs inline, `LAST_QA.mobile = PASS (inline)`.
+- Missing resources never block handoff. Degrade and document in LAST_QA.

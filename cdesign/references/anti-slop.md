@@ -261,3 +261,24 @@ performance_violations:
   - "transition: all (implicitly animates layout/paint properties — always list specific properties explicitly: transition: transform 0.3s, opacity 0.3s)"
   - "mounting/unmounting heavy R3F sections on scroll (use VisibilityGate component instead)"
 ```
+
+## Screenshot-visible slop
+
+```yaml
+screenshot_visible_slop:
+  desc: "Patterns a reviewer spots from a screenshot in 2 seconds. Used by Phase 4.5 Visual QA."
+  blockers:
+    - "Centered SaaS hero — headline + subhead + CTA all stacked center, no asymmetry, no anchor object"
+    - "3+ identical cards in a row — same icon weight, same line count, same caption length"
+    - "Empty effect section — heavy motion / WebGL / parallax with no copy, no anchor, no payoff"
+    - "Weak type scale — body and headline within 1.5× of each other, no contrast"
+    - "Decorative motion masking poor composition — everything moves, nothing reads as primary"
+    - "Glass over body text — paragraph behind backdrop-filter, content unreadable"
+    - "Trusted-by row of 6 grayscale logos centered with no real brand"
+    - "Three identical pricing cards with 'Most Popular' middle one"
+    - "Purple→pink gradient CTA (visible at any viewport)"
+    - "Bento grid where every cell is the same priority"
+    - "Mobile parallax/scrub still firing (should degrade)"
+    - "Horizontal scroll on 390px viewport"
+  rule: "If a reviewer can spot the issue from a screenshot in 2 seconds, it's a blocker."
+```

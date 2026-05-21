@@ -183,3 +183,38 @@ CTA must match the industry. Examples:
 - If the user writes in Russian → write site copy in Russian unless they ask otherwise.
 - If the user writes in English → write in English.
 - If the project is local Kazakhstan and the user writes Russian → Russian copy is preferred.
+
+---
+
+## Progressive disclosure
+
+Each section reveals exactly one new idea. The hero does not contain every value prop.
+
+Typical narrative order:
+1. Hero → identity + single primary action
+2. Section 2 → context (who/what/why — one thread)
+3. Section 3 → proof or process
+4. Section 4 → secondary detail (use case, integration, range)
+5. Closing → conversion / contact / next step
+
+Rules:
+- No section repeats information already shown
+- No section introduces three new concepts at once
+- Body copy expands what the heading promised — never restates it
+- If a section can be deleted without losing the narrative, delete it
+
+---
+
+## DESIGN_LOCKS (for `.cdesign/INTENT.md`)
+
+Items the model marks as locked once decided. Edit Mode cannot change locks without explicit user request.
+
+Required locks:
+- Director's Roll vibe (letter + name)
+- Hero composition formula (asymmetric ratio, dominant object)
+- Visual motif (the recurring shape/treatment)
+- Primary palette (background + foreground + accent)
+- Display + body typefaces
+- Section order (you may reword copy, never reorder)
+
+Locks live under `## DESIGN_LOCKS` in INTENT.md and are read by Edit Mode at start.

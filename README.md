@@ -31,8 +31,14 @@ The skill will:
 2. Pick ONE vibe from Director's Roll (10 vibes: Hardcore 3D / Soft Editorial / Brutalist Dev / SVG Logo / Wabi-Sabi / Dark Institutional / Neo-Bank Minimal / Product Theatre / Cartographic System / Monolithic Luxury — selected via a deterministic decision tree)
 3. Scaffold the project from the GitHub starter (one `npx` command)
 4. Build in 3 passes: structure → tokens → motion
-5. Run a strict self-audit checklist
-6. Hand off with a verdict
+5. Run a layered QA pipeline:
+   - **Self-audit** (anti-slop, motion, architecture — inline, no LLM call)
+   - **Deterministic gate** (`npm run lint` + `npm run build` — hard block)
+   - **Visual screenshot QA** (desktop 1440×900, tablet 1024×768, mobile 390×844 — skipped gracefully if no browser)
+   - **Haiku 4.5 mobile/perf gate** (1 LLM call, mandatory, falls back to inline if unavailable)
+   - **Optional second QA** (1 LLM call, only on FAIL or heavy cinematic page — max 2 LLM QA calls per page)
+6. Generate `.cdesign/INTENT.md` (DESIGN_LOCKS / MOTION_LOCKS / MOBILE_NOTES / LAST_QA)
+7. Hand off with a verdict
 
 ## What this prevents
 
@@ -76,9 +82,11 @@ The skill will:
 cdesign/
 ├── SKILL.md                          # Workflow definition
 └── references/
-    ├── director-roll.md              # 10-vibe matrix with decision tree
-    ├── anti-slop.md                  # Banned patterns (regex + YAML)
-    ├── content-system.md             # Industry-aware copy rules
+    ├── director-roll.md              # 10-vibe matrix + per-vibe layout/forbidden/mobile rules
+    ├── anti-slop.md                  # Banned patterns (regex + YAML + screenshot-visible slop)
+    ├── content-system.md             # Industry-aware copy + progressive disclosure + DESIGN_LOCKS
+    ├── qa-pipeline.md                # Five-gate QA flow (LLM calls capped at 2)
+    ├── visual-qa.md                  # Screenshot QA viewports + blockers
     └── recipes/                      # Lazy-loaded technique recipes
         ├── lenis-gsap-sync.md
         ├── split-reveal.md

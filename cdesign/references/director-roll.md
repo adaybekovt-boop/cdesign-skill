@@ -20,6 +20,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 
 **Motion intensity: 8/10** — aggressive, scroll-heavy, 3D everywhere.
 
+**Layout formula:** asymmetric 60/40 hero — 3D object on one side, headline + sparse meta on the other. Alternating section density.
+**Allowed components:** PhotoTo3D, GeometricHero, PinnedScrub, TiltCard, MagneticButton, Marquee (real names only).
+**Forbidden:** centered 3D with headline above + CTA below, multiple Bloom passes, R3F in every section, neon purple→pink accents.
+**Mobile downgrade:** static hero render instead of pinned scrub, Tilt off, R3F FPS cap 30, single accent glow only.
+
 ---
 
 ## VIBE B — Soft Editorial
@@ -34,6 +39,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 - One section: `<MultiLayerParallax>` with photography
 
 **Motion intensity: 4/10** — slow, intentional, masked reveals, no aggressive parallax.
+
+**Layout formula:** large image bleed on one side, oversized italic display word breaking the grid, ragged right column for body.
+**Allowed components:** SplitTextReveal, RevealImage, MultiLayerParallax, FloatingObject (transparent PNG only).
+**Forbidden:** R3F, neon, grain above 0.05, purple, centered hero, 3-column icon grid.
+**Mobile downgrade:** parallax down to 2 layers, image stack vertical, italic display scales to clamp(2rem, 8vw, 3.5rem).
 
 ---
 
@@ -51,6 +61,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 
 **Motion intensity: 5/10** — precise, snappy, no spring overshoot.
 
+**Layout formula:** left-aligned hero with sparse meta column on right, code block as a hero element, schematic diagram between sections.
+**Allowed components:** SplitTextReveal, SvgPathDraw, Marquee (real integrations only), real `<pre>` code blocks.
+**Forbidden:** 3D, gradients, decorative illustrations, fake client logos, spring overshoot, animated rainbow mesh.
+**Mobile downgrade:** schematic diagrams collapse to single-column flow, code blocks scroll horizontally inside a contained shell, monospace stays.
+
 ---
 
 ## VIBE D — SVG Logo Showcase
@@ -65,6 +80,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 - One section: case study `<RevealImage>` grid
 
 **Motion intensity: 7/10** — logo is the star, everything orbits it.
+
+**Layout formula:** logo centered or slightly offset, oversized — sections derived from logo geometry, palette pulled from logo colors.
+**Allowed components:** SvgLogo3D, SvgPathDraw, RevealImage, FloatingObject for additional brand assets.
+**Forbidden:** competing 3D objects, decorations unrelated to logo geometry, custom illustrations.
+**Mobile downgrade:** disable extrusion rotation, render as 2D SVG with slow path-draw entrance.
 
 ---
 
@@ -81,6 +101,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 
 **Motion intensity: 3/10** — minimal, soft, breathing only. NO scrub. NO 3D.
 
+**Layout formula:** intentionally off-grid columns, photo bleeds with negative space on different sides per section, long-form ragged text.
+**Allowed components:** RevealImage, MultiLayerParallax (asymmetric), SplitTextReveal with subtle stagger only.
+**Forbidden:** R3F, scrub, neon, pure black/white, symmetric grids, sans-serif on every word.
+**Mobile downgrade:** parallax to 1 layer, keep grain and paper texture, photos stack with same off-grid energy.
+
 ---
 
 ## VIBE F — Dark Institutional
@@ -95,6 +120,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 **Motion intensity: 4/10** — structured, formal, no decorative excess.
 
 **Important:** copy should be practical — admissions, grants, schedules, documents, contacts. Avoid fake prestige language.
+
+**Layout formula:** sharp grid shell, document-style panels, dense nav hierarchy, hero with single strong statement + practical primary CTA.
+**Allowed components:** SplitTextReveal, SvgPathDraw, RevealImage for campus/document photos, structured tables.
+**Forbidden:** R3F decoration, neon, animated gradients, "premium" language, fake rankings, fake employment %.
+**Mobile downgrade:** keep dense nav as collapsible sections, panel grid stacks vertical, no parallax.
 
 ---
 
@@ -111,6 +141,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 
 **Important:** no fake numbers, no fake client logos, no fake security claims.
 
+**Layout formula:** hero with one large product UI fragment + concise statement, sections alternate between data panel and narrative copy.
+**Allowed components:** SplitTextReveal, PinnedScrub for product flow, Marquee for real integrations, custom data card with token colors.
+**Forbidden:** fabricated stats, fake "Trusted by", neon, purple→pink CTAs, 3D, decorative gradients.
+**Mobile downgrade:** product fragments shrink to single most-important card, transaction rows scroll horizontally inside a shell, no pinned scrub.
+
 ---
 
 ## VIBE H — Product Theatre
@@ -125,6 +160,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 **Motion intensity: 6/10** — product is the hero, everything defers to it.
 
 **Important:** the product is the hero. Do not add unrelated bento sections.
+
+**Layout formula:** product dominates ~55% of hero, sparse meta on the side, every section anchored to a product detail (taste, material, ritual).
+**Allowed components:** FloatingObject, PhotoTo3D, RevealImage for macro shots, MultiLayerParallax with product crops only.
+**Forbidden:** unrelated bento, 3-column "feature" grids, fake health claims, fake awards, "limited edition" without user confirmation.
+**Mobile downgrade:** product crop scales to full width, parallax to 2 layers, FloatingObject stays but rotation slows.
 
 ---
 
@@ -141,6 +181,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 
 **Important:** no real map labels unless user provides real locations.
 
+**Layout formula:** map/network as background motif behind hero, sections introduce nodes one at a time, beacon point marks the primary CTA.
+**Allowed components:** SvgPathDraw (path-draw on scroll), MultiLayerParallax (map layers), GeometricHero abstracted as network.
+**Forbidden:** real map labels without user data, fake government affiliation, decorative R3F, fake national statistics.
+**Mobile downgrade:** map background simplifies to single layer, nodes stack vertical, parallax disabled.
+
 ---
 
 ## VIBE J — Monolithic Luxury
@@ -153,6 +198,11 @@ Output to user before building: `Director's Roll: <VIBE_NAME> selected because <
 - `<SplitTextReveal>`, `<FrameCut>` max 1–2 times, `<RevealImage>`, minimal ambient gradients.
 
 **Motion intensity: 4/10** — luxury = restraint, not many effects.
+
+**Layout formula:** huge type takes ~70% of hero, single metallic accent (one line, one underline, one tag), generous negative space, slow scene transitions.
+**Allowed components:** SplitTextReveal, FrameCut (max 2 per page), RevealImage, ambient gradient.
+**Forbidden:** more than one accent color, multiple R3F scenes, shouting "premium" / "exclusive", busy backgrounds, more than 2 FrameCuts.
+**Mobile downgrade:** type scales but stays large, FrameCut still allowed once, accent shrinks to single tag.
 
 ---
 
