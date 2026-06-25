@@ -354,16 +354,6 @@ Items Edit Mode cannot change without explicit user request.
 
 This file is read by Edit Mode for delta-based modifications.
 
-#### Generate handoff archive (mandatory)
-
-Run in project root:
-
-```bash
-npm run pack:cdesign
-```
-
-This must create or refresh `cdesign-starter.zip` in the generated landing folder. Do not hand off without this archive unless the command fails after a real fix attempt; if it fails, report the failure honestly and do not call the handoff complete.
-
 #### Final message
 
 1. One line: what was built
@@ -372,10 +362,9 @@ This must create or refresh `cdesign-starter.zip` in the generated landing folde
 4. QA summary in 1 line:
    `Visual: <PASS/FAIL/SKIPPED> · Mobile/Perf: <PASS/FAIL/inline> · LLM QA calls: <n>/2`
 5. If `Visual: SKIPPED` → add "Manual visual review recommended"
-6. `Archive: cdesign-starter.zip`
-7. `.cdesign/INTENT.md generated`
-8. If FAIL: list remaining issues honestly
-9. **Nothing else.** No marketing fluff, no emoji.
+6. `.cdesign/INTENT.md generated`
+7. If FAIL: list remaining issues honestly
+8. **Nothing else.** No marketing fluff, no emoji.
 
 ## Edit Mode (existing projects only)
 
