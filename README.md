@@ -38,7 +38,8 @@ The skill will:
    - **Haiku 4.5 mobile/perf gate** (1 LLM call, mandatory, falls back to inline if unavailable)
    - **Optional second QA** (1 LLM call, only on FAIL or heavy cinematic page — max 2 LLM QA calls per page)
 6. Generate `.cdesign/INTENT.md` (DESIGN_LOCKS / MOTION_LOCKS / MOBILE_NOTES / LAST_QA)
-7. Hand off with a verdict
+7. Run `npm run pack:cdesign` so `cdesign-starter.zip` is refreshed in the generated project folder
+8. Hand off with a verdict and archive status
 
 ## What this prevents
 
@@ -53,6 +54,8 @@ The skill will:
 - ❌ Uniform `py-24` everywhere (spatial rhythm is enforced)
 - ❌ Width/height/box-shadow animations (compositor-only contract)
 - ❌ Generic AI copy (content-system.md enforces industry-specific language)
+- ❌ Random decorative 3D props (stars, trophies, blobs, spheres) unless they come from the product, brand, or supplied reference
+- ❌ Mobile downgrade that destroys the art direction instead of only reducing motion/performance cost
 
 ## What this generates
 

@@ -26,6 +26,8 @@ Never block handoff because screenshots are unavailable.
 - Horizontal scroll on mobile (390px viewport)
 - Hero CTA below the fold on desktop (1440×900)
 - Centered SaaS hero — headline + subhead + CTA all stacked center, no asymmetry, no anchor object
+- First viewport has no intentional anchor object, visual field, or asymmetry; it looks like text placed over decoration
+- Decorative 3D stars, trophies, blobs, spheres, confetti, or plastic props appear without a direct product/brand/reference reason
 - 3+ identical cards in a row (same icon weight, same caption length)
 - Empty effect section — heavy motion, no copy, no anchor, no payoff
 - Weak type scale — body and headline within 1.5× of each other
@@ -38,6 +40,7 @@ Never block handoff because screenshots are unavailable.
 - Mobile: parallax/scrub still active (should degrade)
 - Mobile: text overflow / clipping
 - Mobile: CTA hidden by sticky nav
+- Mobile: visual identity disappears (same motif, palette, and hierarchy must remain even if motion is reduced)
 
 ## Non-blockers (record but don't fail)
 

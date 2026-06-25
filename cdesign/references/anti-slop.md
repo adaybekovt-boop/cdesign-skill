@@ -269,6 +269,8 @@ screenshot_visible_slop:
   desc: "Patterns a reviewer spots from a screenshot in 2 seconds. Used by Phase 4.5 Visual QA."
   blockers:
     - "Centered SaaS hero — headline + subhead + CTA all stacked center, no asymmetry, no anchor object"
+    - "Reference-free decoration — generic stars, trophies, blobs, spheres, confetti, or plastic 3D props with no product/brand reason"
+    - "Weak hero anchor — first viewport has no dominant object, no memorable visual field, and no intentional empty space"
     - "3+ identical cards in a row — same icon weight, same line count, same caption length"
     - "Empty effect section — heavy motion / WebGL / parallax with no copy, no anchor, no payoff"
     - "Weak type scale — body and headline within 1.5× of each other, no contrast"
@@ -279,6 +281,7 @@ screenshot_visible_slop:
     - "Purple→pink gradient CTA (visible at any viewport)"
     - "Bento grid where every cell is the same priority"
     - "Mobile parallax/scrub still firing (should degrade)"
+    - "Mobile identity collapse — mobile keeps content but loses motif, palette, hierarchy, or anchor object"
     - "Horizontal scroll on 390px viewport"
   rule: "If a reviewer can spot the issue from a screenshot in 2 seconds, it's a blocker."
 ```

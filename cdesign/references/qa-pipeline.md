@@ -17,7 +17,9 @@ Run Phase 4 checklist (anti-slop / motion / architecture) yourself. Fix inline.
 ## Gate 1 — Build & Lint
 
 - `npm run lint` → PASS
+- `npm run typecheck` → PASS
 - `npm run build` → PASS
+- `npm run audit:cdesign` → PASS
 
 Hard block. Cannot advance otherwise.
 
@@ -67,3 +69,7 @@ LLM QA calls per page = **2 maximum** (Gate 3 + optional Gate 4). Never more.
 | Both | Gates 2 + 3 inline, handoff marks "QA: manual review needed" |
 
 Never abort handoff because a QA resource is missing. Degrade and document.
+
+## Handoff archive
+
+After all gates pass, run `npm run pack:cdesign`. The generated project must contain a fresh `cdesign-starter.zip` in its root so the user can open the folder and immediately find the portable cdesign archive.

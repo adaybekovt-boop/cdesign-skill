@@ -4,6 +4,8 @@
 
 Output to user before building: `Director's Roll: <VIBE_NAME> selected because <one-line reason>.`
 
+Global art-direction rule: the chosen vibe must explain every visible decorative object. If a 3D star, trophy, blob, sphere, ribbon, or confetti element is not part of the user's product, logo, supplied reference, or industry metaphor, remove it. A page with fewer justified objects is stronger than a page with random cinematic props.
+
 ---
 
 ## VIBE A — Hardcore 3D

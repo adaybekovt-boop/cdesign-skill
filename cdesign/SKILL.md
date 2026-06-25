@@ -53,6 +53,11 @@ If user provides video link — say plainly video is not supported, ask for scre
    Building now.
    ```
 
+6. Set a **reference-quality floor** before writing code:
+   - The first viewport must read like a directed composition: dominant object or visual field, clear negative space, asymmetric layout, and one primary action.
+   - Do not use decorative 3D shapes, stars, blobs, trophies, confetti, or generic floating objects unless they are directly part of the user's product, brand, or provided reference.
+   - The site must preserve a strong visual identity on mobile. Mobile can reduce motion, DPR, and parallax, but cannot collapse into a plain stacked template.
+
 ### Phase 1 — Read required references
 
 Read these BEFORE writing code. They are slim by design (lazy-loaded recipes elsewhere):
@@ -215,6 +220,10 @@ Check each file you generated. Fix failures immediately — no iteration loop.
 - [ ] Read `references/content-system.md` and wrote industry-specific copy (no generic placeholders)
 - [ ] Composition was solved before effects were added
 - [ ] Vibe was selected through Director's Roll decision tree
+- [ ] First viewport meets the reference-quality floor: strong silhouette, intentional empty space, readable hierarchy, one memorable motif
+- [ ] Decorative assets are justified by the user's product/brand/reference, not generic "cinematic" filler
+- [ ] No random stars, trophies, medals, spheres, abstract blobs, or plastic 3D props unless explicitly requested or supplied
+- [ ] Mobile keeps the same art direction and motif instead of replacing the page with a generic stacked layout
 
 **Architecture:**
 
@@ -232,12 +241,14 @@ Check each file you generated. Fix failures immediately — no iteration loop.
 Run in project root:
 
 1. `npm run lint`
-2. `npm run build`
+2. `npm run typecheck`
+3. `npm run build`
+4. `npm run audit:cdesign`
 
-If either command fails:
+If any command fails:
 - Read the exact error output
 - Fix the root cause (not the symptom)
-- Re-run both commands
+- Re-run the full command list
 - Do NOT proceed to Phase 5 until both pass
 
 Common SSR/build failures and fixes:
@@ -343,6 +354,16 @@ Items Edit Mode cannot change without explicit user request.
 
 This file is read by Edit Mode for delta-based modifications.
 
+#### Generate handoff archive (mandatory)
+
+Run in project root:
+
+```bash
+npm run pack:cdesign
+```
+
+This must create or refresh `cdesign-starter.zip` in the generated landing folder. Do not hand off without this archive unless the command fails after a real fix attempt; if it fails, report the failure honestly and do not call the handoff complete.
+
 #### Final message
 
 1. One line: what was built
@@ -351,9 +372,10 @@ This file is read by Edit Mode for delta-based modifications.
 4. QA summary in 1 line:
    `Visual: <PASS/FAIL/SKIPPED> · Mobile/Perf: <PASS/FAIL/inline> · LLM QA calls: <n>/2`
 5. If `Visual: SKIPPED` → add "Manual visual review recommended"
-6. `.cdesign/INTENT.md generated`
-7. If FAIL: list remaining issues honestly
-8. **Nothing else.** No marketing fluff, no emoji.
+6. `Archive: cdesign-starter.zip`
+7. `.cdesign/INTENT.md generated`
+8. If FAIL: list remaining issues honestly
+9. **Nothing else.** No marketing fluff, no emoji.
 
 ## Edit Mode (existing projects only)
 
