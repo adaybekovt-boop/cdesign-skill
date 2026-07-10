@@ -57,6 +57,9 @@ If user provides video link — say plainly video is not supported, ask for scre
    - The first viewport must read like a directed composition: dominant object or visual field, clear negative space, asymmetric layout, and one primary action.
    - Do not use decorative 3D shapes, stars, blobs, trophies, confetti, or generic floating objects unless they are directly part of the user's product, brand, or provided reference.
    - The site must preserve a strong visual identity on mobile. Mobile can reduce motion, DPR, and parallax, but cannot collapse into a plain stacked template.
+   - If the selected vibe needs 3D, name the asset before coding: a user-owned/licensed GLB/GLTF, a real product photo, or an approved 2D fallback. Generic geometry is never a substitute for a missing model.
+   - A user-supplied reference has visual authority. Record three anchors before coding: composition, dominant silhouette or object, and type or motion rhythm. Preserve those anchors unless the user asks to change them.
+   - Business category controls truthful content and information architecture; it must not flatten a supplied cinematic reference into a generic category template.
 
 ### Phase 1 — Read required references
 
@@ -157,6 +160,7 @@ Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For
 - `references/recipes/lenis-gsap-sync.md` — only if writing custom Lenis logic (starter has it)
 - `references/recipes/split-reveal.md` — stagger calibration
 - `references/recipes/pinned-scrub.md` — pinned ScrollTrigger pattern
+- `references/recipes/r3f-gltf-model.md` - licensed GLB/GLTF asset gate and `ModelHero`
 - `references/recipes/r3f-photo.md` — photo to 3D plane
 - `references/recipes/multi-layer-parallax.md` — 3-layer depth
 - `references/recipes/canvas-scrub.md` — frame-by-frame video alternative
@@ -220,7 +224,10 @@ Check each file you generated. Fix failures immediately — no iteration loop.
 - [ ] Read `references/content-system.md` and wrote industry-specific copy (no generic placeholders)
 - [ ] Composition was solved before effects were added
 - [ ] Vibe was selected through Director's Roll decision tree
+- [ ] Every GLB/GLTF is declared in `public/models/ASSETS.md` with source, license, attribution, and optimization status
+- [ ] A missing 3D model changed the hero to an approved 2D fallback; it was not replaced with generic geometry
 - [ ] First viewport meets the reference-quality floor: strong silhouette, intentional empty space, readable hierarchy, one memorable motif
+- [ ] If a reference was supplied, the final screenshots preserve at least two of its three recorded visual anchors
 - [ ] Decorative assets are justified by the user's product/brand/reference, not generic "cinematic" filler
 - [ ] No random stars, trophies, medals, spheres, abstract blobs, or plastic 3D props unless explicitly requested or supplied
 - [ ] Mobile keeps the same art direction and motif instead of replacing the page with a generic stacked layout

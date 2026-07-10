@@ -28,6 +28,9 @@ Never block handoff because screenshots are unavailable.
 - Centered SaaS hero — headline + subhead + CTA all stacked center, no asymmetry, no anchor object
 - First viewport has no intentional anchor object, visual field, or asymmetry; it looks like text placed over decoration
 - Decorative 3D stars, trophies, blobs, spheres, confetti, or plastic props appear without a direct product/brand/reference reason
+- A 3D hero uses generic geometry even though the brief calls for a product or brand model, or its GLB/GLTF is missing from `public/models/ASSETS.md`
+- A GLB/GLTF asset is blank, unlit, missing, or visually indistinguishable on desktop or mobile
+- When a reference is supplied, fewer than two matching visual anchors across composition, dominant silhouette, and typography or motion rhythm
 - 3+ identical cards in a row (same icon weight, same caption length)
 - Empty effect section — heavy motion, no copy, no anchor, no payoff
 - Weak type scale — body and headline within 1.5× of each other
