@@ -16,6 +16,7 @@ Global art-direction rule: the chosen vibe must explain every visible decorative
 
 **Stack from starter:**
 - Hero: `<PhotoTo3D>` (user photo) OR `<GeometricHero>` (torus knot if no photo)
+- Asset rule: prefer `ModelHero` with a licensed GLB/GLTF; a torus is allowed only for an explicitly abstract brief, never as a missing-model fallback.
 - One section: `<PinnedScrub>` with R3F visuals
 - One section: `<TiltCard>` grid for features
 - Required: Bloom + Noise post-processing on all R3F
@@ -23,6 +24,7 @@ Global art-direction rule: the chosen vibe must explain every visible decorative
 **Motion intensity: 8/10** — aggressive, scroll-heavy, 3D everywhere.
 
 **Layout formula:** asymmetric 60/40 hero — 3D object on one side, headline + sparse meta on the other. Alternating section density.
+**Model component:** `ModelHero` is allowed when `public/models/ASSETS.md` records its provenance and license.
 **Allowed components:** PhotoTo3D, GeometricHero, PinnedScrub, TiltCard, MagneticButton, Marquee (real names only).
 **Forbidden:** centered 3D with headline above + CTA below, multiple Bloom passes, R3F in every section, neon purple→pink accents.
 **Mobile downgrade:** static hero render instead of pinned scrub, Tilt off, R3F FPS cap 30, single accent glow only.
@@ -118,6 +120,7 @@ Global art-direction rule: the chosen vibe must explain every visible decorative
 
 **Stack from starter:**
 - `<SplitTextReveal>`, `<PinnedScrub>` only if needed, `<SvgPathDraw>`, structured sections.
+- When a supplied reference makes 3D central to the composition, allow one reference-authorized 3D hero while keeping institutional content practical and truthful.
 
 **Motion intensity: 4/10** — structured, formal, no decorative excess.
 
@@ -125,7 +128,9 @@ Global art-direction rule: the chosen vibe must explain every visible decorative
 
 **Layout formula:** sharp grid shell, document-style panels, dense nav hierarchy, hero with single strong statement + practical primary CTA.
 **Allowed components:** SplitTextReveal, SvgPathDraw, RevealImage for campus/document photos, structured tables.
+**Reference-authorized 3D:** one ModelHero, PhotoTo3D, or supplied brand geometry is allowed when the reference establishes it as the dominant visual anchor.
 **Forbidden:** R3F decoration, neon, animated gradients, "premium" language, fake rankings, fake employment %.
+**Exception:** R3F is forbidden only when it is ungrounded decoration. A reference-authorized hero is not decoration.
 **Mobile downgrade:** keep dense nav as collapsible sections, panel grid stacks vertical, no parallax.
 
 ---
@@ -156,6 +161,7 @@ Global art-direction rule: the chosen vibe must explain every visible decorative
 
 **Visual motifs:** single object spotlight, stage lighting, rotating product cutout, macro material details.
 
+- Prefer `ModelHero` when a licensed product model exists; use a real photo treatment when it does not.
 **Stack from starter:**
 - `<FloatingObject>`, `<PhotoTo3D>` if image exists, `<RevealImage>`, controlled parallax.
 
@@ -163,6 +169,7 @@ Global art-direction rule: the chosen vibe must explain every visible decorative
 
 **Important:** the product is the hero. Do not add unrelated bento sections.
 
+**Model component:** `ModelHero` is allowed for a licensed product model recorded in `public/models/ASSETS.md`.
 **Layout formula:** product dominates ~55% of hero, sparse meta on the side, every section anchored to a product detail (taste, material, ritual).
 **Allowed components:** FloatingObject, PhotoTo3D, RevealImage for macro shots, MultiLayerParallax with product crops only.
 **Forbidden:** unrelated bento, 3-column "feature" grids, fake health claims, fake awards, "limited edition" without user confirmation.
@@ -238,6 +245,9 @@ ELSE
 ```
 
 **Conflict rule:** when two vibes match, choose the one that matches the user's **business type** first, not the visual effect request.
+**Reference override:** if the user supplies a reference with a clear visual language, preserve its composition, silhouette, and rhythm even when the business category would normally choose a quieter treatment. Keep one vibe; apply the business category to content truthfulness, navigation, and claims.
+
+- "college with a supplied 3D reference" -> **Dark Institutional (F)** with one reference-authorized 3D hero, not a generic no-3D template
 
 Examples:
 - "college with WebGL" → **Dark Institutional (F)**, not Hardcore 3D
