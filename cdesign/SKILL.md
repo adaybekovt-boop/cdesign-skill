@@ -1,80 +1,180 @@
 ---
 name: cdesign
-description: Generate cinematic, high-polish landing pages with strong composition, motion hierarchy, and anti-slop constraints. Use the cdesign-starter template (Next.js 15 + React 19 + Motion + GSAP + R3F + Lenis) and apply Director's Roll vibe selection.
+description: Create, edit, or audit cinematic landing pages through a product-specific concept, disciplined motion, truthful content, and evidence-based QA.
 ---
 
-# cdesign — Cinematic Landing Page Generator
+# cdesign — Concept-Led Landing Pages
 
-A Claude Code skill for generating high-polish landing pages from a pre-configured motion/design starter.
+cdesign is the single managing process. `references/anti-slop.md` contributes shared rules and an audit method; it does not start a competing workflow.
 
-**v2.0 key change**: no more manual scaffolding. Uses the cdesign-starter template which has the entire stack (Lenis+GSAP sync, Motion, R3F, design tokens, anti-slop fonts) pre-configured. Saves ~70% of tokens compared to v1.
+## Modes
 
-## When to use
+Determine the mode before loading references or changing files.
 
-Trigger automatically when the user:
-- Types `/cdesign "idea"` (with optional reference image or URL)
-- Asks for a landing page, hero section, marketing site, or interactive prototype
-- Mentions "cinematic", "smooth scroll", "Awwwards-style", "Linear/Vercel/Stripe vibe", "красивый лендинг"
+### Creation
 
-## Do NOT auto-trigger when:
-- User asks for a small UI edit or component tweak in an existing project
-- User explicitly says "simple", "minimal", "just a quick hero", "basic"
-- User wants to modify a single section without full landing generation
-- Request is about an existing non-cdesign project (no `.cdesign/INTENT.md` present)
+Use when the user asks for a new landing page, marketing site, hero experience, or interactive prototype.
 
-In these cases: do NOT scaffold a new project, do NOT load Director's Roll, do NOT enforce motion budget. Help with the specific edit using standard practices instead.
+Outcome: develop a product-specific concept, implement it, verify it, and record decisions.
 
-## Workflow
+### Edit
 
-### Phase 0 — Parse input
+Use when the user asks to change an existing generated project.
 
-Command syntax: `/cdesign "<idea>" [reference] [--research]`
+Outcome: apply the requested delta while preserving unrelated concept, typography, motion hierarchy, material system, and device fallbacks. Do not run concept exploration for a small correction.
 
-- **Image** (.png/.jpg/.webp) → Read tool
-- **URL** → WebFetch
-- **None** → judge by user's prompt alone
+### Audit
 
-Optional flag `--research` → enable WebSearch for Awwwards SOTD references (~30s overhead).
+Use when the user asks to review, critique, assess, or identify anti-slop issues.
 
-If user provides video link — say plainly video is not supported, ask for screenshots or URL.
+Outcome: inspect and report evidence-based findings. Do not edit, rewrite, or redesign unless the user separately authorizes changes.
 
-### Phase 0.5 — Research & Plan (brief, ≤3 tool calls)
+A full redesign is Creation with explicit permission to reconsider the existing concept. It is never an automatic result of an audit score.
 
-1. If image attached → Read it. Extract dominant colors, mood, 3D potential (is this a product/portrait/abstract that could become R3F texture?)
-2. If URL attached → WebFetch it. Note layout, typography, motion aggression
-3. If `--research` flag → ONE WebSearch like `Awwwards 2026 [concept] [vibe]`
-4. **Director's Roll** — see `references/director-roll.md`. Pick ONE vibe using the decision tree. Output to user: `Director's Roll: <VIBE_NAME> selected because <one-line reason>.`
-5. Brief plan to user (5-8 lines, no questions):
-   ```
-   Vibe: [from Director's Roll]
-   Palette: [3 hex values from reference or vibe default]
-   Hero: [Path A photo-3D / Path B abstract / Path C SVG logo / Path D editorial]
-   Motion stack: [Tier 1 hero / 1–2 transitions / 1–2 micro / 1 ambient — see Motion Budget]
-   Building now.
-   ```
+## Trigger boundaries
 
-6. Set a **reference-quality floor** before writing code:
-   - The first viewport must read like a directed composition: dominant object or visual field, clear negative space, asymmetric layout, and one primary action.
-   - Do not use decorative 3D shapes, stars, blobs, trophies, confetti, or generic floating objects unless they are directly part of the user's product, brand, or provided reference.
-   - The site must preserve a strong visual identity on mobile. Mobile can reduce motion, DPR, and parallax, but cannot collapse into a plain stacked template.
-   - If the selected vibe needs 3D, name the asset before coding: a user-owned/licensed GLB/GLTF, a real product photo, or an approved 2D fallback. Generic geometry is never a substitute for a missing model.
-   - A user-supplied reference has visual authority. Record three anchors before coding: composition, dominant silhouette or object, and type or motion rhythm. Preserve those anchors unless the user asks to change them.
-   - Business category controls truthful content and information architecture; it must not flatten a supplied cinematic reference into a generic category template.
+Trigger Creation for `/cdesign`, landing-page generation, or clearly cinematic/interactive marketing work.
 
-### Phase 1 — Read required references
+Do not scaffold or invoke the full Creation workflow for:
 
-Read these BEFORE writing code. They are slim by design (lazy-loaded recipes elsewhere):
+- a small UI edit or isolated component request;
+- a user-requested simple/basic implementation;
+- an existing non-cdesign application where only a narrow change is requested.
 
-1. `references/director-roll.md` — vibe matrix + per-vibe layout / allowed / forbidden / mobile rules
-2. `references/anti-slop.md` — bans (mono labels, slop fonts, fake stats, fictional signatures, AI words EN+RU, screenshot-visible slop)
-3. `references/content-system.md` — industry-aware copy, progressive disclosure, DESIGN_LOCKS
-4. `references/qa-pipeline.md` — five-gate QA pipeline (read before Phase 4)
+Use Edit for an existing cdesign project. Use Audit only when review is the requested outcome.
 
-Read `references/visual-qa.md` only at Phase 4.5. Do NOT preload all recipes — read each only when you decide to use that technique.
+## Instruction priority
 
-### Phase 2 — Scaffold from starter (CRITICAL — saves 70% tokens)
+Resolve conflicts in this order:
 
-Run ONE command instead of writing dozens of boilerplate files:
+1. explicit user requirements and supplied references;
+2. truth, accessibility, asset rights, and functional correctness;
+3. `.cdesign/INTENT.md` project decisions and locks;
+4. the selected concept;
+5. performance, motion hierarchy, and device fallbacks;
+6. optional direction and recipe guidance.
+
+Industry affects facts, navigation, useful actions, and information architecture. It does not automatically choose a visual genre.
+
+Aesthetic heuristics are not technical failures. Centering, white or black backgrounds, common fonts, cards, grids, gradients, glass, and 3D are allowed when they serve the concept and work in context.
+
+## Shared baseline
+
+Read `references/anti-slop.md` before substantial Creation or Audit work. In Edit, consult the relevant section only when the requested delta touches content, visual direction, motion, or a flagged pattern.
+
+Always:
+
+- distinguish supplied or verified facts from assumptions;
+- use truthful claims and attributable assets;
+- connect each major section to the product and page task;
+- solve static composition before motion;
+- maintain one clear motion hierarchy;
+- adapt intensity by device without erasing the concept;
+- report what was and was not actually verified.
+
+Never:
+
+- invent testimonials, metrics, clients, awards, people, rankings, certifications, affiliations, scarcity, or performance/security/health claims;
+- add generic visual objects to replace missing product or brand material;
+- use effects or starter components to satisfy a quota;
+- treat a checklist count as proof that a design is wrong;
+- turn reviewer preference into a mandatory fix;
+- silently replace a coherent concept during a narrow edit;
+- report unavailable visual or motion review as PASS.
+
+## Creation workflow
+
+### Phase 0 — Brief and material
+
+Parse:
+
+- the product and audience;
+- the page task and primary action;
+- supplied copy, brand assets, images, models, UI, documents, URLs, and references;
+- explicit constraints and unknowns;
+- output language.
+
+Use available tools to inspect supplied material. If a URL or media type cannot be accessed, state that limitation and continue only with evidence that is available.
+
+If the user supplies a precise visual reference, record three anchors:
+
+1. composition;
+2. dominant silhouette, object, or visual field;
+3. typography or motion rhythm.
+
+The reference sets the visual floor. Product category still controls truthfulness and useful content, not a forced category template.
+
+### Phase 0.5 — Start the decision record
+
+Create or update `.cdesign/INTENT.md` before implementation. Keep it concise and explanatory.
+
+If `PRODUCT.md`, `DESIGN.md`, or an equivalent project document already exists, use it as the source of truth and link to it from INTENT. Do not create a contradictory duplicate.
+
+Start with:
+
+```md
+# cdesign Intent
+
+## Product
+- known_facts:
+- assumptions:
+- audience:
+- page_task:
+- primary_action:
+
+## Concept
+- status: exploring
+- selected:
+- rationale:
+- project_rules:
+- reference_anchors:
+
+## Materials
+- supplied:
+- verified_sources:
+- missing_or_unverified:
+
+## Structure
+- planned_sections:
+
+## DESIGN_LOCKS
+- pending until concept selection
+
+## Verification
+- code: NOT CHECKED
+- visual: NOT CHECKED
+- motion: NOT CHECKED
+- content_truth: NOT CHECKED
+- accessibility: NOT CHECKED
+```
+
+Do not copy CSS values into INTENT. Explain decisions and point to the token or component files where values live.
+
+### Phase 1 — Develop and select the concept
+
+Read `references/director-roll.md`.
+
+Briefly develop three materially different concepts internally. Each must differ in its product idea, material, hero composition, or narrative structure—not just palette or effect.
+
+Select one using product specificity, page usefulness, static strength, available material, mobile continuity, feasibility, and difference from recent approved work when a catalog exists.
+
+With an exact user reference, shorten this step to plausible adaptations of the chosen direction. Do not manufacture alternatives that contradict the reference.
+
+Update INTENT with concrete project rules:
+
+- hero composition and dominant material;
+- typography roles;
+- image or asset treatment;
+- section reveal principle;
+- motion purpose;
+- mobile continuity;
+- fallback for unavailable assets or capabilities.
+
+Named Director's Roll directions are optional influences, not required labels. Compatible techniques may be combined when they express one concept.
+
+### Phase 2 — Technical foundation
+
+For a new standalone project, bootstrap from the starter:
 
 ```bash
 npx create-next-app@latest <project-name> -e https://github.com/adaybekovt-boop/cdesign-starter
@@ -82,421 +182,290 @@ cd <project-name>
 npm install
 ```
 
-The starter already includes:
-- Next 15 + Tailwind v4 + TS configured
-- Lenis bound to GSAP ticker (`lib/lenis.tsx`)
-- Design tokens with multi-layer shadows (`app/globals.css`)
-- Hanken Grotesk + Migra fonts (NOT Geist — that's slop)
-- ScrollProgress + GrainOverlay mounted in layout
-- 7 UI primitives in `components/ui/` (MagneticButton, RevealImage, TiltCard, Marquee, SplitTextReveal, SvgPathDraw)
-- 2 sections in `components/sections/` (PinnedScrub, MultiLayerParallax)
-- 5 R3F components in `components/three/` (PhotoTo3D, GeometricHero, SvgLogo3D, FloatingObject, CanvasScrub)
+The starter is infrastructure, not mandatory visual language. Inspect existing components before writing variants, but import a component only when the selected concept needs it. There is no minimum starter-component count.
 
-**You do NOT rewrite these.** You import them and compose. If you need a new variant, look at the existing component first.
+Expected stack:
 
-After scaffold, tell user to add fonts (one-time): see `public/fonts/README.md` in the starter.
+- Next 15 + React 19 + TypeScript + Tailwind v4;
+- `motion/react`, GSAP, Lenis;
+- R3F/Drei only when the concept needs WebGL.
 
-### Phase 2.5 — Shot List (CONDITIONAL — only for cinematic intent)
+Do not replace functioning starter synchronization, device-tier, or fallback architecture without a demonstrated reason.
 
-**Trigger words:** if user prompt contains "cinematic", "immersive", "video-like", "scroll-driven film", "feels like a video", "кинематографичный", "как видео" — enter ScrollFilm mode.
+### Phase 3 — Build from static meaning to motion
 
-**Otherwise: SKIP this phase entirely.** Standard landings don't need shot lists.
+#### Pass 1 — Structure
 
-If triggered:
-1. Read `references/recipes/scroll-film.md`
-2. Before writing components, output a Shot List (4 shots min) for the hero ScrollFilm section:
-   ```
-   Shot 01 — Establishing Frame (0–25%)
-     Camera: scale-in from 1.15 to 1, opacity 0→1
-     FG: headline locks center, grain visible
-     BG: dark, idle particle drift
-     Text: SplitTextReveal stagger 0.02
+Implement the semantic section order and real copy without decorative motion.
 
-   Shot 02 — Compression (25–50%)
-     Camera: hero scales down to 0.82, opacity 0.2
-     FG: subtitle slides in from bottom
-     BG: subtle parallax
-     Transition: 35% overlap with Shot 01
+For every major block, be able to state:
 
-   Shot 03 — Reveal (50–75%)
-     ...
-   Shot 04 — Resolution (75–100%)
-     ...
-   ```
-3. Implement ONE `<ScrollFilm>` master timeline matching the shot list
-4. **Use montage tools** from the recipe:
-   - `sceneProgress()` helper for named scenes (read `lib/scene-helpers.ts`)
-   - `<FrameCut>` at ONE scene transition (max 2 cuts per page)
-   - Optional `hit()` rhythm pulse at climax (subtle: max 1.05x scale)
-5. If R3F is involved, share progress via Motion's `motionValue` (NOT Zustand) — pattern in recipe
+> product fact or user need → block task → chosen form
 
-**Result:** Hero section feels like a directed video with scene structure, intentional cuts, and rhythm — not a collection of effects.
+If a section has no distinct task, remove or combine it. Do not create empty sections to complete a standard landing-page sequence.
 
-### Phase 3 — Build (Zoom-In Method)
+#### Pass 2 — Early concept check
 
-Three sequential passes. Do not skip ahead.
+Render the real first viewport and one following section in a static or minimally animated state. Inspect desktop and mobile when a browser is available.
 
-**Pass 1 — Macro structure (50%)**
-Write `app/page.tsx` as ONLY a section list using starter components:
-```tsx
-export default function Home() {
-  return (
-    <main>
-      <Hero />          {/* you'll build this */}
-      <SectionTwo />    {/* you'll build this */}
-      <SectionThree />  {/* you'll build this */}
-      <Footer />
-    </main>
-  );
-}
+Check:
+
+- the product or page task is identifiable;
+- the concept is visible without explanation;
+- the second section develops the idea;
+- hierarchy survives without effects;
+- a logo substitution would materially break the page;
+- mobile preserves the same material and reveal logic.
+
+If the concept fails, revise the concept or composition now. Do not finish the site or add heavy motion first.
+
+#### Pass 3 — Complete visual system and content
+
+Apply project tokens, typography, materials, responsive composition, and truthful content. Use `references/content-system.md` as optional domain vocabulary; if it requires a preset vibe or conflicts with the selected concept, this SKILL and INTENT take priority.
+
+Set `<html lang>` in `app/layout.tsx` to the primary content language.
+
+#### Pass 4 — Motion
+
+Motion may:
+
+1. explain interaction or sequence;
+2. direct attention;
+3. create the artistic impression defined by the concept.
+
+The third purpose is valid when reading and actions remain usable, lower tiers defer to the main spectacle, and reduced-motion users receive a calm alternative.
+
+Motion hierarchy:
+
+- Tier 1 — primary hero or scene statement;
+- Tier 2 — section transitions;
+- Tier 3 — UI feedback;
+- Tier 4 — ambient behavior.
+
+Default page budget:
+
+- one Tier 1 system;
+- up to two Tier 2 patterns;
+- one or two Tier 3 families;
+- one Tier 4 layer;
+- one heavy spectacle per viewport.
+
+Budgets may be reduced or deliberately adjusted for the concept, but stacking heavy systems in one viewport requires explicit justification and performance evidence.
+
+Timing guidance:
+
+- micro feedback: 120–220ms;
+- UI transitions: 300–500ms;
+- scene transitions: 800–1400ms;
+- ambient motion: 3–12s;
+- split reveal stagger: 0.015–0.025, normally 0.02;
+- default ease: `cubic-bezier(0.16, 1, 0.3, 1)`.
+
+Use transform and opacity for continuous animation. Follow technical motion rules in `references/anti-slop.md`.
+
+### Phase 3.5 — Lazy recipe use
+
+Read a recipe only after the concept requires that technique. Recipes are implementation references, not a feature checklist.
+
+- synchronized custom scroll: `references/recipes/lenis-gsap-sync.md`
+- split reveal: `references/recipes/split-reveal.md`
+- pinned progression: `references/recipes/pinned-scrub.md`
+- licensed 3D model: `references/recipes/r3f-gltf-model.md`
+- photo-based 3D: `references/recipes/r3f-photo.md`
+- layered parallax: `references/recipes/multi-layer-parallax.md`
+- frame sequence: `references/recipes/canvas-scrub.md`
+- cinematic master timeline: `references/recipes/scroll-film.md`
+- liquid glass: `references/recipes/liquid-glass.md`
+- glass gradient: `references/recipes/animated-glass-gradient.md`
+- shader field: `references/recipes/shader-gradient.md`
+- velocity response: `references/recipes/velocity-skew.md`
+- CSS scroll animation: `references/recipes/css-scroll-driven.md`
+- shell composition: `references/recipes/shell-layout.md`
+- easing: `references/recipes/easing.md`
+- hero choreography: `references/recipes/hero-reveal.md`
+- dark token starting point: `references/recipes/dark-tokens.md`
+- sound, only when requested: `references/recipes/audio-design.md`
+- navigation: `references/recipes/premium-nav.md`
+- preloader, only when asset wait justifies it: `references/recipes/page-entry.md`
+- mobile adaptation: `references/recipes/mobile-composition.md`
+- SVG morph: `references/recipes/svg-morph.md`
+
+When cinematic intent is explicit, define a short shot map before implementing a ScrollFilm timeline. Do not activate ScrollFilm merely because cdesign supports it.
+
+### Phase 4 — Verification
+
+Read `references/qa-pipeline.md` and `references/visual-qa.md` only when entering verification. Where those files name a specific model or imply automatic PASS on fallback, this capability-based contract takes priority until those references are migrated.
+
+#### Code gate
+
+Run the project-defined equivalents of:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm run audit:cdesign
 ```
-No motion yet. Just structure + headings + body text. Verify left-aligned hero, asymmetric grids, no banned patterns.
 
-**Pass 2 — Design tokens & content (80%)**
-Wire up actual copy (anti-slop compliant — see `anti-slop.md`). Apply proper typography hierarchy. Compose pre-built UI primitives. Read `references/content-system.md` to write industry-specific copy — no generic placeholders.
+Run only scripts that exist; a missing script is `NOT CHECKED`, not PASS. Build failure blocks a valid implementation handoff. Fix root causes and rerun relevant checks.
 
-**Pass 3 — Motion & micro-interactions (100%)**
-Now add scroll triggers, split-text reveals, R3F scenes, hover choreography. For each technique you're unsure about, READ the recipe file:
-- `references/recipes/lenis-gsap-sync.md` — only if writing custom Lenis logic (starter has it)
-- `references/recipes/split-reveal.md` — stagger calibration
-- `references/recipes/pinned-scrub.md` — pinned ScrollTrigger pattern
-- `references/recipes/r3f-gltf-model.md` - licensed GLB/GLTF asset gate and `ModelHero`
-- `references/recipes/r3f-photo.md` — photo to 3D plane
-- `references/recipes/multi-layer-parallax.md` — 3-layer depth
-- `references/recipes/canvas-scrub.md` — frame-by-frame video alternative
-- `references/recipes/scroll-film.md` — cinematic master timeline (Phase 2.5 only)
-- `references/recipes/liquid-glass.md` — Apple-style glass with auto-degradation
-- `references/recipes/animated-glass-gradient.md` — CSS animated gradient behind frosted glass
-- `references/recipes/shader-gradient.md` — GLSL simplex noise gradient (Aurora/Vision Pro aesthetic)
-- `references/recipes/velocity-skew.md` — scroll velocity → skew momentum (Stripe pattern)
-- `references/recipes/css-scroll-driven.md` — native CSS animation-timeline API (zero JS)
-- `references/recipes/shell-layout.md` — shell-first grid with named areas and empty rails
-- `references/recipes/easing.md` — exact cubic-bezier values
-- `references/recipes/hero-reveal.md` — hero entrance choreography (layered overlap timing)
-- `references/recipes/dark-tokens.md` — CSS variable system for dark themes (concrete values)
-- `references/recipes/audio-design.md` — sound design rules with Howler.js (ONLY when user asks for audio)
-- `references/recipes/premium-nav.md` — fullscreen overlay menu, sticky header, mobile CTA bar
-- `references/recipes/page-entry.md` — preloader pattern (ONLY for heavy 3D/video sites)
-- `references/recipes/mobile-composition.md` — mobile-specific layout, touch, reduced motion
-- `references/recipes/svg-morph.md` — SVG shape morphing with GSAP or Flubber (ONLY for logo/shape transitions)
+Inspect at minimum:
 
-**Never write complex motion from memory.** Always Read the recipe first.
+- framework and TypeScript correctness;
+- `<html lang>` accuracy;
+- async loading/error/empty states where applicable;
+- reduced-motion paths;
+- asset provenance for external models/media;
+- motion and spectacle budgets;
+- responsive overflow and interaction semantics.
 
-### HTML lang attribute (hard rule for Phase 3)
+#### Visual gate
 
-Detect generated copy language and set `<html lang="...">` accordingly in `app/layout.tsx`:
+When browser capability exists, inspect at minimum:
 
-- Russian copy → `<html lang="ru">`
-- Kazakh copy → `<html lang="kk">`
-- English copy → `<html lang="en">`
-- Mixed → use primary content language
+- desktop first viewport and a below-fold state;
+- mobile first viewport and a below-fold state;
+- tablet when the layout changes materially at that range.
 
-This MUST be set in `app/layout.tsx` before Phase 4.
-Skipping this is an audit failure.
+Capture additional scroll positions only when they prove an interaction or reveal. Fixed frame quotas are not evidence by themselves.
 
-### Phase 4 — Deterministic Self-Audit & Build Gate (inline, no LLM call)
+If no browser is available, set `visual: NOT CHECKED (no browser)`.
 
-Run inline. **No subagent at this gate.** The Haiku QA comes later in Phase 4.7.
-Check each file you generated. Fix failures immediately — no iteration loop.
+#### Motion gate
 
-**Anti-slop (any failure = fix before proceeding):**
+Use live interaction or a recording to verify choreography, scroll behavior, reduced motion, and mobile degradation. Screenshots alone cannot pass motion QA.
 
-- [ ] No banned words EN+RU (check references/anti-slop.md lists)
-- [ ] No editorial mono labels (/ 01 —, / CITY, KZ, CITY · KZ, EST. 2022, KIT BY, SCROLL ↓)
-- [ ] No fabricated stats sections (number + uppercase tracked label patterns, e.g. `1240 / РАСПИСАННЫХ ВЕЩЕЙ`)
-- [ ] No fictional signatures (— Name · City, Designed by X)
-- [ ] No purple→pink gradients on CTAs (from-purple, to-pink, from-violet, to-fuchsia)
-- [ ] No centered hero (headline + subhead + CTA all centered)
-- [ ] No lazy default fonts — Geist, Inter, Roboto, Space Grotesk used only when explicitly requested, brand/reference requires them, or paired with a distinctive display typeface and custom spacing
-- [ ] No `key={index}`, `h-screen`, `<img>`, hardcoded hex `bg-[#xxxxxx]`, `useState` for mousemove
+If motion cannot be observed, set `motion: NOT CHECKED`.
 
-**Motion quality:**
+#### Independent review
 
-- [ ] Motion budget respected (1 hero / 2 transitions / 1–2 micro / 1 ambient max)
-- [ ] Every heavy motion has reduced-motion fallback
-- [ ] At least 2 starter components composed
-- [ ] Director's Roll vibe consistent throughout — no mixing
-- [ ] Visual motif from chosen vibe repeats in hero + 1 other section minimum
-- [ ] Spatial rhythm varies (not all sections same `py-*` value)
-- [ ] One spectacle per viewport: if hero has WebGL/shader → no heavy parallax + particles + magnetic all in same viewport
-- [ ] Motion hierarchy respected: UI hover less dramatic than hero animation
-- [ ] Temporal discipline: hover 120–220ms / reveals 300–500ms / scene 800–1400ms
-- [ ] Read `references/content-system.md` and wrote industry-specific copy (no generic placeholders)
-- [ ] Composition was solved before effects were added
-- [ ] Vibe was selected through Director's Roll decision tree
-- [ ] Every GLB/GLTF is declared in `public/models/ASSETS.md` with source, license, attribution, and optimization status
-- [ ] A missing 3D model changed the hero to an approved 2D fallback; it was not replaced with generic geometry
-- [ ] First viewport meets the reference-quality floor: strong silhouette, intentional empty space, readable hierarchy, one memorable motif
-- [ ] If a reference was supplied, the final screenshots preserve at least two of its three recorded visual anchors
-- [ ] Decorative assets are justified by the user's product/brand/reference, not generic "cinematic" filler
-- [ ] No random stars, trophies, medals, spheres, abstract blobs, or plastic 3D props unless explicitly requested or supplied
-- [ ] Mobile keeps the same art direction and motif instead of replacing the page with a generic stacked layout
+Use an independent reviewer only when the environment supports the required capabilities and the risk justifies it—for example, heavy cinematic timelines, multiple responsive scene changes, or an unresolved audit disagreement.
 
-**Architecture:**
+Choose by capability, not a hardcoded model name. Supply the brief, INTENT, relevant source, and actual screenshots or recordings. Treat the review as evidence, not authority; findings must follow `references/anti-slop.md`.
 
-- [ ] Lenis bound to GSAP ticker (`autoRaf: false` in `lib/lenis.tsx`)
-- [ ] Stagger 0.015–0.025 on all SplitText/SplitType reveals
-- [ ] Default ease `cubic-bezier(0.16, 1, 0.3, 1)` appears at least once
-- [ ] Background tonal (not pure `#000000` or `#ffffff`)
-- [ ] PerformanceMonitor wrapping R3F Canvas (if R3F used)
-- [ ] Shell-first layout: hero has intentional empty rails, headline under 18ch
-- [ ] No layout-triggering property animations (width/height/top/left/box-shadow/filter)
-- [ ] `<html lang>` in `app/layout.tsx` matches generated copy language (ru/kk/en)
+#### Status contract
 
-**Build & Lint Gate (mandatory before handoff):**
+Record separately:
 
-Run in project root:
+- `code`: PASS / FAIL / NOT CHECKED;
+- `visual`: PASS / FAIL / NOT CHECKED;
+- `motion`: PASS / FAIL / NOT CHECKED;
+- `content_truth`: PASS / FAIL / NOT CHECKED;
+- `accessibility`: PASS / FAIL / NOT CHECKED.
 
-1. `npm run lint`
-2. `npm run typecheck`
-3. `npm run build`
-4. `npm run audit:cdesign`
+Never convert an unavailable tool into inline PASS. State the evidence used and unresolved limitations.
 
-If any command fails:
-- Read the exact error output
-- Fix the root cause (not the symptom)
-- Re-run the full command list
-- Do NOT proceed to Phase 5 until both pass
+### Phase 5 — Complete INTENT and handoff
 
-Common SSR/build failures and fixes:
-- "window is not defined" → wrap in `useEffect` or add `"use client"`
-- "document is not defined" → same as above
-- GSAP imported in server component → add `"use client"`
-- R3F Canvas in server component → add `"use client"`
-- `next/image` missing width/height → add or use `fill`
-- `next/font` path wrong → check `public/fonts/` exists
-- TypeScript strict errors → fix types, do NOT use `any`
+Update `.cdesign/INTENT.md`:
 
-**If all checks pass:** proceed to Phase 4.5.
-**If any fail:** fix inline, then proceed with list of what was fixed.
+```md
+## Product
+- known_facts:
+- assumptions:
+- audience:
+- page_task:
+- primary_action:
 
-### Phase 4.5 — Visual Screenshot QA (no LLM call)
+## Concept
+- selected:
+- rationale:
+- project_rules:
+- reference_anchors:
 
-Read `references/visual-qa.md`. Capture 9 frames (desktop 1440×900, tablet 1024×768, mobile 390×844 × scroll 0/50/100%) using Playwright MCP, `npx playwright screenshot`, or Puppeteer. Inspect frames against the blocker list.
+## Materials
+- supplied:
+- verified_sources:
+- missing_or_unverified:
 
-If no browser/preview tool is available: mark `LAST_QA.visual = SKIPPED (no_browser)` and proceed. Never block on missing tools.
-
-Apply fixes inline. Re-shoot only the affected viewport.
-
-### Phase 4.7 — Haiku 4.5 Mobile/Perf Gate (1 LLM call, mandatory)
-
-Launch ONE subagent on Haiku 4.5 (`claude-haiku-4-5-20251001`). Brief it with: the project path, the mobile screenshots from Phase 4.5 (or DOM if none), and the checklist below.
-
-Haiku reviews:
-- Mobile composition (390×844)
-- Performance: R3F under PerformanceMonitor, transform/opacity-only, no continuous filter
-- Spectacle budget on mobile (max 1 heavy effect / viewport)
-- Touch targets ≥ 44×44
-- Reduced-motion fallbacks for Tier 1/2
-- Tier-3/4 motion does not compete with Tier 1
-
-Contract: returns `PASS` or `FAIL + concrete fix list`. Apply fixes inline.
-
-If Task tool or Haiku model is unreachable: run the checklist inline yourself and mark `LAST_QA.mobile = PASS (inline)`.
-
-### Phase 4.9 — Optional Second QA (1 LLM call, conditional)
-
-Trigger ONLY if:
-1. Phase 4.7 returned FAIL after one fix-and-rerun cycle, OR
-2. Page is heavy cinematic (ScrollFilm active, OR 2+ R3F sections, OR scroll-driven master timeline).
-
-Launch ONE Haiku 4.5 subagent to review overall coherence: motion hierarchy, vibe consistency across viewports, composition vs effect balance.
-
-Skip otherwise. **Total LLM QA calls per page = 2 maximum.**
-
-### Phase 5 — Handoff
-
-#### Generate `.cdesign/INTENT.md` (mandatory)
-
-Before final handoff, create `.cdesign/INTENT.md` in project root:
-
-````md
-# cdesign Intent
-
-## Original prompt
-[exact user prompt verbatim]
-
-## Selected vibe
-[Director's Roll letter + name, e.g. "B — Soft Editorial"]
-
-## Reason for vibe selection
-[1–2 sentences explaining why this vibe matched the business/audience]
-
-## Sections generated
-[ordered list of sections with one-line purpose each]
+## Structure
+- sections:
 
 ## DESIGN_LOCKS
-Items Edit Mode cannot change without explicit user request.
-- vibe: [letter + name]
-- hero_composition: [asymmetric ratio + dominant object, e.g. "60/40, 3D bottle dominates left"]
-- visual_motif: [recurring shape/treatment]
-- palette: { background: "<token>", foreground: "<token>", accent: "<token>" }
-- typography: { display: "<font>", body: "<font>" }
-- section_order: [ordered list — copy may be reworded, order is locked]
+- hero_composition:
+- visual_motif_or_material:
+- palette_tokens:
+- typography_roles:
+- section_order:
 
 ## MOTION_LOCKS
-- tier1_hero: [name of primary motion system]
-- tier2_transitions: [list]
-- tier3_micro: [list — counted as a family]
-- tier4_ambient: [name]
-- reduced_motion_fallback: [yes / list which tiers]
+- tier1:
+- tier2:
+- tier3:
+- tier4:
+- reduced_motion_fallback:
 
 ## MOBILE_NOTES
-- downgrades_applied: [e.g. "pinned scrub → static render", "parallax 5 → 2 layers"]
-- heavy_motion_disabled_on_mobile: [list]
-- touch_targets_verified: [yes / no]
-- viewport_tested: 390×844
+- composition:
+- downgrades:
+- touch_behavior:
 
-## LAST_QA
-- date: [ISO date]
-- gate_1_build: PASS
-- gate_1_lint: PASS
-- gate_2_visual: PASS / FAIL / SKIPPED (<reason>)
-- gate_2_viewports: [desktop / tablet / mobile or list captured]
-- gate_3_mobile_perf: PASS / FAIL / PASS (inline)
-- gate_4_second_qa: PASS / N/A
-- llm_qa_calls_used: [0–2]
-- blockers_resolved: [list or "none"]
-````
+## Verification
+- date:
+- code:
+- visual:
+- motion:
+- content_truth:
+- accessibility:
+- evidence:
+- unresolved:
+```
 
-This file is read by Edit Mode for delta-based modifications.
+The final response states:
 
-#### Final message
+1. what was built;
+2. how to run it;
+3. independent verification statuses;
+4. unresolved failures or `NOT CHECKED` items;
+5. that INTENT was updated.
 
-1. One line: what was built
-2. `cd <project> && npm run dev` instruction
-3. `Build: PASS` / `Lint: PASS` (both required — if either failed, do NOT call handoff valid)
-4. QA summary in 1 line:
-   `Visual: <PASS/FAIL/SKIPPED> · Mobile/Perf: <PASS/FAIL/inline> · LLM QA calls: <n>/2`
-5. If `Visual: SKIPPED` → add "Manual visual review recommended"
-6. `.cdesign/INTENT.md generated`
-7. If FAIL: list remaining issues honestly
-8. **Nothing else.** No marketing fluff, no emoji.
+Do not claim visual quality, smooth motion, accessibility, or truth verification that was not actually checked.
 
-## Edit Mode (existing projects only)
+## Edit workflow
 
-Triggered when user asks to modify an already-generated cdesign project.
-Signals: "измени", "поправь", "добавь", "переделай", "fix", "change", "update existing".
+1. Read `.cdesign/INTENT.md` first when it exists.
+2. If existing `PRODUCT.md`, `DESIGN.md`, or equivalent files are authoritative, read them and avoid duplicating them.
+3. Inspect only the code and references relevant to the requested change.
+4. Apply the change as a delta.
+5. Preserve unrelated concept rules, reference anchors, typography roles, material treatment, motion hierarchy, and device fallbacks.
+6. Do not simplify the hero, remove motion, change fonts, or reorder sections unless requested or necessary to fix a demonstrated defect within scope.
+7. Run verification proportional to the change.
+8. Update INTENT only when facts, assumptions, structure, locks, or verification status changed.
 
-**Edit Mode hard requirement:**
-- If `.cdesign/INTENT.md` does not exist, do NOT proceed with edits
-- Either generate it from existing project state first, or refuse with explanation
+If INTENT is missing, do not refuse a narrow edit and do not invent a full concept history. Infer only the existing decisions necessary to preserve the page. Create a minimal INTENT when the project is clearly cdesign and the requested change establishes or changes a durable design decision.
 
-Steps:
+An edit request that explicitly asks for a full redesign switches to Creation.
 
-1. Read `.cdesign/INTENT.md` in project root — this tells you the vibe, motif, and design decisions
-1. Apply the change as a DELTA — surgical edit, never full rewrite
-1. Preserve invariants:
-- Core visual metaphor and Director's Roll vibe
-- Motion hierarchy (do NOT replace scroll animations with CSS fade-ins)
-- Typography system (do NOT change fonts)
-- Device tier fallbacks
-- All anti-slop rules still apply
-1. Do NOT simplify the hero scene
-1. Do NOT remove animations unless explicitly asked
-1. After change: update .cdesign/INTENT.md if art direction changed
+## Audit workflow
 
-## Hard rules
+1. Read `.cdesign/INTENT.md` and supplied references when available.
+2. Establish what evidence can be checked: source, runtime, screenshots, motion recording, content sources, accessibility tools.
+3. Apply the categories and finding format in `references/anti-slop.md`.
+4. Separate defects, template risks, preferences, and unverified concerns.
+5. For every required finding use:
 
-**Composition first, effects second:**
+   `Where → Observation → Harm → Minimal fix → Preserve`
 
-- If the layout is generic, do not try to fix it with animation.
-- First fix composition: asymmetry, scale contrast, negative space, dominant visual object, irregular section rhythm, clear narrative transition.
-- Only after composition works, add motion.
-- A bad layout with GSAP is still a bad layout.
-- One strong composition beats five effects.
+6. Report independent verification statuses.
+7. Do not edit files, assign an automatic rewrite, or recommend concept replacement without evidence that the concept or structure cannot perform the page task.
 
-**Font rule:**
+If the user later authorizes fixes, switch to Edit for targeted corrections or Creation for an explicit concept-level redesign.
 
-- Do not use Geist, Inter, Roboto, Space Grotesk, Instrument Serif as lazy defaults.
-- They are allowed only when:
-  1. the user explicitly asks,
-  2. brand/reference requires it,
-  3. it is paired with a distinctive display/accent typeface,
-  4. spacing, type scale, and layout are customized enough to avoid the default SaaS look.
-- Never use a font just because it is common in AI-generated templates.
+## Technical invariants
 
-**Never:**
+- Use `motion/react`, never `framer-motion`.
+- Keep Lenis and GSAP synchronized through the existing starter architecture.
+- Do not use Locomotive Scroll.
+- Use MotionValue for pointer-frequency or shared motion state; do not add Zustand solely for motion.
+- Prefer transform and opacity for continuous animation.
+- Provide reduced-motion alternatives for Tier 1 and Tier 2.
+- Use device-tier fallbacks before enabling heavy scenes.
+- Wrap R3F Canvas with runtime performance monitoring.
+- Keep one R3F canvas visible at a time unless measured evidence supports otherwise.
+- Use `min-h-[100dvh]` rather than `h-screen`.
+- Avoid `key={index}` where list identity can change.
+- Use semantic design tokens in components; keep project values in the token system.
+- Set the correct document language.
+- Preserve content and primary actions on mobile.
 
-- Generate banned words (see references/anti-slop.md EN+RU lists)
-- Add editorial mono labels (anywhere, including footer)
-- Invent author/studio names — only use names user explicitly provided
-- Create fake stats sections
-- Mix vibes — Director's Roll picks ONE
-- Rewrite starter components — import and compose
-- Preload all recipes — Read them lazily as needed
-- Skip Director's Roll → that's how sites end up looking identical
-- Exceed motion budget (1 hero / 2 transitions / 1–2 micro / 1 ambient)
-- Ship Tier 1/2 motion without a reduced-motion fallback
-- Animate layout-triggering properties (width/height/top/left/margin/box-shadow/filter)
-- Put parent-level hover/active state on card grids — use IsolatedAnimatedCard pattern
-- Write 200-char className strings — extract into tv() variants or CSS utility classes
-- Fix generic composition by adding more animation
-- Pick Hardcore 3D only because user says "cool" if the business type clearly maps to another vibe
-- Invent proof, metrics, awards, client names, certifications, rankings, or official status
-
-**Mobile-first animation budget (enforce on every page):**
-
-- Max 1 pinned ScrollTrigger section active at once
-- Max 1 R3F canvas visible at once
-- Max 3 animated elements per viewport on mobile
-- Max 1 backdrop-filter element per viewport
-- No continuous blur/filter animation on mobile
-- Mobile must preserve visual identity — reduce intensity, NOT remove design
-
-**Motion Budget (per page target):**
-
-- 1 primary hero motion system (Tier 1)
-- 2 section-level transitions max (Tier 2)
-- 1–2 micro-interaction patterns (Tier 3)
-- 1 ambient background layer max (Tier 4)
-- Reduced-motion fallback required for every Tier 1 and Tier 2 motion
-
-Count micro-interactions (hover, magnetic, tilt) as a family, not individual instances.
-Heavy motion (R3F, pinned scrub, canvas scroll) max 1 per viewport.
-
-**Spectacle budget:**
-
-- One heavy visual effect per viewport — never stack shader + particles + magnetic + parallax in same section
-- If hero has WebGL/shader → section cards must be static, no TiltCard glow, no additional particle systems
-- Premium sites are extremely controlled. Selective spectacle. Not maximum effects.
-
-**Motion hierarchy (enforce always):**
-
-- Tier 1: Hero motion — the main cinematic statement
-- Tier 2: Section transitions — defer to Tier 1
-- Tier 3: UI hover (magnetic, card hover) — never louder than Tier 2
-- Tier 4: Ambient (grain, slow gradients) — imperceptible background only
-- Lower tiers must NEVER compete visually with higher tiers
-
-**Temporal discipline:**
-
-- Micro interactions (hover feedback): 120–220ms
-- UI transitions (reveals, modals): 300–500ms
-- Scene transitions (section enters, hero): 800–1400ms
-- Ambient motion (background gradients, breathing): 3–12s
-- Never use 800ms for a hover effect. Never use 120ms for a hero reveal.
-
-**Always:**
-
-- Use tv() from tailwind-variants for components with size/color/state variants
-- Wrap animated sections in .motion-island class for render containment
-- Use .motion-section (content-visibility: auto) on below-fold sections
-- Use DeviceTierProvider tier checks before enabling heavy effects
-- Wrap R3F Canvas with drei PerformanceMonitor for auto FPS degradation
-- Use InstancedMesh or BatchedMesh for 10+ repeated 3D objects
-- Use min-h-[100dvh], never h-screen
-- Use Emil Kowalski curve cubic-bezier(0.16, 1, 0.3, 1) as default
-- When user mentions "кинематографичный" / "video-like" / "как видео" → activate Phase 2.5 Shot List
-
-**Glass gradient:**
-
-- When user mentions "матовое стекло" / "glass" / "frosted" / "переливание цветов" → use GlassGradientBg (CSS) or ShaderGradientBg (GLSL)
-- Read references/recipes/animated-glass-gradient.md or references/recipes/shader-gradient.md first
-
-**QA fallback (mandatory):**
-
-- LLM QA calls are capped at 2 per page (Phase 4.7 + optional Phase 4.9). Never exceed.
-- If Playwright/browser unavailable → Phase 4.5 skipped, `LAST_QA.visual = SKIPPED (no_browser)`, handoff surfaces it.
-- If Task subagent or Haiku 4.5 unavailable → Phase 4.7 runs inline, `LAST_QA.mobile = PASS (inline)`.
-- Missing resources never block handoff. Degrade and document in LAST_QA.
+Typography is a project decision. The starter's Hanken Grotesk + Migra pairing is available, not mandatory. Common fonts are acceptable when justified by brand, reference, language, or concept and integrated through a deliberate type hierarchy.

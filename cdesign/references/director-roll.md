@@ -1,255 +1,191 @@
-# Director's Roll — Vibe Selector
+# Director's Roll — Concept Development
 
-**MANDATORY**: pick EXACTLY ONE vibe. Mixing is forbidden — it kills uniqueness.
+Use this reference to develop an art direction from the product, not to assign the product to a preset genre.
 
-Output to user before building: `Director's Roll: <VIBE_NAME> selected because <one-line reason>.`
+## Core rule
 
-Global art-direction rule: the chosen vibe must explain every visible decorative object. If a 3D star, trophy, blob, sphere, ribbon, or confetti element is not part of the user's product, logo, supplied reference, or industry metaphor, remove it. A page with fewer justified objects is stronger than a page with random cinematic props.
+Choose one coherent concept for this project. A concept is a product-specific relationship between:
 
----
+- the fact, behavior, material, or tension that makes the product worth showing;
+- the composition of the first viewport;
+- the primary visual material;
+- the way the page reveals further information;
+- the role of motion.
 
-## VIBE A — Hardcore 3D
+Coherence is mandatory. Choosing one of the named directions below is not.
 
-**For:** tech products, futuristic SaaS, hardware, product photos, object-focused hero scenes.
+Industry controls truthful content, useful actions, and information architecture. It does not determine palette, typography, layout, or motion by itself.
 
-**Visual motifs:** orbital lines, coordinate grid, HUD readouts, single cursor-following glow.
+## Evidence before aesthetics
 
-**Stack from starter:**
-- Hero: `<PhotoTo3D>` (user photo) OR `<GeometricHero>` (torus knot if no photo)
-- Asset rule: prefer `ModelHero` with a licensed GLB/GLTF; a torus is allowed only for an explicitly abstract brief, never as a missing-model fallback.
-- One section: `<PinnedScrub>` with R3F visuals
-- One section: `<TiltCard>` grid for features
-- Required: Bloom + Noise post-processing on all R3F
+Before proposing concepts, identify:
 
-**Motion intensity: 8/10** — aggressive, scroll-heavy, 3D everywhere.
+1. **Known facts** — supplied by the user or verified from provided material.
+2. **Assumptions** — useful working hypotheses that must not be presented as facts.
+3. **Available material** — real images, product UI, models, documents, diagrams, copy, or brand assets.
+4. **Page task** — what the audience must understand or do.
+5. **Reference anchors** — if a reference exists, record its composition, dominant silhouette or object, and typography or motion rhythm.
 
-**Layout formula:** asymmetric 60/40 hero — 3D object on one side, headline + sparse meta on the other. Alternating section density.
-**Model component:** `ModelHero` is allowed when `public/models/ASSETS.md` records its provenance and license.
-**Allowed components:** PhotoTo3D, GeometricHero, PinnedScrub, TiltCard, MagneticButton, Marquee (real names only).
-**Forbidden:** centered 3D with headline above + CTA below, multiple Bloom passes, R3F in every section, neon purple→pink accents.
-**Mobile downgrade:** static hero render instead of pinned scrub, Tilt off, R3F FPS cap 30, single accent glow only.
+Do not invent a visual metaphor from an unsupported claim. Do not use a generic object as a substitute for missing product material.
 
----
+## Develop three concepts
 
-## VIBE B — Soft Editorial
+For a creation or explicitly authorized redesign, briefly form three materially different concepts before coding. This is an internal decision step, not a menu that must be shown to the user.
 
-**For:** fashion, architecture, luxury service, food, lifestyle photography, portfolio work.
+Each candidate defines:
 
-**Visual motifs:** oversized italic words, diagonal dividers, large image crops, serif drop caps.
+- **Idea** — the product-specific fact or behavior that drives the direction.
+- **Hero composition** — the dominant relationship between copy, material, action, and negative space.
+- **Material** — what the viewer actually sees: product, interface, photography, documents, type, diagrams, or an intentional abstract field.
+- **Page logic** — how later sections develop the idea rather than repeat the hero.
+- **Motion role** — interaction explanation, attention direction, artistic impression, or none.
+- **Feasibility** — whether the required assets and runtime capabilities exist, including a credible mobile fallback.
 
-**Stack from starter:**
-- Hero: large image + `<SplitTextReveal>` (NO 3D)
-- One section: `<RevealImage>` gallery with clip-mask reveals
-- One section: `<MultiLayerParallax>` with photography
+Candidates must differ in their underlying idea or information structure, not merely in color, font, or effect intensity.
 
-**Motion intensity: 4/10** — slow, intentional, masked reveals, no aggressive parallax.
+Examples for a physical product:
 
-**Layout formula:** large image bleed on one side, oversized italic display word breaking the grid, ragged right column for body.
-**Allowed components:** SplitTextReveal, RevealImage, MultiLayerParallax, FloatingObject (transparent PNG only).
-**Forbidden:** R3F, neon, grain above 0.05, purple, centered hero, 3-column icon grid.
-**Mobile downgrade:** parallax down to 2 layers, image stack vertical, italic display scales to clamp(2rem, 8vw, 3.5rem).
+- reveal its construction and components;
+- stage the process or ritual of using it;
+- build the page from the object's material, surface, and macro details.
 
----
+With a precise user reference, shorten this step. Treat the reference as a chosen direction and compare only plausible interpretations needed to adapt it to the product. Do not force novelty against an explicit art direction.
 
-## VIBE C — Brutalist Developer
+## Select one concept
 
-**For:** devtools, APIs, technical products, docs, infrastructure, precise SaaS.
+Choose the candidate with the strongest combination of:
 
-**Visual motifs:** schematic SVG diagrams, terminal snippets, real code fragments, mono status indicators.
+1. product specificity;
+2. usefulness to the page task;
+3. strength in a static first viewport;
+4. available real material;
+5. continuity across sections and mobile;
+6. implementation feasibility;
+7. difference from recent approved cdesign work, when a project catalog exists.
 
-**Stack from starter:**
-- Hero: `<SplitTextReveal>` left-aligned, no 3D, no images
-- One section: `<SvgPathDraw>` for technical diagrams
-- One section: code blocks + monospace
-- `<Marquee>` only with real names
+Use two diagnostic tests:
 
-**Motion intensity: 5/10** — precise, snappy, no spring overshoot.
+- **Logo substitution test:** if an unrelated brand could replace the logo and most of the page would still make sense, the concept is too generic.
+- **Effect removal test:** if removing motion destroys the hierarchy or meaning, solve the static composition first.
 
-**Layout formula:** left-aligned hero with sparse meta column on right, code block as a hero element, schematic diagram between sections.
-**Allowed components:** SplitTextReveal, SvgPathDraw, Marquee (real integrations only), real `<pre>` code blocks.
-**Forbidden:** 3D, gradients, decorative illustrations, fake client logos, spring overshoot, animated rainbow mesh.
-**Mobile downgrade:** schematic diagrams collapse to single-column flow, code blocks scroll horizontally inside a contained shell, monospace stays.
+Do not demand novelty from every control. Familiar navigation, buttons, and forms may remain conventional. The authored quality can live in the composition, material, narrative, or motion.
 
----
+## Record project rules
 
-## VIBE D — SVG Logo Showcase
+Write the selected direction into `.cdesign/INTENT.md` as concrete project rules, not only as a genre label.
 
-**For:** SVG logo uploads, brand identity, agency, studio, identity presentation.
+Record:
 
-**Visual motifs:** logo geometry grid, oversized logo glyphs, logo-derived dividers, path construction.
+- the concept and why it fits the product;
+- hero composition and dominant material;
+- typography roles, not just font names;
+- image or asset treatment;
+- section-to-section reveal principle;
+- motion purpose and hierarchy;
+- mobile continuity;
+- fallback when a required asset or capability is unavailable.
 
-**Stack from starter:**
-- Hero: `<SvgLogo3D>` (user's SVG, extruded, rotating)
-- One section: `<SvgPathDraw>` showing logo construction lines
-- One section: case study `<RevealImage>` grid
+Example:
 
-**Motion intensity: 7/10** — logo is the star, everything orbits it.
+> The product is shown through large crops of verified workshop material. Copy is physically aligned to those crops. Scrolling moves from the whole process to tool-level detail. Mobile preserves the same reveal order with fewer simultaneous layers.
 
-**Layout formula:** logo centered or slightly offset, oversized — sections derived from logo geometry, palette pulled from logo colors.
-**Allowed components:** SvgLogo3D, SvgPathDraw, RevealImage, FloatingObject for additional brand assets.
-**Forbidden:** competing 3D objects, decorations unrelated to logo geometry, custom illustrations.
-**Mobile downgrade:** disable extrusion rotation, render as 2D SVG with slow path-draw entrance.
+Named directions may be cited as influences, for example `product theatre + cartographic restraint`, but the project rules above are authoritative. Combining compatible techniques is allowed when they serve the same concept; mixing unrelated decoration is not.
 
----
+## Reference directions — technique library
 
-## VIBE E — Wabi-Sabi / Anti-Design
+These are starting points and vocabulary, not mandatory presets. Read only the relevant entries.
 
-**For:** handmade, craft, ceramics, artisan, human, anti-corporate products.
+### Object / Product Theatre
 
-**Visual motifs:** paper texture seams, organic marks, imperfect image crops, hand-drawn underline.
+Useful when a real physical object or licensed model carries the story.
 
-**Stack from starter:**
-- Hero: `<RevealImage>` with imperfect/grainy photo + handwritten-style headline
-- One section: asymmetric `<MultiLayerParallax>` (NOT a grid)
-- One section: long-form text with intentional ragged margins
+- Materials: real product photography, transparent cutouts, macro details, verified GLB/GLTF.
+- Composition: object scale and silhouette lead; copy and actions defer to it.
+- Motion: controlled rotation, reveal, or material close-up.
+- Avoid: unrelated props, invented models, feature grids disconnected from the object.
 
-**Motion intensity: 3/10** — minimal, soft, breathing only. NO scrub. NO 3D.
+### Editorial Material
 
-**Layout formula:** intentionally off-grid columns, photo bleeds with negative space on different sides per section, long-form ragged text.
-**Allowed components:** RevealImage, MultiLayerParallax (asymmetric), SplitTextReveal with subtle stagger only.
-**Forbidden:** R3F, scrub, neon, pure black/white, symmetric grids, sans-serif on every word.
-**Mobile downgrade:** parallax to 1 layer, keep grain and paper texture, photos stack with same off-grid energy.
+Useful when photography, text, archives, craft, fashion, architecture, or cultural material carries the story.
 
----
+- Materials: image crops, documents, texture, long-form type.
+- Composition: image/text relationships, rhythm, deliberate cropping, asymmetric or centered layouts when justified.
+- Motion: masked reveals, pacing, restrained parallax.
+- Avoid: decorative editorial labels, empty slogans, aesthetic texture with no source.
 
-## VIBE F — Dark Institutional
+### Technical / Interface-Led
 
-**For:** colleges, schools, legal, government, serious local organizations, public-facing institutions.
+Useful when the product is best understood through real code, UI, data flow, or system behavior.
 
-**Visual motifs:** strict dark shells, document-like panels, campus/city grid, official navigation hierarchy.
+- Materials: verified interface states, code, logs, diagrams, transactions, schemas.
+- Composition: information priority determines panel size and sequence.
+- Motion: demonstrate state change, flow, or causality.
+- Avoid: fake metrics, fake integrations, uniform dashboard fragments, terminal cosplay.
 
-**Stack from starter:**
-- `<SplitTextReveal>`, `<PinnedScrub>` only if needed, `<SvgPathDraw>`, structured sections.
-- When a supplied reference makes 3D central to the composition, allow one reference-authorized 3D hero while keeping institutional content practical and truthful.
+### Institutional / Documentary
 
-**Motion intensity: 4/10** — structured, formal, no decorative excess.
+Useful when practical information, documents, place, history, or public service creates trust.
 
-**Important:** copy should be practical — admissions, grants, schedules, documents, contacts. Avoid fake prestige language.
+- Materials: real documents, campus or place photography, schedules, maps, archival material.
+- Composition: clear navigation and evidence can coexist with expressive imagery or type.
+- Motion: supports orientation or a deliberate ceremonial tone.
+- Avoid: invented rankings, official status, generic seals, automatic dark styling.
 
-**Layout formula:** sharp grid shell, document-style panels, dense nav hierarchy, hero with single strong statement + practical primary CTA.
-**Allowed components:** SplitTextReveal, SvgPathDraw, RevealImage for campus/document photos, structured tables.
-**Reference-authorized 3D:** one ModelHero, PhotoTo3D, or supplied brand geometry is allowed when the reference establishes it as the dominant visual anchor.
-**Forbidden:** R3F decoration, neon, animated gradients, "premium" language, fake rankings, fake employment %.
-**Exception:** R3F is forbidden only when it is ungrounded decoration. A reference-authorized hero is not decoration.
-**Mobile downgrade:** keep dense nav as collapsible sections, panel grid stacks vertical, no parallax.
+### Spatial / Cartographic
 
----
+Useful when routes, relationships, geography, logistics, or ecosystems explain the product.
 
-## VIBE G — Neo-Bank Minimal
+- Materials: verified locations, paths, nodes, network diagrams.
+- Composition: spatial relationships drive hierarchy.
+- Motion: traces a route, reveals dependencies, or directs attention.
+- Avoid: fabricated labels, meaningless coordinates, network decoration without data.
 
-**For:** fintech, dashboards, payments, analytics, trading-adjacent tools, B2B money products.
+### Brand-Geometry
 
-**Visual motifs:** calm data panels, thin graph lines, transaction rows, precise financial UI fragments.
+Useful when supplied identity assets contain a strong shape or construction system.
 
-**Stack from starter:**
-- `<SplitTextReveal>`, `<PinnedScrub>`, `<Marquee>` only with real integrations, data cards.
+- Materials: real logo geometry, type system, brand colors, identity applications.
+- Composition: derive grids, dividers, crops, or transitions from the identity.
+- Motion: path construction, restrained morph, or dimensional treatment.
+- Avoid: competing shapes or a generic 3D logo pedestal.
 
-**Motion intensity: 5/10** — calm, data-driven, no decorative distractions.
+### Atmospheric / Cinematic Field
 
-**Important:** no fake numbers, no fake client logos, no fake security claims.
+Useful when a mood or perceptual transition is part of the requested experience and product fit.
 
-**Layout formula:** hero with one large product UI fragment + concise statement, sections alternate between data panel and narrative copy.
-**Allowed components:** SplitTextReveal, PinnedScrub for product flow, Marquee for real integrations, custom data card with token colors.
-**Forbidden:** fabricated stats, fake "Trusted by", neon, purple→pink CTAs, 3D, decorative gradients.
-**Mobile downgrade:** product fragments shrink to single most-important card, transaction rows scroll horizontally inside a shell, no pinned scrub.
+- Materials: licensed film, generated or verified imagery, shader fields, light, sound only when requested.
+- Composition: one dominant field with readable copy and action.
+- Motion: creates an intended artistic impression while preserving usability.
+- Avoid: spectacle without a product connection, multiple heavy effects in one viewport, inaccessible motion.
 
----
+### Human / Process-Led
 
-## VIBE H — Product Theatre
+Useful when making, service, participation, or a sequence of actions is more distinctive than the final artifact.
 
-**For:** one physical product, drink, bottle, device, merch, cosmetic, package, object-centered brand.
+- Materials: real people, tools, stages, gestures, artifacts, before/after states.
+- Composition: sequence and causality organize the page.
+- Motion: clarifies progression or adds tactile pacing.
+- Avoid: fictional testimonials, staged proof presented as fact, generic lifestyle imagery.
 
-**Visual motifs:** single object spotlight, stage lighting, rotating product cutout, macro material details.
+## Asset and effect gates
 
-- Prefer `ModelHero` when a licensed product model exists; use a real photo treatment when it does not.
-**Stack from starter:**
-- `<FloatingObject>`, `<PhotoTo3D>` if image exists, `<RevealImage>`, controlled parallax.
+- A user-supplied reference has authority over generic category expectations.
+- A real product or brand model requires recorded provenance and license.
+- If the needed 3D asset does not exist, choose an approved photo or 2D treatment; never insert a torus, blob, sphere, trophy, or other placeholder geometry.
+- Decorative objects must come from the product, identity, supplied reference, or an explained concept.
+- One spectacle per viewport. Select recipes because the concept needs them, never to meet a component quota.
+- Artistic motion is valid when it creates the intended impression, provided it does not obstruct reading or action, does not compete with another spectacle, and has a calm reduced-motion alternative.
 
-**Motion intensity: 6/10** — product is the hero, everything defers to it.
+## Early concept check
 
-**Important:** the product is the hero. Do not add unrelated bento sections.
+Before implementing the full page, render the real first viewport and one following section in a static or minimally animated state.
 
-**Model component:** `ModelHero` is allowed for a licensed product model recorded in `public/models/ASSETS.md`.
-**Layout formula:** product dominates ~55% of hero, sparse meta on the side, every section anchored to a product detail (taste, material, ritual).
-**Allowed components:** FloatingObject, PhotoTo3D, RevealImage for macro shots, MultiLayerParallax with product crops only.
-**Forbidden:** unrelated bento, 3-column "feature" grids, fake health claims, fake awards, "limited edition" without user confirmation.
-**Mobile downgrade:** product crop scales to full width, parallax to 2 layers, FloatingObject stays but rotation slows.
+Check:
 
----
+- Is the idea visible without the author's explanation?
+- Does the next section develop the concept rather than switch to a template?
+- Could the page belong to an unrelated product after a logo swap?
+- Is hierarchy clear before motion?
+- Does mobile preserve the material, sequence, and character?
 
-## VIBE I — Cartographic System
-
-**For:** city, region, Kazakhstan/local projects, logistics, maps, networks, ecosystem/partners.
-
-**Visual motifs:** glowing street-grid lines, nodes, routes, map coordinates, single beacon point.
-
-**Stack from starter:**
-- `<SvgPathDraw>`, `<MultiLayerParallax>`, `<GeometricHero>` only as abstract map layer.
-
-**Motion intensity: 5/10** — network-driven, purposeful, no decoration.
-
-**Important:** no real map labels unless user provides real locations.
-
-**Layout formula:** map/network as background motif behind hero, sections introduce nodes one at a time, beacon point marks the primary CTA.
-**Allowed components:** SvgPathDraw (path-draw on scroll), MultiLayerParallax (map layers), GeometricHero abstracted as network.
-**Forbidden:** real map labels without user data, fake government affiliation, decorative R3F, fake national statistics.
-**Mobile downgrade:** map background simplifies to single layer, nodes stack vertical, parallax disabled.
-
----
-
-## VIBE J — Monolithic Luxury
-
-**For:** premium dark brand, high-ticket services, cinematic black/white identity, serious luxury.
-
-**Visual motifs:** black monolith panels, huge restrained typography, single metallic/gold accent, slow cuts.
-
-**Stack from starter:**
-- `<SplitTextReveal>`, `<FrameCut>` max 1–2 times, `<RevealImage>`, minimal ambient gradients.
-
-**Motion intensity: 4/10** — luxury = restraint, not many effects.
-
-**Layout formula:** huge type takes ~70% of hero, single metallic accent (one line, one underline, one tag), generous negative space, slow scene transitions.
-**Allowed components:** SplitTextReveal, FrameCut (max 2 per page), RevealImage, ambient gradient.
-**Forbidden:** more than one accent color, multiple R3F scenes, shouting "premium" / "exclusive", busy backgrounds, more than 2 FrameCuts.
-**Mobile downgrade:** type scales but stays large, FrameCut still allowed once, accent shrinks to single tag.
-
----
-
-## Decision Tree
-
-Use this tree to select a vibe. It is deterministic — follow top to bottom and stop at the first match.
-
-```
-IF user uploaded SVG logo
-  → SVG Logo Showcase (D)
-ELSE IF user provided one physical product image / bottle / package / device
-  → Product Theatre (H)
-ELSE IF user asks for college / school / university / academy / legal / government / official organization
-  → Dark Institutional (F)
-ELSE IF user asks for fintech / payments / bank / dashboard / analytics / trading / money product
-  → Neo-Bank Minimal (G)
-ELSE IF user asks for city / region / Kazakhstan / local ecosystem / logistics / partners / map-like concept
-  → Cartographic System (I)
-ELSE IF user asks for developer tool / API / infrastructure / docs / technical SaaS
-  → Brutalist Developer (C)
-ELSE IF user asks for handmade / craft / artisan / ceramics / human / anti-corporate
-  → Wabi-Sabi / Anti-Design (E)
-ELSE IF user asks for luxury / high-ticket / premium dark / black-white cinematic
-  → Monolithic Luxury (J)
-ELSE IF user asks for fashion / architecture / editorial / portfolio / lifestyle
-  → Soft Editorial (B)
-ELSE IF user asks for futuristic / 3D / immersive / Apple-like tech
-  → Hardcore 3D (A)
-ELSE
-  → Soft Editorial (B) — safe default
-```
-
-**Conflict rule:** when two vibes match, choose the one that matches the user's **business type** first, not the visual effect request.
-**Reference override:** if the user supplies a reference with a clear visual language, preserve its composition, silhouette, and rhythm even when the business category would normally choose a quieter treatment. Keep one vibe; apply the business category to content truthfulness, navigation, and claims.
-
-- "college with a supplied 3D reference" -> **Dark Institutional (F)** with one reference-authorized 3D hero, not a generic no-3D template
-
-Examples:
-- "college with WebGL" → **Dark Institutional (F)**, not Hardcore 3D
-- "fintech with 3D" → **Neo-Bank Minimal (G)**, not Hardcore 3D
-- "bottle brand with luxury vibe" → **Product Theatre (H)**, not Monolithic Luxury
+If this check fails, revise the concept or composition before adding animation.
