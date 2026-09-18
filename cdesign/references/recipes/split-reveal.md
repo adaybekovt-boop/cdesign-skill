@@ -10,14 +10,15 @@ import { SplitTextReveal } from "@/components/ui/split-text-reveal";
 </SplitTextReveal>
 ```
 
-## Stagger calibration (CRITICAL)
+## Stagger calibration
 
-| Stagger | Result | Verdict |
-|---------|--------|---------|
-| 0.025+  | Generic AI feel, too slow | FAIL |
-| 0.02    | Vercel/Linear tier | TARGET |
-| 0.015   | Aggressive cinema | OK |
-| <0.015  | Unreadable mush | FAIL |
+No value is a universal quality threshold. Calibrate against unit, word count, language, line breaks, reading order, and the motion character in DESIGN_GENOME.
+
+- Short character sequences can tolerate tighter offsets.
+- Long multilingual headlines usually need words or lines, not character cascades.
+- Mechanical motion may use discrete or uniform onset.
+- Editorial motion may reveal by line or mask rather than visible per-word stepping.
+- Reduced motion should render readable text immediately.
 
 ## Custom usage (if you need stagger by characters instead of words)
 
@@ -43,8 +44,8 @@ useEffect(() => {
     yPercent: 110,
     opacity: 0,
     duration: 0.9,
-    stagger: 0.015,  // char-by-char needs tighter stagger than word-by-word
-    ease: "cubic-bezier(0.16, 1, 0.3, 1)",
+    stagger: 0.018,  // example only; tune to the actual phrase
+    ease: "cubic-bezier(0.22, 0.7, 0, 1)",
     delay: 0.15,
   });
 
@@ -52,8 +53,11 @@ useEffect(() => {
 }, []);
 ```
 
-## When to use what
+## Choose the unit
 
-- **Words stagger 0.02** — hero headlines (most common)
-- **Chars stagger 0.015** — short impact phrases (logos, tagline, slogan)
-- **Lines stagger 0.08** — body paragraphs (rare, only for editorial)
+- words: when word rhythm matters and line wrapping is stable;
+- characters: only for short identity text where segmentation remains accessible;
+- lines: when the composition is editorial and line masks reinforce it;
+- no split: when still typography or another motion mechanism carries the concept.
+
+Do not use split text merely because the component exists.

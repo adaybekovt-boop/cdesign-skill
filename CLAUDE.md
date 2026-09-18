@@ -1,23 +1,19 @@
-# cdesign — Claude Code
+# cdesign v3
 
-## Trigger
+Use cdesign/SKILL.md for new landing pages, major redesigns, and existing cdesign projects.
 
-When user types `/cdesign` or asks for a landing page → follow cdesign/SKILL.md exactly.
+## Generate Mode
+
+Create DESIGN_GENOME, SIGNATURE_DECISION, REJECTED_DEFAULT, and a provisional fingerprint before code. Run novelty and anti-repetition checks, then anti-slop. The starter is neutral infrastructure; components and recipes are optional.
+
+Load references progressively using cdesign/references/recipe-index.md.
 
 ## Edit Mode
 
-When user asks to modify an existing generated project:
+Read .cdesign/INTENT.md and .cdesign/FINGERPRINT.json first. Apply a delta and preserve DESIGN_LOCKS, MOTION_LOCKS, and the signature motif unless the user explicitly changes them.
 
-- Apply change as DELTA — never rewrite from scratch
-- Read .cdesign/INTENT.md in project root first (if exists)
-- Preserve: visual metaphor, motion hierarchy, typography, material system, device tier fallbacks
-- Do NOT replace scroll animations with CSS fade-ins
-- Do NOT simplify hero scene
-- Do NOT change fonts
+Legacy INTENT files remain supported. Treat Selected vibe as a historical hint, infer the current genome from the implementation, and do not rebuild the project just to migrate metadata.
 
-## Key files
+## QA
 
-- Workflow: cdesign/SKILL.md
-- Banned patterns: cdesign/references/anti-slop.md
-- Vibes: cdesign/references/director-roll.md
-- Techniques: cdesign/references/recipes/*.md (read lazily — only when using that technique)
+Follow cdesign/references/qa-pipeline.md. Use an independent reviewer when available, otherwise critique inline. No review step depends on a named model.

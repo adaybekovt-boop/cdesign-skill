@@ -3,6 +3,8 @@
 Concrete CSS variable values for premium dark themes.
 Based on Vercel (#0a0a0a), Linear, Raycast, Arc patterns.
 
+Use these as contrast-tested starting values, then replace surface temperature, accent logic, and hierarchy from DESIGN_GENOME. Dark is not a default and business category does not imply dark mode.
+
 ## Core principle: NEVER pure #000000
 
 Pure black causes halation on OLED, smearing on scroll, and harsh contrast.

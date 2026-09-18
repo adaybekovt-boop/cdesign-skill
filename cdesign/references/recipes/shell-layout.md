@@ -1,62 +1,52 @@
-# Recipe: Shell-First Layout
+# Recipe: Project-Specific Shell
 
-If your landing page can be rebuilt without loss using max-w-7xl + lg:grid-cols-2 + uniform py-24
-→ it reads as a template regardless of animations.
+Use a custom shell when the DESIGN_GENOME depends on persistent rails, crossings, indexes, or unequal fields. Do not use one shell formula for every site.
 
-## Shell anatomy
+## Define relationships first
 
-- 12–14 named tracks
-- Intentionally empty rails (25–45% width unused in hero)
-- Headline: 14–18ch max
-- Body: 56–68ch max
-- Caption/aside: 24–32ch max
+Answer:
 
-## Named areas grid
+- What is the dominant mass?
+- Where does empty space perform a job?
+- Which boundary, rail, baseline, or crop repeats?
+- What changes between sections and what remains fixed?
+- How does the relationship translate on narrow screens?
 
-```css
-.grid-shell {
+Then encode named areas or grid tracks that express those answers.
+
+## Named-area example
+
+~~~css
+.project-shell {
   display: grid;
-  grid-template-columns:
-    minmax(24px, 1fr)
-    repeat(12, minmax(0, clamp(4rem, 5vw, 5.5rem)))
-    minmax(24px, 1fr);
-  gap: clamp(1rem, 1.6vw, 2rem);
+  grid-template-columns: var(--outer) var(--index) minmax(0, 1fr) var(--outer);
   grid-template-areas:
-    ". kicker kicker kicker title title title title title media media media media ."
-    ". dek    dek    dek    title title title title title media media media media ."
-    ". body   body   body   body  body  body  aside aside aside aside aside aside .";
+    ". index title ."
+    ". index media ."
+    ". note  body  .";
 }
-.ga-kicker { grid-area: kicker; }
-.ga-title  { grid-area: title; }
-.ga-dek    { grid-area: dek; }
-.ga-media  { grid-area: media; }
-.ga-body   { grid-area: body; }
-.ga-aside  { grid-area: aside; }
-```
+~~~
 
-## Section rhythm (never 2 same density back-to-back)
+The track count, ratios, and areas must come from the project. A conventional centered container is valid when the signature lives elsewhere and the content benefits from it.
 
-```css
-.section-quiet  { min-block-size: 80svh; padding-block: clamp(8rem,12vw,12rem); }
-.section-medium { min-block-size: 48svh; padding-block: clamp(4.5rem,8vw,7rem); }
-.section-dense  { padding-block: clamp(2rem,4vw,4rem); }
-```
+## Rhythm
 
-## Correct rhythm sequence
+Define a project-specific density sequence such as compression → release → interruption → resolution. Avoid uniform spacing, but do not alternate densities mechanically. Content length, image crop, navigation state, and motif recurrence should explain the change.
 
-quiet → dense → medium → dense → quiet
+## Self-check
 
-## Self-check before building
+- Does the still layout communicate hierarchy without motion?
+- Can the signature relationship be sketched in a few lines?
+- Are repeated alignments intentional?
+- Is the reading measure appropriate?
+- Does mobile recompose the relationship rather than merely stack it?
+- Would deleting an empty rail or boundary weaken the concept? If not, it is decoration.
 
-- Where are the empty rails?
-- Is headline under 18ch?
-- Do adjacent sections have different density?
-- Does layout work without animations? (if not → layout is weak)
+## Failure patterns
 
-## Anti-patterns
-
-❌ max-w-7xl mx-auto as only shell structure
-❌ All sections with same py-24
-❌ Center-aligned hero
-❌ Symmetric 50/50 split everywhere
-❌ No intentional empty space
+- one generic max-width container used without consideration;
+- symmetric split repeated through every section;
+- arbitrary 12-column complexity;
+- identical section padding and density;
+- custom shell that exists only to look unusual;
+- desktop grid that becomes an unrelated mobile template.

@@ -12,9 +12,9 @@ Apple themselves reduced transparency in macOS for readability — your landing 
 
 ## What's in the starter
 
-**Already mounted in `app/layout.tsx`:**
-- `<LiquidTierProvider />` — sets `data-liquid-tier="full|lite|off"` on `<html>` based on device
-- `<LiquidGlassFilter />` — global SVG displacement filter (used only on `full` tier)
+**Available infrastructure:**
+- `<DeviceTierProvider />` is mounted and sets `data-liquid-tier="full|lite|off"`
+- `<LiquidGlassFilter />` is opt-in; mount it once only when the genome selects refractive glass
 
 **Available components:**
 - `<LiquidButton>` — `components/ui/liquid-button.tsx`
@@ -81,17 +81,12 @@ The `.liquid-refract` class activates SVG displacement only on desktop + full ti
 
 - This is NOT true refraction. SVG displacement is a fake but cheap approximation
 - Backdrop-filter is expensive — keep glass surfaces SMALL (max ~30% of viewport at any time)
-- `.liquid-refract` requires `<LiquidGlassFilter>` mounted (already in starter layout)
+- `.liquid-refract` requires `<LiquidGlassFilter>` mounted once in the project layout
 - Safari/Chromium handle backdrop-filter differently — test in both
 - On very weak devices the `off` tier kicks in — that's correct behavior, not a bug
 
-## When NOT to use any glass at all
+## Art-direction fit
 
-If user's Director's Roll vibe is:
-- **VIBE C (Brutalist Developer)** — no glass, pure flat surfaces (Vercel/Stripe don't use glass)
-- **VIBE E (Wabi-Sabi)** — no glass, anti-digital aesthetic
+Use glass only when the material field in DESIGN_GENOME explains it—for example a small control floating over luminous product imagery or a translucent physical product. Avoid it when flat ink, document surfaces, raw material, or technical legibility defines the direction.
 
-Glass works great in:
-- **VIBE A (Hardcore 3D)** — glass nav over 3D scene = premium
-- **VIBE B (Soft Editorial)** — subtle glass on CTA = luxury feel
-- **VIBE D (SVG Logo Showcase)** — glass for floating controls
+Do not infer glass from a business category or from the word “premium.”

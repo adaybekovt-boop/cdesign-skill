@@ -1,11 +1,18 @@
 # Recipe: Pinned Scroll Scrub
 
-The starter has `<PinnedScrub>` in `components/sections/`. Use it directly:
+The starter has `<PinnedScrub>` in `components/sections/`. Inspect it before use:
+
+The starter's split is an example. Pass project-specific classes or extend the component when the genome needs a rail, full-bleed visual, horizontal sequence, or another structure. Do not let the component choose the page composition.
 
 ```tsx
 import { PinnedScrub } from "@/components/sections/pinned-scrub";
 
 <PinnedScrub
+  className="project-process-shell"
+  stepsClassName="project-process-copy"
+  visualsClassName="project-process-visuals"
+  stepClassName="project-process-step"
+  visualClassName="project-process-visual"
   steps={[
     {
       title: "First step",

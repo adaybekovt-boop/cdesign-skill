@@ -8,7 +8,7 @@ The starter has `<PhotoTo3D>` and `<FloatingObject>` in `components/three/`.
 |-----------|-------|--------|
 | `<PhotoTo3D>` | Any image (with or without background) | Image as scroll-controlled rotating plane |
 | `<FloatingObject>` | PNG with **transparent** background | Object floats in 3D space, follows mouse |
-| `<GeometricHero>` | No image needed | Abstract torus knot, scroll-driven rotation |
+| `<GeometricHero>` | Brief explicitly calls for grounded abstract geometry | Abstract geometry prototype; replace its shape, material, and motion from the genome |
 
 ## Asset prep
 
@@ -18,7 +18,7 @@ For `<FloatingObject>` you NEED transparent background. Quick options:
 - **remove.bg**: https://www.remove.bg/ (3 free/day)
 - **Adobe Express**: https://www.adobe.com/express/feature/image/remove-background (free unlimited)
 
-Tell the user to do this BEFORE running `/cdesign` — Claude Code doesn't remove backgrounds.
+Prepare this before generation when no image-editing tool is available.
 
 ## Usage
 
@@ -44,3 +44,5 @@ import { FloatingObject } from "@/components/three/floating-object";
 
 - Use drei `<ScrollControls>` — conflicts with Lenis (use `motion/react` `useScroll` instead — already done in starter components)
 - Instantiate `new THREE.TextureLoader().load()` directly — memory leak. Use `useLoader` from `@react-three/fiber` (starter components already do this)
+- Use GeometricHero or its torus knot as a fallback for a missing product, logo, or brand asset
+- Keep the starter geometry, accent, lighting, or motion unchanged merely because the component builds

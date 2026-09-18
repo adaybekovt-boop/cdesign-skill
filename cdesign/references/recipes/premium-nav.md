@@ -1,5 +1,7 @@
 # Recipe: Premium Navigation Patterns
 
+Choose navigation from the genome. The patterns below are mechanics, not a default progression from sticky header to fullscreen menu.
+
 ## Fullscreen overlay menu
 
 When user clicks hamburger → full-screen dark overlay with large staggered links.
@@ -21,9 +23,7 @@ menuButton.addEventListener("click", () => menuTl.play());
 closeButton.addEventListener("click", () => menuTl.reverse());
 ```
 
-Typography: 40-72px, bold, uppercase or display font.
-Stagger: 0.06-0.1s between items.
-Ease: power3.out or custom cubic-bezier(0.175, 0.885, 0.32, 1).
+Tune type, onset, and curve to the project's typography and motion logic. Uppercase and stagger are optional.
 
 ## Sticky header — shrink on scroll
 
@@ -74,7 +74,7 @@ When landing page has one primary CTA, pin it to bottom on mobile:
 
 ## Anti-patterns
 
-❌ Nav animation longer than 500ms total (feels sluggish)
+❌ Navigation response feels sluggish or blocks access to the destination
 ❌ backdrop-filter: blur() on header without will-change (janky)
-❌ Menu items all appear at once (no stagger = no premium feel)
+❌ Menu choreography contradicts the motion logic recorded in MOTION_LOCKS
 ❌ Hamburger without aria-label and aria-expanded

@@ -1,7 +1,9 @@
 # Recipe: Animated Glass Gradient
 
 CSS @property animated gradient behind a frosted glass layer.
-Claude Code can implement this 100% without external assets.
+A coding agent can implement this without external assets.
+
+The color array and timing below are implementation examples. Replace them with the color relationships and motion character from DESIGN_GENOME. Do not ship the example palettes as a default.
 
 ## When to use
 User mentions: "матовое стекло", "glass эффект", "градиент за стеклом",
@@ -28,6 +30,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+// Example only: derive project palettes from DESIGN_GENOME.
 const PALETTES = [
   ["#5e6ad2", "#a78bfa", "#6366f1"],
   ["#0ea5e9", "#6366f1", "#8b5cf6"],
@@ -164,3 +167,4 @@ import { GlassGradientBg } from "@/components/ui/glass-gradient-bg";
 ❌ Never use on more than one full-page wrapper
 ❌ Never stack multiple backdrop-filter layers
 ❌ On data-tier="low" — disable backdrop-filter entirely
+❌ Reuse the example purple/blue palettes without a project-specific reason

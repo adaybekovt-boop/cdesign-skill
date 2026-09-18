@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "hero_composition": "describe the dominant mass, anchor, and empty-space logic",
+  "navigation_pattern": "describe placement, behavior, and state transformation",
+  "typography_pairing_category": "describe role contrast and category, not only font names",
+  "palette_strategy": "describe dominance, surfaces, and accent use",
+  "dominant_geometry": "describe recurring visible geometry and its purpose",
+  "section_rhythm": "describe the sequence of compression, density, and release",
+  "section_sequence": ["hero", "project-specific next section"],
+  "motion_mechanism": "describe the primary trigger and visible mechanism",
+  "imagery_treatment": "describe source, crop, processing, and sequencing",
+  "signature_motif": "describe the project-specific motif, recurrence, and function"
+}

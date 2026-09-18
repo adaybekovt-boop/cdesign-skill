@@ -4,8 +4,7 @@ Mobile is NOT “compressed desktop”. It’s a different composition.
 
 ## Layout changes (not just responsive)
 
-Desktop: asymmetric grid with empty rails, hero spans 5+7 columns
-Mobile: single column, full-width media, stacked content
+Desktop and mobile may use different spatial arrangements. Preserve the identity-bearing relationship rather than mechanically stacking desktop columns.
 
 ```css
 @media (max-width: 768px) {
@@ -21,10 +20,7 @@ Mobile: single column, full-width media, stacked content
 
 ## Typography scale changes
 
-Desktop hero title: clamp(4rem, 14vw, 13rem)
-Mobile hero title: clamp(2rem, 8vw, 3.5rem)
-
-Use separate clamp() ranges, not just viewport scaling:
+Use separate type decisions when the mobile measure, hierarchy, or crop changes. These values are examples:
 
 ```css
 h1 {
@@ -39,8 +35,7 @@ h1 {
 
 ## Motion reduction (not removal)
 
-Desktop: 5-layer parallax, particles, shader background, magnetic buttons
-Mobile: 2-layer parallax, no particles, CSS gradient, standard buttons
+Translate expensive mechanisms into cheaper equivalents while keeping the motif, hierarchy, and state meaning.
 
 The IDENTITY stays the same. The INTENSITY decreases.
 
@@ -73,15 +68,14 @@ button:active {
 }
 ```
 
-## Mobile animation budget (enforced)
+## Mobile performance gate
 
-- Max 1 pinned ScrollTrigger section
-- Max 1 R3F canvas visible
-- Max 3 animated elements per viewport
-- Max 1 backdrop-filter element per viewport
-- No continuous blur animation
-- Stagger on mobile: 0.03-0.05 (wider than desktop 0.02)
-- Duration on mobile: 20-30% shorter than desktop
+- Avoid simultaneous heavy pinned, WebGL, video, or filter systems in one viewport.
+- Keep one visible canvas unless profiling proves more is safe.
+- Do not continuously animate blur or backdrop-filter.
+- Remove pointer-only behavior and expose the same action to touch and keyboard.
+- Tune density and timing to the actual device and content; do not apply a universal stagger or percentage reduction.
+- Test the real breakpoint and interaction. Source inspection is not enough.
 
 ## Anti-patterns
 

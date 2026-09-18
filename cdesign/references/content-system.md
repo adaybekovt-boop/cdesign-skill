@@ -17,9 +17,9 @@ Do not fill sections with abstract promises.
 - no vague AI-marketing words from anti-slop.md
 - no invented institutional claims like "ranked #1", "licensed", "certified" unless user provides proof
 
-## Copy hierarchy
+## Content obligations
 
-Every page must answer these in order:
+Every page must make these answers easy to find. Their order follows the product and user task rather than a fixed landing-page sequence:
 
 1. What is this?
 2. Who is it for?
@@ -188,20 +188,14 @@ CTA must match the industry. Examples:
 
 ## Progressive disclosure
 
-Each section reveals exactly one new idea. The hero does not contain every value prop.
-
-Typical narrative order:
-1. Hero → identity + single primary action
-2. Section 2 → context (who/what/why — one thread)
-3. Section 3 → proof or process
-4. Section 4 → secondary detail (use case, integration, range)
-5. Closing → conversion / contact / next step
+Reveal information in the order the actual user task requires. A product demo may lead with interaction; an institution may lead with routes and deadlines; a physical object may lead with material evidence. Do not force every project into hero → features → proof → CTA.
 
 Rules:
-- No section repeats information already shown
-- No section introduces three new concepts at once
-- Body copy expands what the heading promised — never restates it
-- If a section can be deleted without losing the narrative, delete it
+- Each section has one dominant job, even when it contains several related facts.
+- No section repeats information already established unless repetition supports navigation or comparison.
+- Body copy expands what the heading promised.
+- If a section can be deleted without losing meaning, action, or rhythm, delete it.
+- Record the project-specific section sequence in the fingerprint.
 
 ---
 
@@ -209,12 +203,15 @@ Rules:
 
 Items the model marks as locked once decided. Edit Mode cannot change locks without explicit user request.
 
-Required locks:
-- Director's Roll vibe (letter + name)
-- Hero composition formula (asymmetric ratio, dominant object)
-- Visual motif (the recurring shape/treatment)
-- Primary palette (background + foreground + accent)
-- Display + body typefaces
-- Section order (you may reword copy, never reorder)
+Lock only decisions whose silent change would break the approved identity or product logic. Common locks:
+- signature decision and motif
+- composition relationship that carries the concept
+- typography roles and contrast
+- palette behavior, not necessarily literal values
+- imagery source/treatment
+- navigation behavior
+- content or section order when the order expresses a real process
+
+Do not lock arbitrary implementation details. Section order may change in Edit Mode when it is not part of the concept and the user request benefits from the change.
 
 Locks live under `## DESIGN_LOCKS` in INTENT.md and are read by Edit Mode at start.

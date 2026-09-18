@@ -1,71 +1,90 @@
 # QA Pipeline
 
-Five sequential gates. Each has a PASS/FAIL contract. **LLM QA calls capped at 2 per page.**
+QA evaluates the delivered result against the brief, DESIGN_GENOME, SIGNATURE_DECISION, anti-slop gate, accessibility, and production constraints. It must not force a preferred component, exact easing, stagger, grid, or animation library pattern.
 
-```
-Gate 0  Self-audit (inline, 0 LLM calls)
-Gate 1  Build & Lint (deterministic, 0 LLM calls)
-Gate 2  Visual Screenshot QA (local reasoning, 0 LLM calls)
-Gate 3  Haiku 4.5 Mobile/Perf Gate (1 LLM call, mandatory)
-Gate 4  Optional Second QA (1 LLM call, conditional)
-```
+## Gate 0 — Direction fidelity
 
-## Gate 0 — Self-audit
+Review implementation and INTENT together:
 
-Run Phase 4 checklist (anti-slop / motion / architecture) yourself. Fix inline.
+- all required genome fields are specific and still true;
+- the signature decision is plainly visible;
+- the three identity decisions appear in the result;
+- the rejected default did not creep back in;
+- every major flourish has its recorded reason;
+- reference anchors are preserved when supplied;
+- final fingerprint describes the actual result.
 
-## Gate 1 — Build & Lint
+Failure means fix the implementation or explicitly update the direction. Do not rewrite INTENT to excuse accidental drift.
 
-- `npm run lint` → PASS
-- `npm run typecheck` → PASS
-- `npm run build` → PASS
-- `npm run audit:cdesign` → PASS
+## Gate 1 — Deterministic project checks
 
-Hard block. Cannot advance otherwise.
+Run the commands the project exposes. For cdesign-starter projects:
 
-## Gate 2 — Visual Screenshot QA
+~~~bash
+npm run lint
+npm run typecheck
+npm run build
+npm run audit:cdesign
+~~~
 
-Read `references/visual-qa.md`. Capture 9 frames if browser available, inspect inline.
+Any non-zero exit is a hard failure. Fix the cause and rerun the affected checks. Record each result separately.
 
-If unavailable: mark `LAST_QA.visual = SKIPPED (no_browser)` and proceed. Final handoff surfaces "Visual QA: skipped — manual review recommended".
+## Gate 2 — Visual and responsive QA
 
-## Gate 3 — Haiku 4.5 Mobile/Perf Gate (mandatory)
+Read visual-qa.md. Capture the required viewports and states with the best available browser or screenshot tool.
 
-After Gate 2, launch ONE subagent on Haiku 4.5 (`claude-haiku-4-5-20251001`) to review:
+Judge:
 
-- Mobile composition (390×844 frames, or DOM if no screenshots)
-- Performance signals: R3F under PerformanceMonitor, transform/opacity-only animations, no continuous filter
-- Spectacle budget on mobile (max 1 heavy effect per viewport)
-- Touch targets ≥ 44×44
-- Reduced-motion fallbacks present
-- Tier-3/4 motion does not compete with Tier-1
+- composition and hierarchy before effects;
+- fidelity to genome and reference anchors;
+- signature motif across the page;
+- content truth and anti-slop blockers;
+- responsive recomposition and mobile identity;
+- keyboard/touch usability and readable contrast;
+- loading, empty, error, and asset-failure states when applicable;
+- obvious jank, overflow, blank canvases, or overlapping fixed UI.
 
-Return contract: `PASS` or `FAIL + concrete fix list`. Apply fixes inline.
+If capture is unavailable, mark visual QA SKIPPED with the exact reason. Do not report PASS.
 
-If Task tool or Haiku model unreachable:
-- Run the checklist above inline yourself
-- Mark `LAST_QA.mobile = PASS (inline)` in INTENT.md
+## Gate 3 — Independent critique
 
-## Gate 4 — Optional Second QA
+When a critic/reviewer agent is available, give it:
 
-Trigger ONLY when:
-1. Gate 3 returned FAIL after one fix-and-rerun cycle, OR
-2. Page is heavy cinematic (ScrollFilm active OR 2+ R3F sections OR scroll-driven master timeline)
+- original brief and supplied references;
+- INTENT and FINGERPRINT;
+- screenshots for all captured viewports/states;
+- relevant implementation files;
+- command results and known skips.
 
-Launch ONE Haiku 4.5 subagent reviewing overall coherence: motion hierarchy, vibe consistency across viewports, composition vs effect balance.
+Ask for exactly:
 
-Skip otherwise.
+- verdict: PASS or FAIL;
+- evidence for genome/signature fidelity;
+- concrete blockers only;
+- suspected repetition against any supplied prior fingerprints;
+- fixes ordered by user-visible impact.
 
-## Hard cap
+Do not bind this gate to a particular model. One capable independent pass is normally enough. A second pass is justified only after material fixes to a failed review or for a genuinely complex cinematic/WebGL build.
 
-LLM QA calls per page = **2 maximum** (Gate 3 + optional Gate 4). Never more.
+If no critic is available, run the same checklist inline and record PASS (inline) or FAIL (inline).
 
-## Fallback matrix
+## Gate 4 — Final consistency
 
-| Missing resource | Behavior |
-|---|---|
-| Playwright / browser | Gate 2 → SKIPPED, note in LAST_QA |
-| Task subagent / Haiku model | Gate 3 → inline checklist, note in LAST_QA |
-| Both | Gates 2 + 3 inline, handoff marks "QA: manual review needed" |
+Before handoff:
 
-Never abort handoff because a QA resource is missing. Degrade and document.
+- rerun checks affected by fixes;
+- update LAST_QA honestly;
+- finalize FINGERPRINT.json from the rendered result;
+- verify Edit Mode locks match the delivered site;
+- list unresolved blockers without softening them.
+
+## Fallbacks
+
+| Missing resource | Required behavior |
+| --- | --- |
+| browser or preview | visual = SKIPPED (reason); recommend manual review |
+| independent critic | run inline critique and label it inline |
+| prior fingerprints | record unavailable; still write the current fingerprint |
+| optional heavy asset | use the approved fallback and update genome/locks |
+
+Missing optional tooling does not justify fabricated results or a false PASS.

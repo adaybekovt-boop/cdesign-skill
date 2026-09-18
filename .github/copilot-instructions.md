@@ -1,24 +1,11 @@
-# cdesign — Copilot instructions
+# cdesign v3
 
-When working in this repository, follow cdesign runtime rules.
+Read cdesign/SKILL.md first and load supporting references only when routed there.
 
-Bootstrap new projects with:
-npx create-next-app@latest <name> -e https://github.com/adaybekovt-boop/cdesign-starter
+For Generate Mode, create DESIGN_GENOME, SIGNATURE_DECISION, REJECTED_DEFAULT, and a provisional FINGERPRINT before implementation. Run novelty and anti-repetition checks, then the anti-slop gate.
 
-Animation rules:
+The starter and its components are optional infrastructure. Do not restore fixed vibes, font pairs, stagger/easing values, layout formulas, component quotas, or category-to-style mappings.
 
-- Animate only transform and opacity (never layout properties)
-- One heavy visual effect per viewport section
-- Use starter components — do not create new animation systems from scratch
-- Stagger 0.015–0.025, ease cubic-bezier(0.16, 1, 0.3, 1)
+Preserve production constraints: truthful content, accessible interaction, responsive identity, reduced-motion behavior, compositor-friendly continuous motion, scroll-clock coordination, and tested heavy-effect fallbacks.
 
-Forbidden:
-
-- key={index} in lists
-- h-screen (use min-h-[100dvh])
-- hardcoded hex colors (use CSS variables)
-- useState for mousemove (use MotionValue)
-- framer-motion package (use motion/react)
-- Inter/Geist/Roboto as primary fonts
-
-References: see cdesign/references/ for full rules and patterns.
+For Edit Mode, preserve locks and support legacy INTENT files. QA must be model-agnostic and judge the visible result.

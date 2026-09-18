@@ -1,9 +1,8 @@
 # Recipe: Hero Reveal Choreography
 
-Premium hero animation = layered entrance with overlapping timing.
-Background loads first, then title, then supporting elements.
+Use a layered entrance only when the genome calls for a staged reveal. A strong hero may instead open statically, cut between states, expose content through interaction, or let the primary object lead.
 
-## The sequence (every premium hero follows this)
+## Example sequence
 
 ```
 Phase 1 (0-500ms):    Background/3D scene fades in or scales from 1.15→1.0
@@ -12,7 +11,7 @@ Phase 3 (600-1200ms): Subtitle/description appears
 Phase 4 (900-1500ms): CTA button + nav elements
 ```
 
-Key: phases OVERLAP. Phase 2 starts before Phase 1 ends.
+In this example, phases overlap. That creates continuity, but overlap is not mandatory for mechanical, document-like, or deliberately abrupt directions.
 
 ## GSAP implementation
 
@@ -31,8 +30,7 @@ tl.from(".hero-bg", { scale: 1.15, opacity: 0, duration: 1.2 })
 `"<0.2"` = start this tween 0.2 seconds before the end of the previous one.
 This creates cinematic flow where elements bleed into each other.
 
-Without overlap: robotic reveal (element by element, waiting for each to finish).
-With overlap: cinematic reveal (everything flows together).
+Without overlap the result is discrete; with overlap it is continuous. Choose deliberately from the motion field in DESIGN_GENOME.
 
 ## With SplitText for premium title
 
@@ -50,7 +48,8 @@ tl.from(".hero-bg", { scale: 1.15, opacity: 0, duration: 1.2 })
 
 ## Anti-patterns
 
-❌ All elements appear simultaneously (no choreography)
-❌ Sequential reveal with no overlap (feels like a slideshow)
-❌ Each element has a separate ScrollTrigger (should be ONE timeline)
-❌ Background loads AFTER text (feels broken)
+❌ Reveal order contradicts reading order
+❌ Every project repeats this exact timeline
+❌ Independent triggers drift when the sequence should be coordinated
+❌ Essential text waits on a decorative asset or failed animation
+❌ No reduced-motion end state

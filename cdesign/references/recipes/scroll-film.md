@@ -109,9 +109,9 @@ export function ScrollFilm() {
 
 ## Key concepts
 
-**`scrub: 1`** — animation progress is tied to scroll position, with 1-second smoothing. NOT `scrub: true` (instant, jittery). NOT `scrub: 0.5` (too tight). 1 is the sweet spot.
+**`scrub`** — animation progress is tied to scroll position. Tune smoothing to input, distance, device, and the motion character; the example uses `1`. Direct scrub is valid for deliberately mechanical motion when it tests cleanly.
 
-**`end: "+=400%"`** — pin lasts for 4 viewport heights. More shots = longer end. Roughly 100% per shot.
+**`end`** — pin length should give each state enough readable travel without trapping the user. The example uses four viewport heights; do not derive it mechanically from shot count.
 
 **Position param `"<0.35"`** — start this tween 35% into the previous one. Use it to overlap shots so they bleed into each other (cinematic feel).
 

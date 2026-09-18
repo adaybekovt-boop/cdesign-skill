@@ -4,6 +4,8 @@ GLSL simplex noise gradient — organic, living color flow.
 Looks like Aurora Borealis / Apple Vision Pro.
 Significantly more premium than CSS gradient.
 
+This recipe demonstrates mechanics, not an art direction. Replace the named schemes, default colors, noise scale, and glass treatment with the approved DESIGN_GENOME. If the concept does not specifically justify a living color field, do not use it.
+
 ## When to use
 
 User mentions: "живой градиент", "aurora", "organic colors",
@@ -118,6 +120,7 @@ const fragmentShader = `
   }
 `;
 
+// Examples only. A project implementation should derive its colors from DESIGN_GENOME.
 const COLOR_SCHEMES = {
   aurora: {
     color1: new THREE.Color("#0ea5e9"),
@@ -292,3 +295,4 @@ return <ShaderGradientBg>{children}</ShaderGradientBg>;
 ❌ Never set dpr above 1.5 for background shaders
 ❌ Never use `frameloop="demand"` — shader needs continuous time update
 ❌ Never stack ShaderGradientBg + GlassGradientBg on same page
+❌ Ship the example aurora/dusk palette because the starter recipe already contains it

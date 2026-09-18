@@ -8,7 +8,17 @@ set -euo pipefail
 REPO="adaybekovt-boop/cdesign-skill"
 BRANCH="main"
 SKILL_NAME="cdesign"
-SKILLS_DIR="$HOME/.claude/skills"
+if [[ -n "${CDESIGN_SKILLS_DIR:-}" ]]; then
+  SKILLS_DIR="$CDESIGN_SKILLS_DIR"
+elif [[ -n "${CODEX_HOME:-}" ]]; then
+  SKILLS_DIR="$CODEX_HOME/skills"
+elif [[ -d "$HOME/.codex" ]]; then
+  SKILLS_DIR="$HOME/.codex/skills"
+elif [[ -d "$HOME/.claude" ]]; then
+  SKILLS_DIR="$HOME/.claude/skills"
+else
+  SKILLS_DIR="$HOME/.codex/skills"
+fi
 TARGET="$SKILLS_DIR/$SKILL_NAME"
 TMP_DIR="$(mktemp -d)"
 
@@ -94,9 +104,8 @@ echo ""
 echo "${BOLD}Location:${RESET} $TARGET"
 echo ""
 echo "${BOLD}Next steps:${RESET}"
-echo "  1. Exit your current Claude Code session (type ${YELLOW}exit${RESET})"
-echo "  2. Restart with ${YELLOW}claude${RESET}"
-echo "  3. Try it:"
+echo "  1. Restart your coding-agent session so it reloads skills"
+echo "  2. Try it:"
 echo "     ${BLUE}/cdesign \"a cinematic landing for my startup\"${RESET}"
 echo ""
 echo "${BOLD}Docs:${RESET} https://github.com/$REPO"

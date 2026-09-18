@@ -1,37 +1,29 @@
-# cdesign runtime
+# cdesign repository
 
-Generate cinematic landing pages. Read all files in cdesign/ before generating anything.
+This repository defines cdesign v3. Read cdesign/SKILL.md first.
 
-## Bootstrap
+## Architecture
 
-```bash
-npx create-next-app@latest <name> -e https://github.com/adaybekovt-boop/cdesign-starter
-```
+- cdesign/engine/ contains the required decision system for Generate Mode.
+- cdesign/references/anti-slop.md is the strict post-direction filter.
+- cdesign/references/content-system.md applies when writing or restructuring copy.
+- cdesign/references/design-traits.md is an ingredient library, never a preset selector.
+- cdesign/references/recipes/ is lazy-loaded only for selected techniques.
+- cdesign/references/qa-pipeline.md and visual-qa.md govern verification.
+- cdesign/templates/ defines INTENT and FINGERPRINT contracts.
 
-## Core rules
+Do not load every reference or recipe by default.
 
-- One spectacle per viewport (no stacking shader + particles + magnetic in same section)
-- Transform + opacity only for animations (never width/height/top/left/box-shadow)
-- Stagger 0.015–0.025 (target 0.02)
-- Default ease: cubic-bezier(0.16, 1, 0.3, 1)
-- Motion hierarchy: hero > transitions > UI hover > ambient
-- Temporal: micro 120–220ms / UI 300–500ms / scene 800–1400ms / ambient 3–12s
+## Invariants
 
-## Stack
+- Generate DESIGN_GENOME and pass the Novelty Gate before implementation.
+- Use the reason contract defined by the engine and enforced by anti-slop.
+- Do not map a business category to a complete aesthetic.
+- Do not restore mandatory vibe selection, fixed font pairs, fixed timing values, component quotas, or starter-demo composition.
+- Anti-slop, content truth, accessibility, responsive identity, and performance remain hard gates.
+- QA is model-agnostic and judges observable output.
+- Edit Mode preserves v3 locks and accepts legacy INTENT files; Selected vibe is only a legacy hint.
 
-Next 15 + React 19 + TypeScript + Tailwind v4 + Motion (motion/react) + GSAP 3.13 + Lenis 1.3 + R3F v9 + Drei
+## Repository changes
 
-## Do NOT
-
-- Invent new animation architecture — use starter components
-- Use framer-motion package (use motion/react instead)
-- Use Locomotive Scroll (use Lenis)
-- Use Zustand for motion state (use MotionValue)
-- Use Inter/Geist/Roboto fonts (use Hanken Grotesk + Migra)
-- Add key={index}, h-screen, hardcoded hex, useState for mousemove
-
-## References
-
-- Vibes: cdesign/references/director-roll.md
-- Banned patterns: cdesign/references/anti-slop.md
-- Techniques: cdesign/references/recipes/
+Run cdesign/scripts/audit-cdesign-v3.mjs and the skill validator before committing. Keep supporting rules in one authoritative file and link to them rather than duplicating them.

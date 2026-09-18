@@ -1,63 +1,62 @@
-# Visual QA — Screenshot Audit
+# Visual QA
 
-Runs in Phase 4.5, AFTER deterministic Build & Lint Gate. If browser/preview unavailable, skip gracefully — never block handoff.
+Run after deterministic checks. Review still composition, responsive states, and representative motion states—not only the first loaded frame.
 
 ## Required viewports
 
-| Viewport | Width × Height | Purpose |
-|---|---|---|
-| Desktop wide | 1440 × 900 | Hero composition, motion choreography |
-| Tablet | 1024 × 768 | Mid-width layout integrity |
-| Mobile | 390 × 844 | Motion budget, touch targets, downgrade |
+| Viewport | Size | Primary concern |
+| --- | --- | --- |
+| desktop | 1440 × 900 | intended art direction, hierarchy, primary interaction |
+| tablet | 1024 × 768 | recomposition and navigation stability |
+| mobile | 390 × 844 | identity preservation, touch, cost, overflow |
 
-For each viewport capture 3 frames: scroll 0%, 50%, 100%. Total = 9 frames.
+Capture top, middle, and end states for each. For pinned, stateful, or cinematic work, also capture the signature transition or interaction state. Add project-specific widths around known layout breakpoints when needed.
 
-## Capture order (use first available)
+Use the first available browser, preview, Playwright, or screenshot facility. If none exists, mark the gate SKIPPED; never infer a visual PASS from source code.
 
-1. Playwright MCP (`mcp__playwright__*` tools) — preferred
-2. `npx playwright screenshot http://localhost:3000 --viewport-size=1440,900 out.png`
-3. Puppeteer/Chromium MCP if exposed
-4. Manual fallback: instruct user, mark `LAST_QA.visual = SKIPPED (no_browser)`
+## Blockers
 
-Never block handoff because screenshots are unavailable.
+### Direction
 
-## Blockers (any one = FAIL — fix inline, then re-shoot only affected viewport)
+- rendered composition contradicts DESIGN_GENOME;
+- SIGNATURE_DECISION is absent, too subtle to recognize, or confined to disposable decoration;
+- the rejected category default returned;
+- reference image/site supplied by the user has less influence than a category stereotype;
+- the signature motif repeats mechanically without changing purpose;
+- surface effects are doing work the composition should do.
 
-- Horizontal scroll on mobile (390px viewport)
-- Hero CTA below the fold on desktop (1440×900)
-- Centered SaaS hero — headline + subhead + CTA all stacked center, no asymmetry, no anchor object
-- First viewport has no intentional anchor object, visual field, or asymmetry; it looks like text placed over decoration
-- Decorative 3D stars, trophies, blobs, spheres, confetti, or plastic props appear without a direct product/brand/reference reason
-- A 3D hero uses generic geometry even though the brief calls for a product or brand model, or its GLB/GLTF is missing from `public/models/ASSETS.md`
-- A GLB/GLTF asset is blank, unlit, missing, or visually indistinguishable on desktop or mobile
-- When a reference is supplied, fewer than two matching visual anchors across composition, dominant silhouette, and typography or motion rhythm
-- 3+ identical cards in a row (same icon weight, same caption length)
-- Empty effect section — heavy motion, no copy, no anchor, no payoff
-- Weak type scale — body and headline within 1.5× of each other
-- Decorative motion masking poor composition — everything moves, nothing reads as primary
-- Glass over body text — paragraph behind backdrop-filter, unreadable
-- Pure `#000000` or `#ffffff` page background
-- Slop fonts visible (Geist/Inter/Roboto as page-wide defaults)
-- Purple→pink CTA gradient
-- Stat block with fabricated numbers
-- Mobile: parallax/scrub still active (should degrade)
-- Mobile: text overflow / clipping
-- Mobile: CTA hidden by sticky nav
-- Mobile: visual identity disappears (same motif, palette, and hierarchy must remain even if motion is reduced)
+### Anti-slop
 
-## Non-blockers (record but don't fail)
+- generic centered hero, repeated equal cards, fake metadata, fabricated proof, or ungrounded decorative object;
+- default starter font, palette, grain, progress bar, glass, demo model, or hero composition survived without a genome reason;
+- type hierarchy is weak or line lengths make the composition unreadable;
+- effect-only section, illegible glass, generic gradient CTA, or blanket glow/grain.
 
-- Stagger off by 0.01–0.02s
-- Loading state at scroll 0 (acceptable if <500ms)
-- Slight tier-degradation color drift between viewports
+### Responsive and access
 
-## Output
+- horizontal scroll, clipping, broken wrapping, overlapping fixed UI, or hidden CTA;
+- touch target is impractical or required content depends on hover;
+- focus state disappears against the surface;
+- mobile becomes a plain stack and loses the motif, geometry, typography relationship, or anchor;
+- performance downgrade changes meaning rather than translating the mechanism;
+- reduced-motion state hides content or destroys navigation.
 
-Record in `.cdesign/INTENT.md → LAST_QA`:
+### Runtime
 
-```
-- Visual: PASS / FAIL / SKIPPED (<reason>)
-- Viewports captured: desktop / tablet / mobile
-- Blockers found: <list or "none">
-- Fixes applied: <list>
-```
+- blank or unlit canvas, missing image/model/font, layout shift that changes hierarchy;
+- pinned or scroll-linked section jumps, traps scroll, or ends in the wrong state;
+- animation competes with reading, creates obvious jank, or runs unnecessarily offscreen;
+- loading, error, or empty state breaks the art direction or access to the next action.
+
+## Evidence
+
+Record in LAST_QA:
+
+- status: PASS, FAIL, or SKIPPED with reason;
+- viewports and states captured;
+- blockers found;
+- fixes applied;
+- remaining blockers;
+- genome/signature fidelity verdict.
+
+Re-capture only affected states after a local fix, but rerun the full sweep after a structural change.
