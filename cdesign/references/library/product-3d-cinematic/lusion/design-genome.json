@@ -1,0 +1,30 @@
+{
+  "composition": "Full-viewport WebGL stage as the layout. Headline and meta sit as thin HUD overlays at edges rather than a stacked center column. Featured work occupies world-space as objects the camera approaches; HTML does not own a 12-column content well until later documentary sections.",
+  "typography": {
+    "display": "Large sans or slightly extended grotesque, often two-line statements that caption the scene rather than dominate it",
+    "body": "Smaller sans for credits, emails, project names; tracking modest; mixed case",
+    "hierarchy": "Scene first, word second. Display type rarely exceeds two short lines in the first viewport."
+  },
+  "palette": {
+    "ground": "Dark desaturated stage so materials and bloom read",
+    "type": "Off-white, not pure white",
+    "accent": "Comes from object materials and lights, not from a UI chip color"
+  },
+  "geometry": "Rounded studio props, colliding primitives, and project-specific models sharing one gravity field. Avoids isolated hero torus. Objects have scale relationships between tiny UI and large world mass.",
+  "navigation": "Minimal corner marks. Primary navigation is camera travel through the world plus a later project index.",
+  "hero": "Camera already inside a lit volume. First action is environmental before any CTA. CTA if present is a small text link, not a filled pill.",
+  "motion": "Physics-led entrance: objects drop or roll into rest. Camera eases between docks. Scroll maps to camera path more than to section fade.",
+  "interaction": "Cursor exerts force or aim on nearby objects. Clicking a work object docks the camera instead of opening a modal over the scene.",
+  "imagery": "Real-time 3D as primary image. Photographed work appears as texture or framed plane inside the world, not as CSS cards.",
+  "materials": "PBR metals, rubber, painted studio floors, contact shadows, restrained bloom. Materials explain mass.",
+  "spatial_rhythm": "Long beats of watching an object settle, then a camera truck to the next mass. Quiet after spectacle.",
+  "responsive": "Desktop keeps physics world. Mobile collapses world to a single framed stage or baked poster plus reduced object count; type stacks under the stage.",
+  "signature_motif": "A page whose layout is a physical set: gravity, collision, and camera docks instead of cards.",
+  "rejected_defaults": [
+    "centered headline + subhead + dual CTA over a spinning primitive",
+    "3-column feature cards with identical icons",
+    "permanent bloom + particles + magnetic buttons in one viewport",
+    "pure black ground with neon purple accent",
+    "project grid of identical 16:9 thumbnails as the first screen"
+  ]
+}
