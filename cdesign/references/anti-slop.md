@@ -1,287 +1,257 @@
-# Anti-Slop Reference
+# Anti-Slop — Shared Rules and Evidence-Based Audit
 
-Compact checklist. Any violation = critic FAIL.
+This file supplies baseline rules to cdesign creation and a standalone audit method. It does not define a second generation workflow and does not automatically trigger a redesign.
 
-## Banned text patterns (regex-detectable)
+## Purpose
 
-```yaml
-mono_labels:
-  desc: "Awwwards portfolio cosplay clichés"
-  patterns:
-    - "/\\s*0\\d\\s*[—–-]\\s*[A-ZА-Я]"     # / 01 — SECTION
-    - "/\\s*[A-ZА-Я]+,\\s*[A-Z]{2}"         # / AKTOBE, KZ
-    - "[A-ZА-Я]+\\s*[·•]\\s*[A-Z]{2}"       # АКТОБЕ · KZ (banned everywhere incl footer)
-    - "EST\\.\\s*\\d{4}"                    # EST. 2022
-    - "(?i)KIT\\s+BY|MADE\\s+BY|BY\\s+[A-Z][a-z]+\\s+[A-Z]"  # KIT BY name
-    - "(?i)<span[^>]*SCROLL\\s*[↓⬇]?"       # SCROLL ↓
-  action: "Delete entirely. If section needs a label, use a normal heading."
+Anti-slop means:
 
-fabricated_stats:
-  desc: "Trust-by-numbers grids with invented metrics"
-  signal: "<div> with text-5xl+ number AND sibling with uppercase + tracking-* + small text"
-  examples:
-    - "1 240 / РАСПИСАННЫХ ВЕЩЕЙ"
-    - "38 / ГОРОДОВ ДОСТАВКИ"
-    - "500+ / HAPPY CLIENTS"
-    - "99% / SATISFACTION"
-  action: "Delete the section. Show actual work instead. Exception: real numbers user explicitly provided, written as sentences."
+- claims and proof are truthful;
+- form follows something specific about the product, audience, material, or task;
+- content earns its place;
+- interaction works;
+- motion has a deliberate role;
+- familiar visual techniques are judged in context, not treated as errors by name.
 
-fictional_signatures:
-  desc: "Invented author/studio names"
-  patterns:
-    - "—\\s*[A-ZА-Я][a-zа-я]+\\s*[·•]\\s*[A-ZА-Я][a-zа-я]+"   # — Sagel · Актобе
-    - "(?i)(designed|made|crafted|created)\\s+by\\s+[A-Z]"
-    - "(?i)(studio|atelier|lab)\\s+[A-Z][a-z]+"
-  action: "Delete. Only use names user EXPLICITLY provided in their prompt, only as plain footer text."
-```
+## Rule priority
 
-## Banned words
+1. User requirements and supplied brand or reference material.
+2. Truth, functionality, accessibility, and asset rights.
+3. The selected project concept and locks in `.cdesign/INTENT.md`.
+4. Performance and motion budgets.
+5. Heuristics in this reference.
 
-```yaml
-english_verbs:
-  [Unlock, Elevate, Delve, Supercharge, Unleash, Catapult, Harness, Foster,
-   Revolutionize, Empower, Leverage, Streamline, Transform]
-  context: when paired with "your X" or as marketing CTA
+A lower-priority heuristic cannot invalidate a higher-priority decision without evidence of harm.
 
-english_nouns:
-  [Realm, Tapestry, Symphony, Arsenal, Underpinnings, Powerhouse, Landscape]
-  context: when used metaphorically
+## Categories
 
-english_adjectives:
-  [Innovative, Robust, Holistic, Synergistic, Cutting-edge, State-of-the-art,
-   Best-in-class, Next-generation, Game-changing, Seamless]
+### 1. Defect — must fix
 
-english_phrases:
-  - "In today's fast-paced digital world"
-  - "Ever wondered..."
-  - "Chaos into clarity"
-  - "The elephant in the room"
-  - "Seamlessly integrate"
-  - "Take it to the next level"
-  - "Built with ❤️" / "Made with love"
-  - "Powered by AI"
-  - "Your one-stop shop"
+A defect is independently actionable. Examples:
 
-russian_verbs:
-  [Откройте_для_себя, Погрузитесь_в_мир, Раскройте_потенциал,
-   Доверьтесь_профессионалам, Почувствуйте_разницу]
+- fabricated testimonial, metric, client, award, ranking, certification, partnership, official status, or product claim;
+- invented person, studio, location, or attribution presented as real;
+- broken action, link, form, navigation, or interaction;
+- clipped, unreadable, overlapping, or horizontally overflowing content;
+- missing loading, error, or empty state for asynchronous content;
+- inaccessible essential interaction or ignored reduced-motion preference;
+- unlicensed or unattributed required asset;
+- code or animation pattern that causes a concrete correctness or performance failure;
+- reference requirement or explicit user instruction not implemented.
 
-russian_nouns:
-  [ваша_история, уникальный_характер, особая_атмосфера, мир_возможностей,
-   путь_к_успеху, новая_эра]
+One defect is enough to require a targeted fix. Do not wait for a score threshold.
 
-russian_adjectives:
-  [премиальный, премиум, эксклюзивный, изысканный, инновационный,
-   революционный]
+### 2. Template risk — investigate and explain
 
-russian_phrases:
-  - "Результат превзойдёт ожидания"
-  - "Качество, проверенное временем"
-  - "Создано с любовью"
-  - "Внимание к деталям"
-  - "Индивидуальный подход" (without specifics)
-  - "В современном мире..."
-  - "Не просто X, а Y" (when Y is empty abstraction)
-```
+A template risk is a pattern that may make the result generic, interchangeable, or disconnected from its content. It is not a defect by itself.
 
-## Banned visual patterns
+Examples:
 
-```yaml
-colors:
-  - desc: "AI-tech purple→pink gradient on CTAs"
-    forbidden_classes: ["from-purple", "to-pink", "from-violet", "to-fuchsia"]
-    context: "primary buttons, hero CTAs"
-  - desc: "Pure #000000 background"
-    exception: "Vercel-mono vibe only"
-  - desc: "Pure #ffffff text on dark"
-    use_instead: "#f7f8f8 (off-white)"
-  - desc: "Saturated neon accents (>80% saturation)"
-    use_instead: "muted accent like #5e6ad2 periwinkle"
+- the logo substitution test succeeds;
+- the hero, feature grid, proof row, and CTA could belong to unrelated products;
+- several sections repeat the same density, card shape, copy length, and hierarchy;
+- decoration has no traceable relationship to product, identity, material, or concept;
+- animation masks weak static composition;
+- every capability is shown as an equal card despite unequal importance;
+- the design repeats a recent project formula without a brand-system reason;
+- copy relies on abstract promises instead of a capability, object, process, or next action.
 
-typography:
-  forbidden_fonts:
-    desc: "Slop-marked fonts (overused by AI agents in 2025-26)"
-    list: [Inter, Roboto, Arial, "Open Sans", Lato, Poppins, Geist, "Space Grotesk", "Instrument Serif", Syne, Fraunces]
-    use_instead: ["Hanken Grotesk", "Migra", "Satoshi", "Cabinet Grotesk", "Hanken Grotesk"]
-    note: "Starter already uses Hanken Grotesk + Migra. Don't override."
-  forbidden:
-    - "ALL-CAPS button labels (unless ultra-small + tracked)"
-    - "Center-aligned hero (headline + subhead + CTA all centered)"
+Several visible signals may describe one underlying risk. Do not count background color, italic type, and accent color as three independent findings when they are one stylistic system.
 
-layout:
-  forbidden:
-    - "3-column symmetric feature grid with identical Lucide icons"
-    - "Bento Grid for narrative content (only OK when cell-size reflects content importance, like Apple)"
-    - "Stacked centered hero (headline + subhead + CTA + image, all centered, vertically stacked)"
-    - "Generic isometric illustrations (Storyset/unDraw/ManyPixels)"
-    - '"Trusted by" logo row with 6 grayscale logos centered'
-    - "Floating phone mockup next to centered headline"
-    - "Three identical pricing cards with 'Most Popular' middle one"
-  shell_violations:
-    - "max-w-7xl mx-auto as the only grid structure"
-    - "uniform py-24 on all sections (vary rhythm: quiet/medium/dense)"
-    - "two sections with same density class back-to-back"
-    - "headline wider than 18ch in hero"
-    - "no intentional empty rails in hero section"
-    - "symmetric 50/50 split for every section"
+### 3. Preference — do not require
 
-shadows:
-  - desc: "Single-layer flat shadow"
-    forbidden_pattern: "box-shadow: 0 \\d+px \\d+px rgba\\(0,\\s*0,\\s*0"
-    use_instead: "Multi-layer shadow with hue from environment (starter has --shadow-sm/md/lg/xl tokens)"
+A preference is a reviewer taste or an alternative that does not solve demonstrated harm.
 
-effects:
-  forbidden:
-    - "Glassmorphism on every card (use sparingly, ONE element max)"
-    - "Animated rainbow gradient mesh (distracting)"
-    - "Spinner for loading states (use slate shimmer skeleton)"
-    - "Cursor follower that's larger than 20px"
-  glass_misuse:
-    forbidden:
-      - "backdrop-filter on more than one full-page wrapper"
-      - "continuous backdrop-filter animation (animating blur value)"
-      - "stacking multiple glass layers"
-      - "glass over dense body text blocks"
-      - "gradient-bg without blur overlay (naked gradient = cheap)"
-```
+Examples:
 
-## Banned code patterns (architectural)
+- preferring left alignment over a justified centered composition;
+- preferring a different typeface, color temperature, amount of whitespace, or motion intensity;
+- disliking white backgrounds, serif italics, gradients, bento layouts, glass, or 3D in principle;
+- wanting a different genre while the current concept is coherent and usable.
 
-```yaml
-react_violations:
-  - "key={index}"           # Breaks reconciliation
-  - "h-screen"              # Use min-h-[100dvh] instead
-  - "useState for mousemove"  # Use useMotionValue
-  - "<img>"                 # Use next/image
-  - "framer-motion package"  # Use motion/react
+Preferences may be offered as optional alternatives only. Never present them as audit failures.
 
-compositor_only_violations:
-  desc: "Runtime animations may only animate compositor-accelerated properties"
-  allowed:
-    - transform (translate, rotate, scale)
-    - opacity
-    - clip-path (rare — hero transitions only, max 2 elements)
-    - CSS variables that drive transform/opacity
-  forbidden_in_continuous_animations:
-    - width
-    - height
-    - top / left / right / bottom
-    - margin / padding
-    - box-shadow
-    - filter (blur, brightness, etc.)
-    - backdrop-filter
-    - border-radius (on many elements simultaneously)
-    - text-shadow
-    - layout animations on lists (layout={true} with motion on large grids)
-  rule: "If an expensive effect is required, animate a small overlay layer — NOT the whole section. Max 1–2 such elements at a time."
-  will_change_rule: "will-change is TEMPORARY only. Set on interaction start, remove after 350ms. Never permanent. See hooks/use-temporary-will-change.ts"
+## Non-negotiable truth rules
 
-isolated_animation_rule:
-  desc: "Interactive animation state must be local to the smallest component"
-  forbidden:
-    - parent-level hover/active state for card grids
-    - useState tracking which card is hovered at parent level
-    - animating ALL cards when ONE card is pressed
-    - layout={true} on large lists
-  rule: "Use IsolatedAnimatedCard pattern (memo + local state). See components/ui/isolated-animated-card.tsx"
+- Use proof only when supplied by the user or verified from an attributable source.
+- Keep assumptions labeled as assumptions in `.cdesign/INTENT.md`; do not publish them as facts.
+- Do not invent testimonials, statistics, client or partner logos, awards, team members, founder quotes, certifications, rankings, licenses, locations, official affiliations, scarcity, or health/security/performance claims.
+- Real figures must retain their source and context. Do not turn an approximate or internal number into public proof.
+- When proof is unavailable, show truthful process proof: workflow, material, interface state, document type, or method.
+- Never fabricate copy to fill a visual slot. Remove or restructure the slot.
 
-state_violations:
-  - desc: "Missing Loading/Error/Empty states"
-    rule: "Every async data fetch must have all three"
-  - desc: "Optimistic UI without rollback"
-    rule: "If you update state before server confirms, you must catch + revert"
+## Content quality signals
 
-styling_violations:
-  - desc: "Hardcoded hex in components"
-    forbidden_pattern: "(bg|text|border)-\\[#[0-9a-fA-F]{3,8}\\]"
-    use_instead: "Tailwind utilities from --color-* tokens"
-  - desc: "Magic numbers in spacing"
-    use_instead: "Tokens (--space-* / Tailwind spacing scale)"
+The following are review signals, not regex-based automatic failures:
 
-performance_violations:
-  - "R3F Canvas without PerformanceMonitor (use drei PerformanceMonitor for auto FPS degradation)"
-  - "10+ repeated 3D objects without InstancedMesh or BatchedMesh"
-  - "GSAP velocity effects without quickSetter (use quickSetter not gsap.to in loops)"
-  - "transition: all (implicitly animates layout/paint properties — always list specific properties explicitly: transition: transform 0.3s, opacity 0.3s)"
-  - "mounting/unmounting heavy R3F sections on scroll (use VisibilityGate component instead)"
-```
+- generic marketing verbs such as “unlock,” “elevate,” “empower,” “transform,” “раскройте потенциал,” or “почувствуйте разницу”;
+- unsupported adjectives such as “innovative,” “best-in-class,” “seamless,” “премиальный,” “эксклюзивный,” or “революционный”;
+- empty constructions such as “chaos into clarity,” “your one-stop shop,” “индивидуальный подход” without specifics, or “не просто X, а Y” where Y is abstract;
+- portfolio cosplay labels such as `/ 01 — SECTION`, `CITY · KZ`, `EST. 2022`, `MADE BY`, or `SCROLL ↓`;
+- slogans that do not answer what the product is or what the user can do.
 
-```yaml
-spectacle_budget:
-  rule: "One spectacle per viewport. Never stack multiple heavy effects in same viewport."
-  forbidden:
-    - "particles + shader background + magnetic buttons all in hero simultaneously"
-    - "bloom + parallax + stagger + custom cursor all competing at once"
-    - "every section having its own independent heavy motion system"
-    - "hero with WebGL scene AND heavy card hover AND particle system"
-  correct:
-    - "Hero with ShaderGradientBg → cards in that section are static"
-    - "Editorial section with typography choreography → static background, no WebGL"
-    - "Showcase with one 3D object → no extra motion systems in same viewport"
-  principle: "Premium sites are extremely controlled. Selective spectacle. Not maximum effects."
+For each occurrence, ask whether it carries specific meaning supported by the product. Rewrite only when it does not. Normal headings, truthful bylines, real dates, and useful orientation labels are allowed.
 
-motion_hierarchy:
-  rule: "Lower motion tiers must NEVER compete with higher tiers"
-  tiers:
-    tier1: "Hero motion — the main cinematic statement. Everything defers to this."
-    tier2: "Section transitions — must not distract from tier1 when active"
-    tier3: "UI hover (magnetic buttons, card hover) — subtle, never louder than tier2"
-    tier4: "Ambient motion (grain, slow gradients, breathing) — background, imperceptible"
-  forbidden:
-    - "tier3 UI hover as dramatic as tier1 hero animations"
-    - "card hover scale/glow more intense than hero reveal"
-    - "multiple tier1-level animations on same page"
-    - "every element having same animation intensity"
+## Visual and structural signals
 
-temporal_discipline:
-  rule: "Duration must match motion tier"
-  ranges:
-    micro: "120–220ms — hover feedback, button press, tooltip"
-    ui: "300–500ms — reveals, modals, page element enters"
-    scene: "800–1400ms — hero reveals, section transitions, cinematic moments"
-    ambient: "3000–12000ms — background gradients, grain, breathing"
-  forbidden:
-    - "hover effect with 800ms duration (too slow for micro)"
-    - "hero reveal with 150ms duration (too fast for scene)"
-    - "all animations using same 300ms duration (robotic feel)"
+Investigate rather than ban:
 
-shell_violations:
-  - "max-w-7xl mx-auto as the only grid structure"
-  - "uniform py-24 on all sections (vary rhythm: quiet/medium/dense)"
-  - "two sections with same density class back-to-back"
-  - "headline wider than 18ch in hero"
-  - "no intentional empty rails in hero section"
-  - "symmetric 50/50 split for every section"
+- centered, split, symmetric, or asymmetric heroes;
+- pure white or black fields;
+- common typefaces;
+- three-column grids, bento layouts, cards, dashboards, phone mockups, logo rows, or pricing comparisons;
+- gradients, glass, grain, glow, shadows, parallax, 3D, or decorative type;
+- repeated spacing values or conventional containers.
 
-performance_violations:
-  - "R3F Canvas without PerformanceMonitor (always wrap with drei PerformanceMonitor)"
-  - "10+ repeated 3D objects without InstancedMesh or BatchedMesh"
-  - "GSAP velocity effects without quickSetter (use quickSetter not gsap.to in loops)"
-  - "will-change set permanently on many elements (use useTemporaryWillChange hook)"
-  - "transition: all (implicitly animates layout/paint properties — always list specific properties explicitly: transition: transform 0.3s, opacity 0.3s)"
-  - "mounting/unmounting heavy R3F sections on scroll (use VisibilityGate component instead)"
-```
+A finding requires observable harm, such as:
 
-## Screenshot-visible slop
+- hierarchy is unclear;
+- content importance is flattened;
+- the product disappears behind a reusable layout;
+- contrast or readability fails;
+- real brands or proof are implied without evidence;
+- the concept changes arbitrarily between sections;
+- effects compete, obscure content, or exceed the device budget;
+- mobile loses the concept rather than adapting it.
 
-```yaml
-screenshot_visible_slop:
-  desc: "Patterns a reviewer spots from a screenshot in 2 seconds. Used by Phase 4.5 Visual QA."
-  blockers:
-    - "Centered SaaS hero — headline + subhead + CTA all stacked center, no asymmetry, no anchor object"
-    - "Reference-free decoration — generic stars, trophies, blobs, spheres, confetti, or plastic 3D props with no product/brand reason"
-    - "Weak hero anchor — first viewport has no dominant object, no memorable visual field, and no intentional empty space"
-    - "3+ identical cards in a row — same icon weight, same line count, same caption length"
-    - "Empty effect section — heavy motion / WebGL / parallax with no copy, no anchor, no payoff"
-    - "Weak type scale — body and headline within 1.5× of each other, no contrast"
-    - "Decorative motion masking poor composition — everything moves, nothing reads as primary"
-    - "Glass over body text — paragraph behind backdrop-filter, content unreadable"
-    - "Trusted-by row of 6 grayscale logos centered with no real brand"
-    - "Three identical pricing cards with 'Most Popular' middle one"
-    - "Purple→pink gradient CTA (visible at any viewport)"
-    - "Bento grid where every cell is the same priority"
-    - "Mobile parallax/scrub still firing (should degrade)"
-    - "Mobile identity collapse — mobile keeps content but loses motif, palette, hierarchy, or anchor object"
-    - "Horizontal scroll on 390px viewport"
-  rule: "If a reviewer can spot the issue from a screenshot in 2 seconds, it's a blocker."
-```
+Common warning combinations:
+
+- centered headline + generic subhead + CTA + unrelated floating object;
+- identical icon cards with equal size and interchangeable copy;
+- “trusted by” logos with no supplied relationships;
+- three equal pricing cards with an unsupported “most popular” claim;
+- generic 3D geometry standing in for a missing product or brand asset;
+- heavy motion in an otherwise unresolved composition;
+- glass or effects reducing text readability;
+- desktop art direction replaced by a plain mobile stack.
+
+The remedy is the smallest structural change that restores meaning. Do not replace a coherent palette or typography system merely because it is familiar.
+
+## Typography
+
+No font is globally defective. Inter, Geist, Roboto, Space Grotesk, Instrument Serif, Hanken Grotesk, Migra, and other common choices are allowed when supported by:
+
+- user or brand requirements;
+- supplied references;
+- appropriate language coverage;
+- a deliberate role in the concept;
+- customized hierarchy, spacing, and composition.
+
+A common font becomes a template risk when it is the only art-direction decision or reproduces an unchanged starter look. Replacing one mandatory font pair with another does not create originality.
+
+Do not change fonts during an ordinary edit or audit fix when typography is locked, unless the user authorizes it or the font causes a demonstrated defect.
+
+## Motion
+
+Motion may serve one or more of three purposes:
+
+1. explain interaction, state, sequence, or causality;
+2. direct attention and preserve hierarchy;
+3. create an artistic impression required by the concept.
+
+Artistic motion is valid. It must remain readable, leave primary actions usable, defer to the main spectacle, respect device capability, and provide a calm reduced-motion alternative.
+
+Flag motion when:
+
+- no purpose can be identified;
+- lower-tier hover or ambient effects compete with the hero;
+- several heavy systems share a viewport;
+- motion is used to disguise a generic or broken composition;
+- touch or reduced-motion users lose content or actions;
+- continuous paint/layout work creates a measured or clearly reproducible performance issue.
+
+### Technical motion rules
+
+- Use `motion/react`, not `framer-motion`.
+- Prefer transform and opacity for continuous runtime animation.
+- Do not continuously animate layout or paint-heavy properties such as width, height, position offsets, margin, padding, box-shadow, blur/filter, backdrop-filter, or text-shadow.
+- `clip-path` is acceptable for a small number of deliberate transitions after performance review.
+- Do not use `transition: all`.
+- Keep interactive state local to the smallest component; do not rerender a card grid for one card's hover.
+- Use MotionValue rather than React state for pointer-frequency updates.
+- Heavy R3F scenes require device-tier fallback and runtime performance monitoring.
+- Repeated 3D objects should use instancing or batching when count justifies it.
+- One spectacle per viewport remains the default budget.
+
+These are defects when they cause correctness, accessibility, or performance harm. In source-only review, report unverified performance concerns as risks and state what runtime evidence is missing.
+
+## Application correctness
+
+Treat these as defects when applicable:
+
+- unstable list identity such as `key={index}` for reorderable or stateful items;
+- raw `<img>` where the framework's image component is required for the intended optimization;
+- viewport sizing that breaks mobile browser chrome;
+- missing loading, error, and empty states for asynchronous data;
+- optimistic updates without error rollback;
+- missing keyboard operation, focus visibility, labels, or adequate touch targets;
+- permanent broad `will-change`;
+- mounting and destroying heavy scenes repeatedly during scroll.
+
+Do not flag a pattern mechanically when its context is safe. Explain the actual failure mode.
+
+## Audit mode
+
+Audit mode observes and reports. It does not edit or redesign unless the user separately authorizes changes.
+
+### Inputs
+
+Read, when available:
+
+- `.cdesign/INTENT.md`, including facts, assumptions, concept, and locks;
+- user brief and supplied references;
+- relevant implementation;
+- runtime page at target viewports;
+- screenshots for composition;
+- recording or live interaction for motion;
+- build, lint, type, accessibility, and performance results.
+
+Absence of a capability means **not checked**, never PASS.
+
+### Finding format
+
+Every required finding uses:
+
+> **Where → Observation → Harm → Minimal fix → Preserve**
+
+Example:
+
+> Feature section → Three capabilities with different importance use equal cards and equal copy weight → The primary workflow is not identifiable → Enlarge and sequence the main workflow, then group the two supporting capabilities → Preserve the current palette, type scale, and image treatment.
+
+Each finding must:
+
+- cite direct visual, behavioral, content, or source evidence;
+- identify the category: defect or template risk;
+- avoid combining unrelated issues;
+- preserve named successful decisions;
+- distinguish observed behavior from inference;
+- state missing evidence when verification was impossible.
+
+Do not produce “too generic,” “bad typography,” or “rewrite it” without a causal explanation.
+
+### Redesign threshold
+
+Never redesign because a checklist reaches three matches.
+
+Recommend concept-level reconsideration only when evidence shows that the core structure or concept cannot perform the page task—for example, the product remains unidentifiable across the hero and subsequent sections, the supplied reference anchors are absent, or the information architecture prevents the primary action.
+
+Even then, audit mode recommends; it does not rewrite. A full redesign requires explicit user authorization.
+
+## Honest verification status
+
+Report independent statuses:
+
+- `code`: PASS / FAIL / NOT CHECKED;
+- `visual`: PASS / FAIL / NOT CHECKED;
+- `motion`: PASS / FAIL / NOT CHECKED;
+- `content_truth`: PASS / FAIL / NOT CHECKED;
+- `accessibility`: PASS / FAIL / NOT CHECKED.
+
+Examples:
+
+- A successful build proves code compilation, not visual quality.
+- A screenshot can verify composition and clipping, not animation smoothness.
+- A recording can show choreography, but not establish asset licensing or claim truth.
+- Source inspection can identify likely performance risks, but not measured frame rate.
+
+Inline review, browser review, and a capable independent reviewer are all valid. Do not bind the audit architecture to a named model. Record which evidence and capabilities were actually used.
