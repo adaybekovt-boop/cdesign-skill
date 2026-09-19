@@ -31,6 +31,18 @@ Choose one candidate by answering:
 
 Do not keep candidate names such as “editorial fintech” or “luxury brutalism” as the output. Record concrete properties in the DESIGN_GENOME.
 
+## Targeted reference retrieval
+
+Draft the genome from project evidence before consulting the internal library. Then use [the library router](../references/library/README.md) only to test a concrete hypothesis, fill a gap, or find a non-obvious transformation.
+
+- Select one to three references by property, not visual resemblance or business category.
+- Extract composition principles, hero mechanics, navigation ideas, motion systems, responsive translations, or signature mechanisms separately.
+- Read only the index and files needed for those properties; never recursively load the library.
+- A user-supplied reference has greater visual authority than internal references.
+- Record the extracted property, project reason, adaptation, source slug, and what must not be copied.
+
+After retrieval, refine the genome in the project’s own language. Do not paste a reference genome, keep a source name as the concept, or inherit its full palette, type, layout, motion, and section sequence.
+
 ## Deliberate property combination
 
 Do not blindly combine complete aesthetics. Combine compatible design properties deliberately.

@@ -1,0 +1,20 @@
+{
+  "composition": "Uneven index of titled toys. Each title is a door.",
+  "typography": "Simple, sometimes naive. Per-toy type is free.",
+  "palette": "Index is plain; toys are wild.",
+  "geometry": "Shelf / list. Not a marketing grid.",
+  "navigation": "The shelf.",
+  "hero": "The shelf is the hero.",
+  "motion": "Per toy.",
+  "interaction": "Click a title.",
+  "imagery": "Tiny drawings, sometimes none.",
+  "materials": "HTML toys.",
+  "spatial_rhythm": "Short index, deep toys.",
+  "responsive": "Shelf stacks. Toys have their own layouts.",
+  "signature_motif": "Handmade shelf of complete single-mechanic sites",
+  "rejected_defaults": [
+    "unifying all toys under one dark theme",
+    "infinite scroll of half-ideas",
+    "accounts and paywalls on the shelf"
+  ]
+}

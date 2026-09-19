@@ -1,0 +1,20 @@
+{
+  "composition": "Index of works and studies. Detail routes are optional.",
+  "typography": "Small functional type. Titles over paragraphs.",
+  "palette": "Neutral chrome; entries bring their own color.",
+  "geometry": "Wall or list. Not a 3-column SaaS feature set.",
+  "navigation": "The wall.",
+  "hero": "Name + current focus, or the first study.",
+  "motion": "Per entry.",
+  "interaction": "Open a study.",
+  "imagery": "Study frames.",
+  "materials": "Whatever the study needs.",
+  "spatial_rhythm": "Tight index.",
+  "responsive": "Stack the wall.",
+  "signature_motif": "Studies and clients on one workshop wall",
+  "rejected_defaults": [
+    "only-client work",
+    "torus knot default hero",
+    "long About with circular photo"
+  ]
+}

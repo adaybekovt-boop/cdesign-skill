@@ -1,0 +1,20 @@
+{
+  "composition": "One reactive field as home. Type sits where the lens will not destroy it.",
+  "typography": "Clean grotesque, placed in a safe band.",
+  "palette": "Scene-driven.",
+  "geometry": "Full-bleed field + one type band.",
+  "navigation": "After play, a simple list.",
+  "hero": "The field.",
+  "motion": "Pointer-local.",
+  "interaction": "Move to reveal.",
+  "imagery": "One key visual that can be lit or uncovered.",
+  "materials": "Light, mask, maybe displacement.",
+  "spatial_rhythm": "Play field, then work.",
+  "responsive": "No pointer on touch — rest state or tilt/tap reveal.",
+  "signature_motif": "Pointer-as-lens over a single home field",
+  "rejected_defaults": [
+    "custom cursor larger than 20px that does nothing to the scene",
+    "particles everywhere",
+    "magnetic CTA as the only interaction"
+  ]
+}

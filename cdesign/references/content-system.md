@@ -5,17 +5,9 @@
 Copy must be specific to the user's industry, object, audience, and actual offer.
 Do not fill sections with abstract promises.
 
-## Global bans
+## Truth and generic-copy gates
 
-- no fake stats
-- no fake testimonials
-- no fake client logos
-- no fake awards
-- no fake founder quotes
-- no fake team names
-- no "trusted by" unless user provided real brands
-- no vague AI-marketing words from anti-slop.md
-- no invented institutional claims like "ranked #1", "licensed", "certified" unless user provides proof
+Use the authoritative always-on truth gate in [anti-slop/INDEX.md](anti-slop/INDEX.md). When writing or restructuring copy, also load [anti-slop/content.md](anti-slop/content.md). Do not maintain a second list of fabrication or marketing-language rules here.
 
 ## Content obligations
 
@@ -47,8 +39,6 @@ Use concrete topics:
 Avoid:
 - "unlock your future"
 - "premium education"
-- fake rankings
-- fake graduate employment percentages
 
 ---
 
@@ -65,9 +55,6 @@ Use:
 - compliance only if user provides proof
 
 Avoid:
-- fake security claims
-- fake uptime
-- fake client logos
 - crypto hype unless asked
 
 ---
@@ -81,11 +68,6 @@ Use:
 - ingredients only if user provides them
 - use case
 - sensory detail
-
-Avoid:
-- fake health claims
-- fake awards
-- fake "limited edition" unless user says so
 
 ---
 
@@ -102,8 +84,6 @@ Use:
 - integration steps
 
 Avoid:
-- fake benchmarks
-- fake GitHub stars
 - generic "for developers by developers"
 
 ---
@@ -118,11 +98,6 @@ Use:
 - local context
 - documents
 - map/network language
-
-Avoid:
-- fake government affiliation
-- fake official status
-- fake national statistics
 
 ---
 
@@ -139,7 +114,6 @@ Use:
 Avoid:
 - shouting "premium"
 - too many adjectives
-- fake exclusivity
 
 ---
 
@@ -163,7 +137,7 @@ If no proof is provided, use **process proof** instead:
 - show interface states
 - show before/after structure
 
-Do not invent numbers, testimonials, or client names.
+Apply the truth gate to every proof object; this section defines the fallback, not a second fabrication policy.
 
 ### CTA
 

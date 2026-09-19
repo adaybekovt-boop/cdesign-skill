@@ -1,0 +1,21 @@
+{
+  "composition": "Hard left type, work as a directory or abrupt blocks. Little pastoral photography.",
+  "typography": "Compressed grotesques, sudden scale jumps, mixed case on purpose.",
+  "palette": "Industrial: black, off-white, an unexpected signal color that is not purple.",
+  "geometry": "Directory rows, hard edges, few rounded cards.",
+  "navigation": "Short, maybe unusually placed.",
+  "hero": "Name + a blunt line. No 3D ornament required.",
+  "motion": "Snappy. Short durations. Little overshoot.",
+  "interaction": "Hover states like buttons on a device.",
+  "imagery": "Work stills, often raw.",
+  "materials": "Matte, hard. No frosted glass.",
+  "spatial_rhythm": "Dense directory vs sudden empty band.",
+  "responsive": "Directory stacks. Type stays aggressive.",
+  "signature_motif": "Mechanical timing + directory bluntness",
+  "rejected_defaults": [
+    "soft fade-up of every paragraph",
+    "glass cards",
+    "navy luxury shell",
+    "centered manifesto"
+  ]
+}

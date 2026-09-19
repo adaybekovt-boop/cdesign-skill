@@ -1,0 +1,22 @@
+{
+  "composition": "Panel sequences occupy the reading column. About / team / support are separate rooms reached from a tiny index (intro / the legend / the team / support us). Bright flat fields, not a dark shell.",
+  "typography": "Display type is chunky, friendly, sometimes broken across lines ('yes the legend, / is ponpon!'). Body is simple. Language codes EN | FR sit as equal glyphs.",
+  "palette": "Saturated character colors on light grounds. Not a two-stop luxury pair. Local colors follow the cast.",
+  "geometry": "Comic panels with uneven sizes. Gutters are generous. About pages use oversized broken headlines more than grids.",
+  "navigation": "Short textual index plus scroll through the episode. No hamburger of case studies.",
+  "hero": "The first panel / title card of the episode. 'Scroll down' is allowed because the object is a comic.",
+  "motion": "Loops inside panels, GSAP-authored takes, WebGL where a gag needs it. Motion is acting, not transitions-between-routes.",
+  "interaction": "Hover/tap triggers gags. Some panels are toys. Support CTAs stay in voice.",
+  "imagery": "100% original illustration. No photography, no 3D product.",
+  "materials": "Flat fill, bold outline, risograph-adjacent cheer. No glass, no film grain.",
+  "spatial_rhythm": "Episode reading is the long rhythm. About pages are short and loud.",
+  "responsive": "Designed to be read on phone. Panels stack. Gags that need hover get tap equivalents.",
+  "signature_motif": "Diegetic panel toys inside a bilingual webcomic",
+  "rejected_defaults": [
+    "dark agency portfolio with a 'side project' link",
+    "WebGL sheep as a hero ornament with no story",
+    "center-aligned startup landing for a comic",
+    "Inter + pastel cards",
+    "custom cursor bigger than the characters"
+  ]
+}

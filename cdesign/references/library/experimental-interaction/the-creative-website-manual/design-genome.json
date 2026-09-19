@@ -1,0 +1,20 @@
+{
+  "composition": "Chaptered manual. Grid visible. Exhibits in the column.",
+  "typography": "Display for chapter titles, readable body, specimen moments.",
+  "palette": "Paper manual. Limited ink colors.",
+  "geometry": "Document grid that is named.",
+  "navigation": "Table of contents.",
+  "hero": "Title lockup + what the manual is.",
+  "motion": "Exhibits animate when their chapter is in view.",
+  "interaction": "Play an exhibit.",
+  "imagery": "Diagrams, type, selected stills.",
+  "materials": "Paper, ink, rule lines.",
+  "spatial_rhythm": "Chapter / exhibit / chapter.",
+  "responsive": "Grid collapses to a single document column. Exhibits simplify.",
+  "signature_motif": "Performed manual: the lesson is the layout",
+  "rejected_defaults": [
+    "blog with featured image",
+    "price-first course landing",
+    "video embeds only, no live exhibit"
+  ]
+}

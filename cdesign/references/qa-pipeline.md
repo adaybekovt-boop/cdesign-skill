@@ -1,6 +1,6 @@
 # QA Pipeline
 
-QA evaluates the delivered result against the brief, DESIGN_GENOME, SIGNATURE_DECISION, anti-slop gate, accessibility, and production constraints. It must not force a preferred component, exact easing, stagger, grid, or animation library pattern.
+QA evaluates the delivered result against the brief, DESIGN_GENOME, SIGNATURE_DECISION, modular Anti-Slop gate, accessibility, and production constraints. It must not force a preferred component, exact easing, stagger, grid, or animation library pattern.
 
 ## Gate 0 — Direction fidelity
 
@@ -46,13 +46,25 @@ Judge:
 
 If capture is unavailable, mark visual QA SKIPPED with the exact reason. Do not report PASS.
 
-## Gate 3 — Independent critique
+## Gate 3 — SLOP_SCORE and AI Fingerprint
+
+Using the rendered screenshots and implementation evidence:
+
+1. Load [anti-slop/scoring.md](anti-slop/scoring.md) plus only the Anti-Slop modules implicated by the direction or visible result.
+2. Record each unjustified `DEFAULT REJECT`, each `WATCHLIST` signal, any stack penalty, and the total `SLOP_SCORE`.
+3. Run all five mandatory questions in [anti-slop/ai-fingerprint.md](anti-slop/ai-fingerprint.md).
+4. A core truth `HARD BAN` or missing project-specific signature mechanism is FAIL. A score of 5 or more requires redesign, not cosmetic cleanup.
+
+Scoring detects a generic combination; it is not the main quality criterion. Do not penalize a popular mechanism that is justified, integrated, accessible, and specific to the project.
+
+## Gate 4 — Independent critique
 
 When a critic/reviewer agent is available, give it:
 
 - original brief and supplied references;
 - INTENT and FINGERPRINT;
 - screenshots for all captured viewports/states;
+- `SLOP_SCORE` and AI Fingerprint answers;
 - relevant implementation files;
 - command results and known skips.
 
@@ -68,7 +80,7 @@ Do not bind this gate to a particular model. One capable independent pass is nor
 
 If no critic is available, run the same checklist inline and record PASS (inline) or FAIL (inline).
 
-## Gate 4 — Final consistency
+## Gate 5 — Final consistency
 
 Before handoff:
 
@@ -76,6 +88,7 @@ Before handoff:
 - update LAST_QA honestly;
 - finalize FINGERPRINT.json from the rendered result;
 - verify Edit Mode locks match the delivered site;
+- verify `SLOP_SCORE` and AI Fingerprint were rerun after any structural redesign;
 - list unresolved blockers without softening them.
 
 ## Fallbacks

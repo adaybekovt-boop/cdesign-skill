@@ -1,0 +1,22 @@
+{
+  "composition": "Paper field. Large split headlines. A 3D object (wheel) marks transitions. Process steps listed as a long vertical itinerary. Team first-names appear as a quiet strip.",
+  "typography": "Editorial grotesque, large measure-breaking headlines that animate per letter or per word. Body is short and concrete.",
+  "palette": "#F6F8FA paper, #1C272D ink. Two stops. No neon AI accent.",
+  "geometry": "Long itinerary of process steps. Headlines can exceed a comfortable measure on purpose, then wrap. Wheel sits off the text column.",
+  "navigation": "Scroll is the tour. Minimal chrome. Contact lives in an interactive footer.",
+  "hero": "Name + one-line definition + 'Scroll to explore'. No CTA pair.",
+  "motion": "Scroll-tied narrative. 3D transitions between beats. Headline micro-moves. Loader as a short constructed intro.",
+  "interaction": "Hover on headlines and footer. Wheel reacts. Form in the footer is part of the scene.",
+  "imagery": "Almost no photography. Abstract process objects + type.",
+  "materials": "Paper, ink, one physical 3D object. Rapier physics on selected objects.",
+  "spatial_rhythm": "Quiet paper → process list → domain statements → team → interactive close.",
+  "responsive": "Pacing retimed. 3D wheel simplified or still. Headlines re-break earlier.",
+  "signature_motif": "Stealth process-itinerary on paper with one sculptural chapter object",
+  "rejected_defaults": [
+    "purple AI gradient",
+    "dashboard screenshot hero",
+    "three feature cards (Faster / Cheaper / Smarter)",
+    "fabricated stats",
+    "chat-widget as the brand"
+  ]
+}

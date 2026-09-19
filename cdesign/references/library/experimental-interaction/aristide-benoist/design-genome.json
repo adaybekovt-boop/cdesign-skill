@@ -1,0 +1,19 @@
+{
+  "composition": "Sparse. Type + one visual actor.",
+  "typography": "Careful, often large, few weights.",
+  "palette": "Few stops.",
+  "geometry": "Wide rails of empty.",
+  "navigation": "Minimal.",
+  "hero": "Name or one work.",
+  "motion": "One idea.",
+  "interaction": "One idea.",
+  "imagery": "Selective.",
+  "materials": "Flat or one material study.",
+  "spatial_rhythm": "Lots of air.",
+  "responsive": "Keep air. Drop the effect if needed.",
+  "signature_motif": "Single authored interaction per surface",
+  "rejected_defaults": [
+    "particles + magnetic + custom cursor + shader together",
+    "busy case-study template"
+  ]
+}

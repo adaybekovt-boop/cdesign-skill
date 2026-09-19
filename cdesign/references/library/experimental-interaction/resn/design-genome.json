@@ -1,0 +1,19 @@
+{
+  "composition": "Playable index. Work inside has its own rules.",
+  "typography": "Experimental when the drawer wants it; readable in the fallback list.",
+  "palette": "Loud allowed.",
+  "geometry": "Cabinet, drawers, or a weird map.",
+  "navigation": "Toy + skip-to-list.",
+  "hero": "The cabinet.",
+  "motion": "Drawer physics.",
+  "interaction": "Open, drag, play.",
+  "imagery": "Mixed.",
+  "materials": "Whatever the drawer needs.",
+  "spatial_rhythm": "Play then work.",
+  "responsive": "Fallback list.",
+  "signature_motif": "Playable cabinet navigation with a list skip-link",
+  "rejected_defaults": [
+    "nav toy with no skip link",
+    "one identity plastered on 15 years of work"
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "heroes": [
+    {
+      "idea": "First viewport is the live archive, not a pitch for the archive",
+      "source": "obys-experiment-space",
+      "source_name": "Obys® Experiment Space"
+    },
+    {
+      "idea": "Working tester + one tension sentence as hero",
+      "source": "exat-typeface",
+      "source_name": "Exat Typeface — Hot Type"
+    },
+    {
+      "idea": "The component itself is the hero, with printed telemetry",
+      "source": "smooothy",
+      "source_name": "Smooothy"
+    },
+    {
+      "idea": "Hold-to-start gate as the hero composition",
+      "source": "the-spark",
+      "source_name": "The Spark — The Digital Panda"
+    },
+    {
+      "idea": "Definition + scroll invitation, no product screenshot",
+      "source": "inkwell",
+      "source_name": "Inkwell"
+    },
+    {
+      "idea": "Physicalized token + poster shout",
+      "source": "follow-art",
+      "source_name": "FOLLOW.ART"
+    },
+    {
+      "idea": "First reel chapter is the hero",
+      "source": "jomor-design",
+      "source_name": "Jomor Design"
+    },
+    {
+      "idea": "Handmade shelf of toys is the hero",
+      "source": "neal-fun",
+      "source_name": "Neal.fun"
+    },
+    {
+      "idea": "One line + one signal color",
+      "source": "paper-tiger",
+      "source_name": "Paper Tiger"
+    },
+    {
+      "idea": "Manual title lockup as hero",
+      "source": "the-creative-website-manual",
+      "source_name": "The Creative Website Manual™"
+    },
+    {
+      "idea": "Arrival into a place, not a landing claim",
+      "source": "nightingale-world",
+      "source_name": "Nightingale"
+    },
+    {
+      "idea": "Title card + film still",
+      "source": "analog-studio",
+      "source_name": "Analog"
+    }
+  ],
+  "navigation": [
+    {
+      "idea": "Mode + theme + clock as chrome; stream is the menu",
+      "source": "obys-experiment-space",
+      "source_name": "Obys® Experiment Space"
+    },
+    {
+      "idea": "Portfolio reel as selector",
+      "source": "jomor-design",
+      "source_name": "Jomor Design"
+    },
+    {
+      "idea": "Portals in a room plus list fallback",
+      "source": "samsy-ninja",
+      "source_name": "Samsy"
+    },
+    {
+      "idea": "Playable cabinet plus skip-to-list",
+      "source": "resn",
+      "source_name": "Resn"
+    },
+    {
+      "idea": "Illustrated figures as wayfinding",
+      "source": "justine-soulie",
+      "source_name": "Justine Soulié"
+    },
+    {
+      "idea": "Place names as nav",
+      "source": "nightingale-world",
+      "source_name": "Nightingale"
+    },
+    {
+      "idea": "Quiet name index into separate universes",
+      "source": "immersive-garden",
+      "source_name": "Immersive Garden"
+    },
+    {
+      "idea": "Catalog of faces; spectacle scoped to face URLs",
+      "source": "hot-type",
+      "source_name": "Hot Type"
+    },
+    {
+      "idea": "Tiny textual index + language pair beside the reading surface",
+      "source": "ponpon-mania",
+      "source_name": "Ponpon Mania"
+    },
+    {
+      "idea": "Chapter list plus continuous camera reading",
+      "source": "ten-years-away",
+      "source_name": "Ten Years Away — Studio375"
+    },
+    {
+      "idea": "Table of contents as nav",
+      "source": "the-creative-website-manual",
+      "source_name": "The Creative Website Manual™"
+    },
+    {
+      "idea": "Catalog / SKU index as nav",
+      "source": "off-brand",
+      "source_name": "OFF+BRAND."
+    }
+  ],
+  "typography": [
+    {
+      "idea": "The face is UI and specimen at once; width×weight matrix as object",
+      "source": "exat-typeface",
+      "source_name": "Exat Typeface — Hot Type"
+    },
+    {
+      "idea": "Stacked display pair + tabular numbered finding-aid",
+      "source": "obys-experiment-space",
+      "source_name": "Obys® Experiment Space"
+    },
+    {
+      "idea": "Broken poster lines as the pitch",
+      "source": "follow-art",
+      "source_name": "FOLLOW.ART"
+    },
+    {
+      "idea": "Short combative grotesque on paper",
+      "source": "paper-tiger",
+      "source_name": "Paper Tiger"
+    },
+    {
+      "idea": "Sudden scale jumps, compressed cuts, dry labels",
+      "source": "basement-studio",
+      "source_name": "Basement Studio"
+    },
+    {
+      "idea": "Chunky broken display inside a comic world",
+      "source": "ponpon-mania",
+      "source_name": "Ponpon Mania"
+    },
+    {
+      "idea": "HUD stencil labels over a film",
+      "source": "the-spark",
+      "source_name": "The Spark — The Digital Panda"
+    },
+    {
+      "idea": "Editorial headlines with letter-level micro-motion",
+      "source": "inkwell",
+      "source_name": "Inkwell"
+    },
+    {
+      "idea": "Punctuation and abbreviation as identity",
+      "source": "off-brand",
+      "source_name": "OFF+BRAND."
+    },
+    {
+      "idea": "Phototype / print grotesque with title-card cadence",
+      "source": "analog-studio",
+      "source_name": "Analog"
+    },
+    {
+      "idea": "Chapter display + specimen moments in one document",
+      "source": "the-creative-website-manual",
+      "source_name": "The Creative Website Manual™"
+    },
+    {
+      "idea": "Few weights, large measure, type as the second actor",
+      "source": "aristide-benoist",
+      "source_name": "Aristide Benoist"
+    }
+  ],
+  "motion": [
+    {
+      "idea": "Velocity drives camera, shader smear and audio rate together",
+      "source": "ten-years-away",
+      "source_name": "Ten Years Away — Studio375"
+    },
+    {
+      "idea": "Scatter-then-align chapter change",
+      "source": "ten-years-away",
+      "source_name": "Ten Years Away — Studio375"
+    },
+    {
+      "idea": "Lerp/damp integrator with snap and infinite options",
+      "source": "smooothy",
+      "source_name": "Smooothy"
+    },
+    {
+      "idea": "Shared-clock interpolation; honor prefers-reduced-motion",
+      "source": "lenis",
+      "source_name": "Lenis"
+    },
+    {
+      "idea": "In-view vs continuous observers; parallax off on touch",
+      "source": "locomotive",
+      "source_name": "Locomotive"
+    },
+    {
+      "idea": "Scroll as film projector after a hold gate",
+      "source": "the-spark",
+      "source_name": "The Spark — The Digital Panda"
+    },
+    {
+      "idea": "Mechanical snap timing instead of spring luxury",
+      "source": "basement-studio",
+      "source_name": "Basement Studio"
+    },
+    {
+      "idea": "Editorial cuts and optional flicker instead of lerp",
+      "source": "analog-studio",
+      "source_name": "Analog"
+    },
+    {
+      "idea": "Slow nocturnal dollies",
+      "source": "nightingale-world",
+      "source_name": "Nightingale"
+    },
+    {
+      "idea": "Punchy 150–400ms color/type hits, no WebGL",
+      "source": "paper-tiger",
+      "source_name": "Paper Tiger"
+    },
+    {
+      "idea": "Acting timing inside panels (holds, takes, loops)",
+      "source": "ponpon-mania",
+      "source_name": "Ponpon Mania"
+    },
+    {
+      "idea": "One authored curve per surface",
+      "source": "aristide-benoist",
+      "source_name": "Aristide Benoist"
+    }
+  ],
+  "interaction": [
+    {
+      "idea": "Pointer as lens/light/warp over one field",
+      "source": "monopo-london",
+      "source_name": "Monopo London"
+    },
+    {
+      "idea": "Halftone print trail that shrinks on targets",
+      "source": "ten-years-away",
+      "source_name": "Ten Years Away — Studio375"
+    },
+    {
+      "idea": "Press-and-hold ignition",
+      "source": "the-spark",
+      "source_name": "The Spark — The Digital Panda"
+    },
+    {
+      "idea": "Theme mode rewrite of the same archive",
+      "source": "obys-experiment-space",
+      "source_name": "Obys® Experiment Space"
+    },
+    {
+      "idea": "Drag/wheel slider with SETTLED / IN VIEW events",
+      "source": "smooothy",
+      "source_name": "Smooothy"
+    },
+    {
+      "idea": "Mouse as input to letter construction; live sliders",
+      "source": "exat-typeface",
+      "source_name": "Exat Typeface — Hot Type"
+    },
+    {
+      "idea": "Diegetic panel gags",
+      "source": "ponpon-mania",
+      "source_name": "Ponpon Mania"
+    },
+    {
+      "idea": "Click a character to travel",
+      "source": "justine-soulie",
+      "source_name": "Justine Soulié"
+    },
+    {
+      "idea": "Travel through portals",
+      "source": "samsy-ninja",
+      "source_name": "Samsy"
+    },
+    {
+      "idea": "Open a drawer with physics",
+      "source": "resn",
+      "source_name": "Resn"
+    },
+    {
+      "idea": "Headline letter hover + interactive footer form",
+      "source": "inkwell",
+      "source_name": "Inkwell"
+    },
+    {
+      "idea": "Visibility-gated live thumbs; hover raises one cell",
+      "source": "lhbvr",
+      "source_name": "LHBVR"
+    }
+  ],
+  "responsive": [
+    {
+      "idea": "Honest desktop refusal instead of a crushed stream",
+      "source": "obys-experiment-space",
+      "source_name": "Obys® Experiment Space"
+    },
+    {
+      "idea": "Window-too-small lockout written in voice",
+      "source": "the-spark",
+      "source_name": "The Spark — The Digital Panda"
+    },
+    {
+      "idea": "Lose the camera before the reading order; swipe panels",
+      "source": "ten-years-away",
+      "source_name": "Ten Years Away — Studio375"
+    },
+    {
+      "idea": "Phone-first comic reading with tap doubles for gags",
+      "source": "ponpon-mania",
+      "source_name": "Ponpon Mania"
+    },
+    {
+      "idea": "Parallax auto-off on touch, native scrollbar kept",
+      "source": "locomotive",
+      "source_name": "Locomotive"
+    },
+    {
+      "idea": "Disable interpolation when prefers-reduced-motion",
+      "source": "lenis",
+      "source_name": "Lenis"
+    },
+    {
+      "idea": "Rest-state poster + tap-reveal when there is no pointer",
+      "source": "monopo-london",
+      "source_name": "Monopo London"
+    },
+    {
+      "idea": "Directory fallback replaces the room",
+      "source": "samsy-ninja",
+      "source_name": "Samsy"
+    },
+    {
+      "idea": "Skip-to-list on small screens and for reduced-motion",
+      "source": "resn",
+      "source_name": "Resn"
+    },
+    {
+      "idea": "Fewer live cells; rest become posters",
+      "source": "lhbvr",
+      "source_name": "LHBVR"
+    },
+    {
+      "idea": "Document column + TOC dropdown",
+      "source": "the-creative-website-manual",
+      "source_name": "The Creative Website Manual™"
+    },
+    {
+      "idea": "Retime the story; freeze the sculptural object",
+      "source": "inkwell",
+      "source_name": "Inkwell"
+    }
+  ],
+  "materials": [
+    {
+      "idea": "Print navy + ice ink + halftone",
+      "source": "ten-years-away",
+      "source_name": "Ten Years Away — Studio375"
+    },
+    {
+      "idea": "Two-stop modernist paper/ink (#1C1D1E / #EEEFEB)",
+      "source": "exat-typeface",
+      "source_name": "Exat Typeface — Hot Type"
+    },
+    {
+      "idea": "White paper + single pink toner signal",
+      "source": "paper-tiger",
+      "source_name": "Paper Tiger"
+    },
+    {
+      "idea": "Cool paper / ink (#F6F8FA / #1C272D) with one physical object",
+      "source": "inkwell",
+      "source_name": "Inkwell"
+    },
+    {
+      "idea": "Grain, paper edge, misregistration, film still",
+      "source": "analog-studio",
+      "source_name": "Analog"
+    },
+    {
+      "idea": "Physical card material + poster ink + accent sculpture",
+      "source": "follow-art",
+      "source_name": "FOLLOW.ART"
+    },
+    {
+      "idea": "Dusk air and practical lights",
+      "source": "nightingale-world",
+      "source_name": "Nightingale"
+    },
+    {
+      "idea": "Night city, projection maps, CRT post",
+      "source": "the-spark",
+      "source_name": "The Spark — The Digital Panda"
+    },
+    {
+      "idea": "Matte industrial, hard edges, no glass",
+      "source": "basement-studio",
+      "source_name": "Basement Studio"
+    },
+    {
+      "idea": "Flat fill and bold outline, analog cheer",
+      "source": "ponpon-mania",
+      "source_name": "Ponpon Mania"
+    },
+    {
+      "idea": "Picture-book color on light grounds",
+      "source": "justine-soulie",
+      "source_name": "Justine Soulié"
+    },
+    {
+      "idea": "Flat black/white with a Pride color rewrite",
+      "source": "obys-experiment-space",
+      "source_name": "Obys® Experiment Space"
+    }
+  ],
+  "storytelling": [
+    {
+      "idea": "A decade as ten illustrated chapters inside one camera",
+      "source": "ten-years-away",
+      "source_name": "Ten Years Away — Studio375"
+    },
+    {
+      "idea": "Bilingual webcomic where some panels are toys",
+      "source": "ponpon-mania",
+      "source_name": "Ponpon Mania"
+    },
+    {
+      "idea": "Scroll-driven short film with HUD chaptering",
+      "source": "the-spark",
+      "source_name": "The Spark — The Digital Panda"
+    },
+    {
+      "idea": "Stealth: customer process steps instead of product internals",
+      "source": "inkwell",
+      "source_name": "Inkwell"
+    },
+    {
+      "idea": "Unfinished work as the story of the studio",
+      "source": "obys-experiment-space",
+      "source_name": "Obys® Experiment Space"
+    },
+    {
+      "idea": "Cultural origin (EXAT 51) as the spine of a type release",
+      "source": "exat-typeface",
+      "source_name": "Exat Typeface — Hot Type"
+    },
+    {
+      "idea": "Each URL is a closed joke/mechanic",
+      "source": "neal-fun",
+      "source_name": "Neal.fun"
+    },
+    {
+      "idea": "Curriculum performed as layout",
+      "source": "the-creative-website-manual",
+      "source_name": "The Creative Website Manual™"
+    },
+    {
+      "idea": "Atmosphere and places before explanation",
+      "source": "nightingale-world",
+      "source_name": "Nightingale"
+    },
+    {
+      "idea": "Reject the metaphor you replace (algorithmic feed) in layout too",
+      "source": "follow-art",
+      "source_name": "FOLLOW.ART"
+    },
+    {
+      "idea": "Keep the house site; put the one-off story on a sibling URL",
+      "source": "studio375",
+      "source_name": "Studio375"
+    },
+    {
+      "idea": "One gear-shift poster break inside a clear pitch",
+      "source": "vide-infra",
+      "source_name": "Vide Infra"
+    }
+  ]
+}

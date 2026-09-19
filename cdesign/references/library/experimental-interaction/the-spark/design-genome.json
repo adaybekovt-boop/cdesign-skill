@@ -1,0 +1,21 @@
+{
+  "composition": "Pre-gate card (hold to start) then a full-viewport film stage. Chapter index and progress live as HUD. End card is typographic over the last still.",
+  "typography": "Stencil / condensed HUD labels (CHAPTER //, Progress: 0%). Story lines are short telemetric bullets ('Joy levels increasing among citizens'). End lines are large plain sentences.",
+  "palette": "Night city: near-black, neon local lights, CRT post. HUD type in a single pale signal color.",
+  "geometry": "No marketing grid. HUD anchors: top chapter, bottom progress. World is a projection-mapped street.",
+  "navigation": "Scroll is the projector. No page menu during the film. Exit is the end card link.",
+  "hero": "The hold-to-start card IS the hero. The first frame of the city is earned.",
+  "motion": "Scroll scrubs the film. Environment wakes, drones track, systems glitch on progress.",
+  "interaction": "Hold to ignite. Scroll to continue. Sound toggle. No hover cards.",
+  "imagery": "Stylized 3D city + spark character. CRT treatment. Not photography.",
+  "materials": "Neon, night asphalt, CRT bloom. Projection maps instead of unique hero meshes.",
+  "spatial_rhythm": "Chapters of unequal length. Progress percent makes duration legible.",
+  "responsive": "Hard lock under a usable width. Not a mobile film.",
+  "signature_motif": "Hold-to-start cinematic gate with HUD chaptering",
+  "rejected_defaults": [
+    "autoplaying WebGL hero behind a headline",
+    "mobile squeeze of a desktop film",
+    "mute button hidden in a legal footer",
+    "CTA before the story"
+  ]
+}

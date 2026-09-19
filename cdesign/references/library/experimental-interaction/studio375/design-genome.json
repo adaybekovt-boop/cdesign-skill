@@ -1,0 +1,19 @@
+{
+  "composition": "Studio house: work, people, contact.",
+  "typography": "Local studio type, not comic lettering.",
+  "palette": "House colors, distinct from the comic navy/ice.",
+  "geometry": "Studio sections.",
+  "navigation": "Normal.",
+  "hero": "Studio, not the film.",
+  "motion": "Mild.",
+  "interaction": "Normal.",
+  "imagery": "Work stills.",
+  "materials": "Paper.",
+  "spatial_rhythm": "Studio rhythm.",
+  "responsive": "Stacks.",
+  "signature_motif": "House site that refuses to be consumed by its own experiment",
+  "rejected_defaults": [
+    "replacing the studio with a campaign forever",
+    "WebGL on every route"
+  ]
+}

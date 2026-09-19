@@ -1,0 +1,21 @@
+{
+  "composition": "Studio landing with large type and project entries that arrive via in-view. Work list is the spine. Docs live on a sibling domain.",
+  "typography": "Confident grotesque, often large and left-aligned. Project titles outweigh descriptions.",
+  "palette": "Work-driven; historically light or mixed fields rather than permanent #000 shader black.",
+  "geometry": "Project blocks as full-width scenes with offset images. Not equal cards.",
+  "navigation": "Short studio nav + work as scroll.",
+  "hero": "Studio name and a single line of posture. Motion begins as you move, not as a 3D boot.",
+  "motion": "Lerp'd scroll. In-view classes. Speed-linked parallax on selected nodes only.",
+  "interaction": "Scroll is the interaction. Hover is secondary.",
+  "imagery": "Project stills and film crops, revealed on entry.",
+  "materials": "Paper and image. Smoothness is in the integrator.",
+  "spatial_rhythm": "Quiet intro, then uneven project scenes.",
+  "responsive": "Parallax off on touch. Native scroll. Images stack.",
+  "signature_motif": "In-view + speed-aware parallax with native scrollbar preserved",
+  "rejected_defaults": [
+    "hiding the scrollbar",
+    "parallax on every layer including body text",
+    "transforming a scroll-container so position:fixed breaks",
+    "forcing smooth scroll on prefers-reduced-motion"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "composition": "Film-still frames, paper margins, cut points.",
+  "typography": "Print grotesques or grotesk + a display that could be phototype.",
+  "palette": "Print inks, slightly off whites, no UI blue.",
+  "geometry": "Frames and margins. Misaligned columns allowed.",
+  "navigation": "Contents like a book or shot list.",
+  "hero": "A still + a title card.",
+  "motion": "Cuts, maybe a flicker. No smooth luxury scroll required.",
+  "interaction": "Turn / cut.",
+  "imagery": "Film stills, process photos.",
+  "materials": "Paper, grain, ink, tape.",
+  "spatial_rhythm": "Shot / cut / shot.",
+  "responsive": "Frames stack. Grain can reduce.",
+  "signature_motif": "Edit-style cuts and print materials as the interaction language",
+  "rejected_defaults": [
+    "liquid glass",
+    "smooth lerp on a film brief",
+    "stock grain overlay on a SaaS dashboard"
+  ]
+}

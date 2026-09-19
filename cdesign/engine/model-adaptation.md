@@ -5,7 +5,7 @@ Scale the workflow to available reasoning, context, review, and visual tools wit
 ## Planning
 
 - Keep SKILL.md and the engine documents in context for Generate Mode.
-- Load content, traits, recipes, and QA references only when their decision becomes active.
+- Load content, traits, Art Direction references, Anti-Slop modules, recipes, and QA references only when their decision becomes active.
 - For a short, well-specified page, one candidate may be enough if it still passes novelty and repetition checks.
 - For an ambiguous or high-visibility project, compare two or three structurally different genomes before choosing.
 - Do not spend context reproducing framework knowledge the model already has. Preserve only project-specific choices and fragile technical invariants.
@@ -16,6 +16,7 @@ Scale the workflow to available reasoning, context, review, and visual tools wit
 - Inspect existing components before reuse. A component is optional unless the approved genome calls for its behavior.
 - Prefer project-specific composition over a large count of prebuilt effects.
 - When a technique is unfamiliar or fragile, load its recipe. Do not load the whole recipe directory.
+- When a draft genome needs reference challenge, use the library index to select one to three sources. Do not load a full category.
 
 ## Critique
 

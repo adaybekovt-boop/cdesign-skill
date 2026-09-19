@@ -1,0 +1,20 @@
+{
+  "composition": "Catalog of projects with sharp type. Home is an index.",
+  "typography": "Abbreviated, punctuated, mixed case as identity.",
+  "palette": "Project-specific inside entries; chrome is neutral.",
+  "geometry": "Index rows or large tiled SKUs.",
+  "navigation": "Index is nav.",
+  "hero": "Name as the event.",
+  "motion": "Entry-level, not site-wide film.",
+  "interaction": "Open an entry.",
+  "imagery": "Project stills.",
+  "materials": "Flat chrome.",
+  "spatial_rhythm": "Tight index, louder interiors.",
+  "responsive": "Index stacks.",
+  "signature_motif": "Punctuated catalog identity",
+  "rejected_defaults": [
+    "long studio manifesto",
+    "one shader over all projects",
+    "identical hover on every tile"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "composition": "World stage + place names as signage.",
+  "typography": "Sparse signage.",
+  "palette": "Dusk: deep blue-black, warm practical lights.",
+  "geometry": "Horizon, not columns.",
+  "navigation": "Places.",
+  "hero": "Arrival.",
+  "motion": "Slow camera.",
+  "interaction": "Enter a place. Toggle sound.",
+  "imagery": "World frames.",
+  "materials": "Night air, practical light.",
+  "spatial_rhythm": "Long takes.",
+  "responsive": "Poster + place list.",
+  "signature_motif": "Place-based nocturnal entry with sound chrome",
+  "rejected_defaults": [
+    "bright SaaS hero",
+    "autoplaying sound with no control",
+    "fast snaps"
+  ]
+}

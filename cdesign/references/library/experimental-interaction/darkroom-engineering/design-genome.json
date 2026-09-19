@@ -1,0 +1,19 @@
+{
+  "composition": "Lab index of tools.",
+  "typography": "Functional.",
+  "palette": "Workbench.",
+  "geometry": "List or modest grid of instruments.",
+  "navigation": "Tools / GitHub.",
+  "hero": "Lab name + current instruments.",
+  "motion": "Quiet proof.",
+  "interaction": "Open a tool.",
+  "imagery": "None required.",
+  "materials": "Paper.",
+  "spatial_rhythm": "Short.",
+  "responsive": "Stack instruments.",
+  "signature_motif": "Open-source instruments listed as a lab catalog",
+  "rejected_defaults": [
+    "agency showreel as the OSS homepage",
+    "hidden license"
+  ]
+}

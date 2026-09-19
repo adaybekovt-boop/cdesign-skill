@@ -1,0 +1,20 @@
+{
+  "composition": "Docs/marketing hybrid: name, install, manifesto fragment, examples. Reading column. Not a cinematic hero.",
+  "typography": "Engineer grotesque. Code fragments allowed in the hero.",
+  "palette": "Light or dim workbench. Avoid luxury gold.",
+  "geometry": "Text column + optional demo frame.",
+  "navigation": "Docs sections.",
+  "hero": "Name of the engine + one-line real problem.",
+  "motion": "The page may use its own engine. Motion is proof.",
+  "interaction": "Scroll. Copy install command.",
+  "imagery": "Little. Diagrams if any.",
+  "materials": "Paper docs.",
+  "spatial_rhythm": "Short sections: problem, install, API, manifesto.",
+  "responsive": "Docs stack. Demos may disable interpolation.",
+  "signature_motif": "Shared-clock scroll engine documented as a problem-solver",
+  "rejected_defaults": [
+    "smooth scroll as a vibe with no WebGL need",
+    "ignoring prefers-reduced-motion",
+    "hiding scrollbars to look 'app-like'"
+  ]
+}

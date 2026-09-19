@@ -1,0 +1,22 @@
+{
+  "composition": "Full-viewport archive stage. Chrome holds theme toggle + live clock + Contact. Body is a numbered project stream that can reflow from stacked index into a horizontal visual belt. About copy sits as a second layer you enter rather than a footer block.",
+  "typography": "Large display words 'Experiment / Space' stacked as two lines occupying the left field; supporting copy in a smaller grotesque. Project rows use tabular numbers (01, 02) + name + year. No centered SaaS stack.",
+  "palette": "Default: #000000 ground / #ffffff type. Pride mode inverts the emotional register with a multi-color identity overlay while keeping the same two-stop structural logic. No third functional color.",
+  "geometry": "Index rows as thin horizontal rules. Archive items snap to a finding-aid column (number | name | year) rather than image-first cards. Horizontal stream mode lets images bleed past the column.",
+  "navigation": "No conventional mega-menu. Theme switch, Contact, and mode of viewing the archive ARE the navigation. Projects are reached by moving through the stream, not by jumping to isolated case URLs first.",
+  "hero": "The hero IS the archive. 'Experiment Space / Since 2018 / Never Finished' sits over the live index. There is no separate product shot or CTA pair.",
+  "motion": "Archive transforms continuously while you move: structured forms dissolve into a horizontal stream. Transitions feel like a mode change, not a page fade. Timing is slow enough to read titles mid-move.",
+  "interaction": "Theme toggle re-skins the whole stage. Hover on a numbered row should preview the fragment without opening a modal first. Cursor stays small; the stream is the spectacle.",
+  "imagery": "Fragments, unused frames, process crops — not hero campaign stills. Images are evidence of work-in-progress, often incomplete or off-grid.",
+  "materials": "Flat ink black / paper white. Pride mode introduces printed-matter color fields. No glass, no grain-as-texture-for-its-own-sake, no metallic sheen.",
+  "spatial_rhythm": "Long numbered list creates a catalog cadence. Switching to horizontal stream stretches one item across most of the viewport. Empty chrome around the clock keeps the top edge quiet.",
+  "responsive": "Explicitly designed for desktop. Small viewports get a refusal message rather than a stacked card list. Signature motif (archive-as-space) is withheld rather than flattened.",
+  "signature_motif": "Unfinished-work archive that changes viewing mode instead of changing pages",
+  "rejected_defaults": [
+    "hamburger + 3-column case-study cards",
+    "filter chips by industry",
+    "centered 'We are a studio' hero",
+    "mobile-first collapse of the spatial index",
+    "Pride/theme as a tiny footer link"
+  ]
+}

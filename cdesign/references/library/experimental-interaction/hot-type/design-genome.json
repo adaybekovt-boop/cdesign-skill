@@ -1,0 +1,19 @@
+{
+  "composition": "Foundry index of faces.",
+  "typography": "Each face shows itself.",
+  "palette": "House neutral.",
+  "geometry": "Index / tester.",
+  "navigation": "Faces.",
+  "hero": "Current release or house name.",
+  "motion": "Calm on house, kinetic on face URLs.",
+  "interaction": "Test / buy.",
+  "imagery": "Letters.",
+  "materials": "Ink.",
+  "spatial_rhythm": "Index then face.",
+  "responsive": "Testers remain usable.",
+  "signature_motif": "Calm foundry index with kinetic face microsites",
+  "rejected_defaults": [
+    "one WebGL landing for all fonts",
+    "Inter UI around specimens"
+  ]
+}

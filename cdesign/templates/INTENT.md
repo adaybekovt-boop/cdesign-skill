@@ -9,6 +9,7 @@
 - primary_action:
 - real_assets:
 - reference_anchors:
+- art_direction_references: [source slug → extracted property/reason, or none]
 
 ## DESIGN_GENOME
 
@@ -72,7 +73,9 @@ Each item contains decision, reason, expression, and limit.
 - critic: PASS | FAIL | SKIPPED | PASS (inline)
 - genome_fidelity:
 - novelty_gate:
-- anti_slop:
+- anti_slop_modules_loaded:
+- slop_score:
+- ai_fingerprint: PASS | FAIL | SKIPPED
 - blockers_resolved:
 - remaining_blockers:
 

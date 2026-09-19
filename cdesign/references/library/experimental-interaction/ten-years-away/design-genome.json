@@ -1,0 +1,22 @@
+{
+  "composition": "Fixed full-viewport stage. Comic panels live in a WebGL world; the browser scrollbar dolls the camera sideways through a year. DOM chrome (chapter nav, language) sits on top of the canvas, not in document flow.",
+  "typography": "Caption and chapter titles set as comic lettering / condensed grotesque over illustrated panels. Not a marketing serif stack. Language toggle EN sits in chrome.",
+  "palette": "#0d1429 deep navy ground, #cce8eb ice caption color. Two stops. Illustration supplies local color inside panels only.",
+  "geometry": "Panels sized like printed comic tiers. Chapter changes happen when the camera crosses a gutter. No 12-column marketing grid.",
+  "navigation": "Chapter list as page navigation, plus continuous scroll as reading. Intro and home are separate beats with their own transitions.",
+  "hero": "Intro beat before the comic starts — not a product screenshot. Then the first year's first panel is the landing.",
+  "motion": "Camera drift is 1:1 with scroll. Velocity feeds a smoke shader and audio rate. Chapter transitions scatter panels then align them.",
+  "interaction": "Halftone cursor trail. Trail radius shrinks on interactive hits. Drag may assist the camera (GSAP Draggable / Observer in the stack).",
+  "imagery": "Hand-illustrated panels with a different visual character per year. Not stock, not 3D product renders.",
+  "materials": "Print: halftone, ink navy, paper ice. Shader smoke is atmosphere, not a product material.",
+  "spatial_rhythm": "Ten chapters of uneven length. Gutters are the pauses. Intro and 'one year later' are extra beats outside the decade.",
+  "responsive": "A comic camera is fragile on a 390px screen. Expect a vertical panel stack or a simplified swipe-through, with the halftone cursor removed (no cursor on touch).",
+  "signature_motif": "Velocity-linked comic camera + print-medium cursor",
+  "rejected_defaults": [
+    "vertical about-timeline with year numbers",
+    "team photos in circles",
+    "muted corporate navy without the ice ink pairing",
+    "autoplaying music with no connection-speed gate",
+    "custom cursor larger than 20px that ignores content"
+  ]
+}

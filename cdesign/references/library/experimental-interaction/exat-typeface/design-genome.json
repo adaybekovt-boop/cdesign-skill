@@ -1,0 +1,22 @@
+{
+  "composition": "Centered claim line sits above a working type tester (size / line-height / letter-spacing). A vertical 'modernism' rail occupies the right edge. Historical surnames form a dense list texture under or beside the tester. Later, a width×weight matrix becomes a full section object.",
+  "typography": "Exat is used for UI and specimen at once. Weights run Extra Light → Black; widths Condensed / Normal / Wide. Stylistic sets (thin alternates, encapsulated figures, alternate a) are demonstrated as content blocks, not hidden OpenType menus.",
+  "palette": "#1C1D1E near-black ground, #EEEFEB paper off-white type and panels. Two stops only. No accent CTA color.",
+  "geometry": "Tester as a centered instrument ~60% of viewport width. Glyph grids with even modular gaps. 7×3 width/weight matrix. Text measure ~70–80% for history passages.",
+  "navigation": "Almost no global nav. One in-page anchor to the character set. Progression is scroll with a small → cue after the intro.",
+  "hero": "One sentence about form vs function, then the tester. No dual CTA. The instrument is the hero object.",
+  "motion": "Kinetic letter behavior and mouse-tied motion on glyphs. Loading animation before the field settles. Scroll continues the specimen rather than triggering unrelated scene changes.",
+  "interaction": "Sliders write through to live type. Mouse proximity deforms or redraws letter parts. Hover is for glyph inspection, not card lift.",
+  "imagery": "Almost no photography. Letters, matrices, and name lists are the images.",
+  "materials": "Ink on paper. Flat fields. No glass, no grain overlay, no 3D extruded type unless a single letter is being inspected.",
+  "spatial_rhythm": "Intro (claim + tester) → history → matrix → features. Alternates dense list and open tester. No identical py padding.",
+  "responsive": "Tester sliders must remain usable on a narrow screen; the vertical 'modernism' rail likely folds into a header label. Matrix should become a stacked width group, not a horizontally squashed 7-column table.",
+  "signature_motif": "Working type tester + historical name-texture sharing one two-color modernist field",
+  "rejected_defaults": [
+    "pangram hero + Buy buttons",
+    "pastel multi-weight rainbow specimen",
+    "three feature cards (Hinting / Kerning / Languages)",
+    "Inter UI around a preview canvas",
+    "centered SaaS pricing for font licenses in the first viewport"
+  ]
+}

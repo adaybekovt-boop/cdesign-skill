@@ -1,0 +1,21 @@
+{
+  "composition": "A live slider occupies the upper stage. Below, stacked spec blocks (Configure / Read / Events / In Use) in a narrow ragged column. Slide cards show serial + title + identical price.",
+  "typography": "Utilitarian grotesque, mixed case, long running titles ('Configurable customisable extendable…'). Serials are tabular (0000). No display serif.",
+  "palette": "Light workbench field, near-black type, one quiet price color. Not a dark shader theater.",
+  "geometry": "Slides sized by CSS offsets. Spec blocks full measure of a reading column. No 12-col marketing grid.",
+  "navigation": "None to speak of. GitHub is the other room.",
+  "hero": "The slider itself, already moving / draggable on load.",
+  "motion": "Lerp/damp toward target. Snap optional. Infinite loop optional. Drag power is a parameter. Settling is the motion character.",
+  "interaction": "Drag, wheel, trackpad. Events fire SETTLED / IN VIEW / INITIALISED. Parallax factor per slide is readable.",
+  "imagery": "Placeholder objects as SKUs. 3D models listed in credits, used as slides not as a brand world.",
+  "materials": "Paper UI. The smoothness is in the integrator, not in glass.",
+  "spatial_rhythm": "Demo → spec → framework notes → in-the-wild list. Short sections.",
+  "responsive": "Slider can disable below a breakpoint (the API supports conditional activation). Spec column goes full width.",
+  "signature_motif": "Live slider + printed telemetry on a receipt-like page",
+  "rejected_defaults": [
+    "docs in a left sidebar + markdown",
+    "hero screenshot of the slider instead of the slider",
+    "three pricing tiers for an MIT library",
+    "dark WebGL torus behind the README"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "composition": "White field, pink hits, large type, work entries.",
+  "typography": "Bold grotesque, short lines.",
+  "palette": "#FFFFFF ground, #F19EC2 signal, dark type.",
+  "geometry": "Big type blocks, work stills with air.",
+  "navigation": "Short studio nav.",
+  "hero": "Positioning line + signal color.",
+  "motion": "Enter and hover punches.",
+  "interaction": "Hover color swaps, image reveals.",
+  "imagery": "Campaign stills, flat.",
+  "materials": "Paper, ink, pink toner.",
+  "spatial_rhythm": "Loud intro, then work.",
+  "responsive": "Type reflows, pink survives.",
+  "signature_motif": "Single signal color on paper with punchy hover",
+  "rejected_defaults": [
+    "dark agency shell",
+    "WebGL wallpaper",
+    "three service cards"
+  ]
+}

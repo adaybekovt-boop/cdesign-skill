@@ -1,0 +1,20 @@
+{
+  "composition": "Picture field with characters that point or open work.",
+  "typography": "Friendly display, short.",
+  "palette": "Bright, local to drawings.",
+  "geometry": "Free placement, not a 12-col.",
+  "navigation": "Characters / drawings.",
+  "hero": "A character or a color field.",
+  "motion": "Blinks and bobs.",
+  "interaction": "Click a figure.",
+  "imagery": "Original illustration only.",
+  "materials": "Flat color, paper.",
+  "spatial_rhythm": "Playful, short pages.",
+  "responsive": "Figures restack. Tap targets grow.",
+  "signature_motif": "Illustrated figures as navigation",
+  "rejected_defaults": [
+    "Dribbble 3-up",
+    "black developer portfolio",
+    "custom cursor bigger than the characters"
+  ]
+}

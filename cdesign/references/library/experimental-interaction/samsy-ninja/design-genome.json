@@ -1,0 +1,20 @@
+{
+  "composition": "A small world with portals to works. HUD optional.",
+  "typography": "HUD or stickers in the world.",
+  "palette": "World-driven.",
+  "geometry": "Spatial, not columnar.",
+  "navigation": "Move + click portals. Provide a list fallback.",
+  "hero": "The room.",
+  "motion": "Camera and idle world.",
+  "interaction": "Pointer / tap to travel.",
+  "imagery": "3D or layered 2D world.",
+  "materials": "Stylized, not photoreal product.",
+  "spatial_rhythm": "Room → portal → work.",
+  "responsive": "Directory fallback.",
+  "signature_motif": "Portfolio as a small explorable world with a list fallback",
+  "rejected_defaults": [
+    "resume in WebGL for no reason",
+    "no fallback list",
+    "camera that fights scroll"
+  ]
+}

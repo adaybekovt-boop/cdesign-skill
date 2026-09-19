@@ -30,7 +30,7 @@ Inspect the prompt, supplied assets, reference images or sites, current code, re
 
 Record reference anchors when references exist: composition, dominant silhouette or object, typography, material/color behavior, and motion or interaction rhythm.
 
-Read [content-system.md](references/content-system.md) when writing or restructuring copy. Read [anti-slop.md](references/anti-slop.md) before approving the direction.
+Read [content-system.md](references/content-system.md) when writing or restructuring copy. Load the compact [Anti-Slop v2 index](references/anti-slop/INDEX.md) before approving the direction; route to only the modules it names for this project.
 
 ### 2. Generate the art direction before code
 
@@ -42,7 +42,7 @@ Read these engine documents:
 - [anti-repetition.md](engine/anti-repetition.md) — fingerprint comparison and mutation rules
 - [model-adaptation.md](engine/model-adaptation.md) — scale planning and review to available capabilities
 
-Create `.cdesign/INTENT.md` from [templates/INTENT.md](templates/INTENT.md). Before implementation it must contain:
+Draft `.cdesign/INTENT.md` from [templates/INTENT.md](templates/INTENT.md). Before implementation it must contain:
 
 - `DESIGN_GENOME`
 - `SIGNATURE_DECISION`
@@ -56,13 +56,17 @@ Every visual decision must have a reason tied to product, audience, content, ref
 
 Do not blindly combine complete aesthetics. Combine compatible design properties deliberately. Trait examples in [design-traits.md](references/design-traits.md) are ingredients, not named modes or packages.
 
+After the provisional genome exists, use the [Art Direction reference library router](references/library/README.md) only when a property needs challenge or expansion. Select one to three relevant references, load only their necessary files, and extract individual principles or mechanisms. Never select a source site as the design, copy its complete genome, or load the whole library. Refine the genome after retrieval, then write `SIGNATURE_DECISION`; keep the genome provisional until the pre-code gates pass.
+
 ### 3. Pass the pre-code gates
 
 Run the Novelty Gate. Generic statements such as “asymmetric layout,” “big typography,” “smooth animations,” “premium,” or “modern” fail. Regenerate the art direction until the signature is concrete and visible.
 
 If fingerprints from previous projects are available, compare them logically. A direction that is too similar must change at least three major visual decisions before code.
 
-Then run the proposed direction through [anti-slop.md](references/anti-slop.md). Anti-slop filters a concept; it does not generate one. Fix violations without collapsing the direction into a generic safe layout.
+Then run the proposed direction through the [Anti-Slop v2 index](references/anti-slop/INDEX.md) and only the routed modules. Anti-slop filters a concept; it does not generate one. Fix violations without collapsing the direction into a generic safe layout.
+
+When Novelty, anti-repetition, and pre-code Anti-Slop pass, lock the approved genome and begin implementation.
 
 ### 4. Build from neutral infrastructure
 
@@ -91,7 +95,7 @@ Set `<html lang>` to the primary content language.
 
 ## Hard constraints
 
-- Keep copy and proof truthful: no invented metrics, clients, awards, testimonials, certifications, rankings, or official status.
+- Pass the always-on Anti-Slop truth gate: no invented metrics, clients, awards, testimonials, certifications, rankings, official status, or other fabricated proof.
 - Preserve the strict anti-slop filter, including screenshot-visible failures.
 - A real product or brand 3D asset needs known provenance and a manifest entry. Missing assets require a deliberate 2D fallback, not generic geometry.
 - Continuous animation should use compositor-friendly properties. Avoid layout-triggering or continuous blur/filter animation.
@@ -104,7 +108,7 @@ Exact stagger, easing, grid, font pairing, section count, and component count ar
 
 ## QA and handoff
 
-Read [qa-pipeline.md](references/qa-pipeline.md) after implementation and [visual-qa.md](references/visual-qa.md) for screenshot review.
+Read [qa-pipeline.md](references/qa-pipeline.md) after implementation and [visual-qa.md](references/visual-qa.md) for screenshot review. After visual QA, run [SLOP_SCORE](references/anti-slop/scoring.md) and the five-question [AI Fingerprint Check](references/anti-slop/ai-fingerprint.md) before final critique and handoff.
 
 Run the project commands exposed by its package scripts. For cdesign-starter projects this normally includes:
 
@@ -121,5 +125,6 @@ After QA:
 
 1. Update `LAST_QA` in `.cdesign/INTENT.md`.
 2. Write `.cdesign/FINGERPRINT.json` using the final rendered decisions, following [anti-repetition.md](engine/anti-repetition.md).
-3. Update locks only when the user approved an art-direction change.
-4. Report what was built, how to run it, command results, visual/reviewer status, and unresolved blockers. Do not claim PASS for a skipped check.
+3. Record `SLOP_SCORE`, Anti-Slop justifications/fixes, and the AI Fingerprint verdict in `LAST_QA`.
+4. Update locks only when the user approved an art-direction change.
+5. Report what was built, how to run it, command results, visual/reviewer status, and unresolved blockers. Do not claim PASS for a skipped check.

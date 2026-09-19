@@ -25,12 +25,12 @@ Use the first available browser, preview, Playwright, or screenshot facility. If
 - the signature motif repeats mechanically without changing purpose;
 - surface effects are doing work the composition should do.
 
-### Anti-slop
+### Anti-slop evidence
 
-- generic centered hero, repeated equal cards, fake metadata, fabricated proof, or ungrounded decorative object;
-- default starter font, palette, grain, progress bar, glass, demo model, or hero composition survived without a genome reason;
-- type hierarchy is weak or line lengths make the composition unreadable;
-- effect-only section, illegible glass, generic gradient CTA, or blanket glow/grain.
+- always apply the truth gate in [anti-slop/INDEX.md](anti-slop/INDEX.md);
+- use screenshots to identify only the modular composition, typography, visual, motion, interaction, content, or responsive patterns actually present;
+- carry those observations into `SLOP_SCORE` and the AI Fingerprint Check after this visual pass;
+- judge stacks and missing project identity, not one fashionable component in isolation.
 
 ### Responsive and access
 
@@ -58,5 +58,7 @@ Record in LAST_QA:
 - fixes applied;
 - remaining blockers;
 - genome/signature fidelity verdict.
+
+`SLOP_SCORE` and AI Fingerprint results are recorded after this pass under the QA pipeline; do not guess them from source alone.
 
 Re-capture only affected states after a local fix, but rerun the full sweep after a structural change.

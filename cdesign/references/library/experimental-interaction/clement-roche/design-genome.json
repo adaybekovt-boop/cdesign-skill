@@ -1,0 +1,19 @@
+{
+  "composition": "Small author page.",
+  "typography": "Dev default, but not Inter-as-personality.",
+  "palette": "Quiet.",
+  "geometry": "Reading column.",
+  "navigation": "Links to tools.",
+  "hero": "Name + role.",
+  "motion": "None required.",
+  "interaction": "Links.",
+  "imagery": "None required.",
+  "materials": "Paper.",
+  "spatial_rhythm": "Short.",
+  "responsive": "Column.",
+  "signature_motif": "Separate author surface for a public tool",
+  "rejected_defaults": [
+    "duplicating the tool landing",
+    "3D headscan hero"
+  ]
+}

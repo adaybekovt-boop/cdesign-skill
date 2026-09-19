@@ -1,0 +1,19 @@
+{
+  "composition": "Calm index of names and one still.",
+  "typography": "Editorial, measured.",
+  "palette": "Neutral chrome.",
+  "geometry": "Index.",
+  "navigation": "Names.",
+  "hero": "Studio name, quiet.",
+  "motion": "Small on home, large inside work.",
+  "interaction": "Open a universe.",
+  "imagery": "One still per work on the index.",
+  "materials": "Paper chrome.",
+  "spatial_rhythm": "Quiet / loud / quiet.",
+  "responsive": "Index stacks.",
+  "signature_motif": "Quiet index that isolates spectacle per work",
+  "rejected_defaults": [
+    "shader on the studio wordmark",
+    "autoplaying showreel covering the index"
+  ]
+}

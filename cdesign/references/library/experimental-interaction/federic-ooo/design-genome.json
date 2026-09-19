@@ -1,0 +1,19 @@
+{
+  "composition": "Dry index.",
+  "typography": "Utilitarian.",
+  "palette": "Workbench.",
+  "geometry": "List.",
+  "navigation": "The list.",
+  "hero": "Name.",
+  "motion": "Optional.",
+  "interaction": "Open an item.",
+  "imagery": "Sparing.",
+  "materials": "Paper.",
+  "spatial_rhythm": "Short.",
+  "responsive": "Stack.",
+  "signature_motif": "Dry instrument-rack personal index",
+  "rejected_defaults": [
+    "3D self-portrait hero",
+    "long manifesto"
+  ]
+}

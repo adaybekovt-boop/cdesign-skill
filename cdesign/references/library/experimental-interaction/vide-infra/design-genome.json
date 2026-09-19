@@ -1,0 +1,19 @@
+{
+  "composition": "Readable index with one poster interruption.",
+  "typography": "Product-clear + sudden display.",
+  "palette": "Neutral with case spikes.",
+  "geometry": "IA columns that can break.",
+  "navigation": "Normal studio nav.",
+  "hero": "Clear offer, then a break.",
+  "motion": "Quiet except at the break.",
+  "interaction": "Normal + one object.",
+  "imagery": "Case stills + one sculpture.",
+  "materials": "Paper then object.",
+  "spatial_rhythm": "Clear / break / clear.",
+  "responsive": "Break becomes a full-width poster.",
+  "signature_motif": "One poster-object break inside a clear IA",
+  "rejected_defaults": [
+    "all-poster unreadable IA",
+    "all-corporate no break"
+  ]
+}

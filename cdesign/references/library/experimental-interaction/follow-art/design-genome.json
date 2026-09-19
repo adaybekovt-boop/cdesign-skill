@@ -1,0 +1,21 @@
+{
+  "composition": "Stacked poster headlines occupy the left or full width. The Card object sits as a 3D or high-res physical plate. Sections alternate shout-type and object close-ups.",
+  "typography": "Expressive display, tight leading, broken lines. Body is short and imperative ('Share it. Be noticed.').",
+  "palette": "Vivid fields against ink. Not a two-stop luxury pair — poster color is allowed to change by section if the object stays recognizable.",
+  "geometry": "Poster blocks + one object. Avoid equal columns.",
+  "navigation": "Short. The pitch is a linear poster sequence.",
+  "hero": "Wordmark + three-word promise + Card object.",
+  "motion": "3D object idle + section-enter type. Color fields may swap on scroll.",
+  "interaction": "Card may tilt. Lists do not have to hover-animate.",
+  "imagery": "Sculptural 3D + the Card. People appear later as members, not as stock handshake.",
+  "materials": "Plastic/metal card, matte poster ink, occasional glossy 3D.",
+  "spatial_rhythm": "Shout / object / numbered practice / directory pitch.",
+  "responsive": "Poster type scales down but stays large. Card goes full width. 3D idle slows or becomes a still.",
+  "signature_motif": "Physicalized membership token surrounded by poster type",
+  "rejected_defaults": [
+    "marketplace grid of artworks as the hero",
+    "grey art-world minimal",
+    "laptop mockup of a social feed",
+    "Trusted-by gallery logos"
+  ]
+}

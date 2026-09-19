@@ -1,0 +1,20 @@
+{
+  "composition": "One project per viewport: still + giant name + thin meta. Next project replaces it on scroll.",
+  "typography": "Oversized project titles, often condensed. Meta in a much smaller cut.",
+  "palette": "Project-driven. Home chrome stays out of the way.",
+  "geometry": "Full-bleed still with type over or beside. Rails of empty space.",
+  "navigation": "The reel. Optional persistent index of names.",
+  "hero": "First project is the hero. No studio manifesto paragraph required.",
+  "motion": "Chapter swap on scroll. Image may clip-reveal.",
+  "interaction": "Click the chapter to enter the case. Hover optional.",
+  "imagery": "One still per project, chosen as a poster.",
+  "materials": "Flat image, sharp type. Little glass.",
+  "spatial_rhythm": "Equal chapter heights (1 viewport) create a drumbeat. Case studies inside can vary.",
+  "responsive": "Chapters remain 1 viewport tall. Type reflows. Swipe replaces wheel.",
+  "signature_motif": "Full-viewport project reel as home navigation",
+  "rejected_defaults": [
+    "12-thumbnail masonry",
+    "filter chips",
+    "centered 'Selected Work' header above small cards"
+  ]
+}
